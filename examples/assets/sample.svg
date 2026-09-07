@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360">
+  <rect width="960" height="360" fill="#f6f8fa"/>
+  <rect x="2" y="2" width="956" height="356" rx="20" fill="none" stroke="#d0d7de" stroke-width="4"/>
+  <text x="480" y="165" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="46" font-weight="700" fill="#24292f">Markdown Print Viewer</text>
+  <text x="480" y="220" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="25" fill="#57606a">relative local image test</text>
+</svg>
