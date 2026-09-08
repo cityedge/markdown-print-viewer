@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Print Viewer</title>
-  <meta name="application-name" content="Markdown Print Viewer v1.0.0 Offline">
+  <meta name="application-name" content="Markdown Print Viewer v1.2.1 Offline">
   <meta name="color-scheme" content="dark light">
 
   <!--
-    Markdown Print Viewer v1.0.0 offline build template
+    Markdown Print Viewer v1.2.1 offline build template
     Rendering engine: markdown-it + task-lists + footnote
     Sanitizer: DOMPurify
+    Word export: docx.js
     The offline builder replaces the marker below with vendored library code.
   -->
   <!--__OFFLINE_LIBRARIES__-->
@@ -185,6 +186,34 @@
     #fontSelect { width: 122px; }
     #sizeSelect { width: 72px; }
     #weightSelect { width: 94px; }
+
+    .compat-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 34px;
+      padding: 0 7px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--panel-2);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 600;
+      white-space: nowrap;
+      user-select: none;
+      cursor: pointer;
+    }
+    .compat-toggle input {
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+    .compat-toggle:has(input:checked) {
+      border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+      color: var(--text);
+    }
 
     .statusbar {
       display: flex;
@@ -622,6 +651,11 @@
           </select>
         </div>
       </div>
+      <label class="compat-toggle" id="japaneseCompatToggle" title="日本語Markdown向けの互換補正を適用">
+        <input id="japaneseCompat" type="checkbox">
+        <span id="japaneseCompatLabel">日本語互換性</span>
+      </label>
+      <button id="wordBtn" type="button" disabled>Word出力</button>
       <button id="printBtn" type="button" disabled>印刷</button>
       <button id="themeBtn" type="button" title="表示テーマを切り替え">☼</button>
       <button id="langBtn" type="button" title="Switch language">EN</button>
@@ -665,6 +699,13 @@
           open: 'Markdownを開く',
           openFolder: 'フォルダを開く',
           print: '印刷',
+          word: 'Word出力',
+          wordTitle: '現在のMarkdownをWord (.docx) に変換',
+          wordUnavailable: 'Word出力ライブラリを読み込めませんでした。通常版ではネット接続を、オフライン版ではビルド状態を確認してください。',
+          wordExporting: 'Wordファイルを生成中…',
+          wordExported: 'Word (.docx) を生成しました。',
+          wordExportedImages: (ok, total) => `Word (.docx) を生成しました · 画像 ${ok}/${total} 埋め込み`,
+          wordError: 'Wordファイルの生成に失敗しました。',
           idle: 'Markdownファイルを開くか、この画面にドロップしてください。',
           loaded: 'レンダリング完了',
           loadedImages: (ok, total) => `レンダリング完了 · ローカル画像 ${ok}/${total}`,
@@ -688,6 +729,8 @@
           fontLabel: 'フォント',
           sizeLabel: 'サイズ',
           weightLabel: '太さ',
+          japaneseCompat: '日本語互換性',
+          japaneseCompatTitle: '日本語文書で生じるCommonMark/GFM互換性問題を補正します。元のMarkdownファイルは変更しません。',
           standardFont: '標準',
           regularWeight: '標準',
           mediumWeight: '中',
@@ -698,6 +741,13 @@
           open: 'Open Markdown',
           openFolder: 'Open Folder',
           print: 'Print',
+          word: 'Word (.docx)',
+          wordTitle: 'Convert the current Markdown document to Word (.docx)',
+          wordUnavailable: 'The Word export library is unavailable. Check the network connection for the standard edition or the build state for the offline edition.',
+          wordExporting: 'Generating Word document…',
+          wordExported: 'Word (.docx) generated.',
+          wordExportedImages: (ok, total) => `Word (.docx) generated · images embedded ${ok}/${total}`,
+          wordError: 'The Word document could not be generated.',
           idle: 'Open a Markdown file or drop it anywhere on this window.',
           loaded: 'Rendered',
           loadedImages: (ok, total) => `Rendered · local images ${ok}/${total}`,
@@ -721,6 +771,8 @@
           fontLabel: 'Font',
           sizeLabel: 'Size',
           weightLabel: 'Weight',
+          japaneseCompat: 'Japanese compatibility',
+          japaneseCompatTitle: 'Apply compatibility fixes for Japanese text where CommonMark/GFM delimiter rules can be unintuitive. The source Markdown is not modified.',
           standardFont: 'Standard',
           regularWeight: 'Regular',
           mediumWeight: 'Medium',
@@ -746,12 +798,16 @@
       const els = {
         openBtn: document.getElementById('openBtn'),
         folderBtn: document.getElementById('folderBtn'),
+        wordBtn: document.getElementById('wordBtn'),
         printBtn: document.getElementById('printBtn'),
         themeBtn: document.getElementById('themeBtn'),
         langBtn: document.getElementById('langBtn'),
         fontLabel: document.getElementById('fontLabel'),
         sizeLabel: document.getElementById('sizeLabel'),
         weightLabel: document.getElementById('weightLabel'),
+        japaneseCompatToggle: document.getElementById('japaneseCompatToggle'),
+        japaneseCompat: document.getElementById('japaneseCompat'),
+        japaneseCompatLabel: document.getElementById('japaneseCompatLabel'),
         fontSelect: document.getElementById('fontSelect'),
         sizeSelect: document.getElementById('sizeSelect'),
         weightSelect: document.getElementById('weightSelect'),
@@ -786,11 +842,15 @@
         document.documentElement.lang = language;
         els.openBtn.textContent = t('open');
         els.folderBtn.textContent = t('openFolder');
+        els.wordBtn.textContent = t('word');
         els.printBtn.textContent = t('print');
+        refreshWordButton();
         els.langBtn.textContent = language === 'ja' ? 'EN' : '日本語';
         els.fontLabel.textContent = t('fontLabel');
         els.sizeLabel.textContent = t('sizeLabel');
         els.weightLabel.textContent = t('weightLabel');
+        els.japaneseCompatLabel.textContent = t('japaneseCompat');
+        els.japaneseCompatToggle.title = t('japaneseCompatTitle');
         els.fontSelect.options[0].textContent = t('standardFont');
         els.weightSelect.options[0].textContent = t('regularWeight');
         els.weightSelect.options[1].textContent = t('mediumWeight');
@@ -976,7 +1036,137 @@
         return { total: images.length, resolved };
       }
 
+      // Japanese compatibility is intentionally a separate, opt-in compatibility layer.
+      // Source fixes run before markdown-it so delimiter pairing remains structurally correct.
+      // DOM fixes (none at present) run after rendering. Add future Japanese/CJK-specific fixes
+      // to one of these lists rather than changing the core Markdown parser.
+      const japaneseCompatibilitySourceFixes = [
+        fixJapaneseStrongAfterClosingPunctuationInSource
+      ];
+      const japaneseCompatibilityDomFixes = [];
+
+      function prepareJapaneseCompatibleSource(source) {
+        if (!els.japaneseCompat.checked) return source;
+        let output = source;
+        for (const fix of japaneseCompatibilitySourceFixes) output = fix(output);
+        return output;
+      }
+
+      function applyJapaneseCompatibility(root) {
+        if (!els.japaneseCompat.checked) return;
+        for (const fix of japaneseCompatibilityDomFixes) fix(root);
+      }
+
+      // CommonMark emphasis delimiter rules can refuse to close **...** / __...__ when
+      // the emphasized text ends in closing punctuation and Japanese text continues immediately.
+      // Example: **因果的な根拠づけ（grounding）**です。
+      //
+      // A previous DOM repair could mis-pair adjacent spans such as:
+      // **特権（privilege）**と**権威（authority）**
+      // and accidentally bold only the conjunction. Instead, this source-layer fix inserts an
+      // invisible HTML comment immediately after the *intended closing delimiter*. The following
+      // '<' is punctuation for CommonMark's delimiter test, allowing markdown-it to pair the
+      // original delimiters correctly. DOMPurify removes the comment from the rendered document.
+      // Fenced code and inline code spans are deliberately excluded. The original Markdown string
+      // stored by the viewer is never modified.
+      function fixJapaneseStrongAfterClosingPunctuationInSource(source) {
+        const closingPunctuation = '）］｝〉》」』】〕〗〙〛〞〟’”！？：；、。';
+        const starPattern = new RegExp(`(?<!\\\\)\\*\\*((?:(?!\\*\\*)[^\\r\\n])+?[${closingPunctuation}])\\*\\*(?=[\\p{L}\\p{N}])`, 'gu');
+        const underscorePattern = new RegExp(`(?<!\\\\)__((?:(?!__)[^\\r\\n])+?[${closingPunctuation}])__(?=[\\p{L}\\p{N}])`, 'gu');
+
+        return transformMarkdownTextOutsideCode(source, text =>
+          text
+            .replace(starPattern, (_match, content) => `**${content}**<!--mpv-jpcompat-->`)
+            .replace(underscorePattern, (_match, content) => `__${content}__<!--mpv-jpcompat-->`)
+        );
+      }
+
+      function transformMarkdownTextOutsideCode(source, transformText) {
+        const parts = String(source || '').split(/(\r\n|\n|\r)/);
+        let fenceChar = '';
+        let fenceLength = 0;
+
+        for (let index = 0; index < parts.length; index += 2) {
+          const line = parts[index];
+
+          if (fenceChar) {
+            const close = line.match(/^ {0,3}(`{3,}|~{3,})[ \t]*$/);
+            if (close && close[1][0] === fenceChar && close[1].length >= fenceLength) {
+              fenceChar = '';
+              fenceLength = 0;
+            }
+            continue;
+          }
+
+          const open = line.match(/^ {0,3}(`{3,}|~{3,})/);
+          if (open) {
+            fenceChar = open[1][0];
+            fenceLength = open[1].length;
+            continue;
+          }
+
+          parts[index] = transformOutsideInlineCode(line, transformText);
+        }
+
+        return parts.join('');
+      }
+
+      function transformOutsideInlineCode(line, transformText) {
+        let output = '';
+        let textStart = 0;
+        let cursor = 0;
+
+        while (cursor < line.length) {
+          if (line[cursor] !== '`' || isEscapedAt(line, cursor)) {
+            cursor += 1;
+            continue;
+          }
+
+          const openerStart = cursor;
+          while (cursor < line.length && line[cursor] === '`') cursor += 1;
+          const runLength = cursor - openerStart;
+          const closerStart = findMatchingBacktickRun(line, cursor, runLength);
+
+          if (closerStart < 0) {
+            // Be conservative around unmatched backticks: transform text before them, but leave
+            // the remainder untouched rather than risking a compatibility rewrite inside code-like text.
+            output += transformText(line.slice(textStart, openerStart));
+            output += line.slice(openerStart);
+            return output;
+          }
+
+          output += transformText(line.slice(textStart, openerStart));
+          output += line.slice(openerStart, closerStart + runLength);
+          cursor = closerStart + runLength;
+          textStart = cursor;
+        }
+
+        output += transformText(line.slice(textStart));
+        return output;
+      }
+
+      function findMatchingBacktickRun(line, start, runLength) {
+        let cursor = start;
+        while (cursor < line.length) {
+          if (line[cursor] !== '`' || isEscapedAt(line, cursor)) {
+            cursor += 1;
+            continue;
+          }
+          const runStart = cursor;
+          while (cursor < line.length && line[cursor] === '`') cursor += 1;
+          if (cursor - runStart === runLength) return runStart;
+        }
+        return -1;
+      }
+
+      function isEscapedAt(text, index) {
+        let slashes = 0;
+        for (let cursor = index - 1; cursor >= 0 && text[cursor] === '\\'; cursor -= 1) slashes += 1;
+        return (slashes % 2) === 1;
+      }
+
       function postProcess() {
+        applyJapaneseCompatibility(els.rendered);
         els.rendered.querySelectorAll('input[type="checkbox"]').forEach(cb => {
           cb.disabled = true;
         });
@@ -1002,7 +1192,8 @@
 
         try {
           const cleanSource = source.replace(/^\uFEFF/, '');
-          const html = md.render(cleanSource);
+          const renderSource = prepareJapaneseCompatibleSource(cleanSource);
+          const html = md.render(renderSource);
           els.rendered.innerHTML = sanitize(html);
           postProcess();
 
@@ -1014,6 +1205,7 @@
           els.emptyState.hidden = true;
           els.rendered.hidden = false;
           els.printBtn.disabled = false;
+          refreshWordButton();
 
           const imageResult = await resolveLocalImages();
           if (statusOverride) {
@@ -1159,6 +1351,488 @@
         }
       }
 
+
+
+      function wordFontAttributes() {
+        const key = els.fontSelect.value;
+        const fonts = {
+          standard: { ascii: 'Aptos', hAnsi: 'Aptos', eastAsia: 'Yu Gothic', cs: 'Aptos' },
+          meiryo: { ascii: 'Meiryo', hAnsi: 'Meiryo', eastAsia: 'Meiryo', cs: 'Meiryo' },
+          yugothic: { ascii: 'Yu Gothic', hAnsi: 'Yu Gothic', eastAsia: 'Yu Gothic', cs: 'Yu Gothic' },
+          bizudpgothic: { ascii: 'BIZ UDPGothic', hAnsi: 'BIZ UDPGothic', eastAsia: 'BIZ UDPGothic', cs: 'BIZ UDPGothic' },
+          yumincho: { ascii: 'Yu Mincho', hAnsi: 'Yu Mincho', eastAsia: 'Yu Mincho', cs: 'Yu Mincho' },
+          bizudpmincho: { ascii: 'BIZ UDPMincho', hAnsi: 'BIZ UDPMincho', eastAsia: 'BIZ UDPMincho', cs: 'BIZ UDPMincho' }
+        };
+        return fonts[key] || fonts.standard;
+      }
+
+      function wordBaseSizeHalfPoints() {
+        const pt = Number.parseFloat(els.sizeSelect.value || '10.5');
+        return Math.max(16, Math.round((Number.isFinite(pt) ? pt : 10.5) * 2));
+      }
+
+      function wordBodyBold() {
+        return Number.parseInt(els.weightSelect.value || '400', 10) >= 600;
+      }
+
+      function docxAvailable() {
+        return !!(window.docx && window.docx.Document && window.docx.Packer && window.docx.Paragraph && window.docx.TextRun);
+      }
+
+      function refreshWordButton() {
+        els.wordBtn.disabled = !(hasDocument && docxAvailable());
+        els.wordBtn.title = docxAvailable() ? t('wordTitle') : t('wordUnavailable');
+      }
+
+      function docxDownloadName() {
+        const base = (currentFileName || 'document').replace(/\.(md|markdown|mdown|mkd)$/i, '') || 'document';
+        return `${base}.docx`;
+      }
+
+      function normalizeInlineText(text) {
+        return String(text || '').replace(/[\t\r\n ]+/g, ' ');
+      }
+
+      function wordRunOptions(text, style = {}) {
+        const baseSize = wordBaseSizeHalfPoints();
+        const size = style.size || baseSize;
+        const options = {
+          text: String(text || ''),
+          font: style.code
+            ? { ascii: 'Consolas', hAnsi: 'Consolas', eastAsia: 'Yu Gothic', cs: 'Consolas' }
+            : wordFontAttributes(),
+          size,
+          bold: !!(style.bold || (!style.heading && !style.code && wordBodyBold())),
+          italics: !!style.italics,
+          strike: !!style.strike,
+          superScript: !!style.superScript,
+          subScript: !!style.subScript
+        };
+        if (style.hyperlink) options.style = 'Hyperlink';
+        if (style.color) options.color = style.color;
+        if (style.code) options.shading = { fill: 'F3F4F6' };
+        return options;
+      }
+
+      function wordTextRun(text, style = {}) {
+        return new window.docx.TextRun(wordRunOptions(text, style));
+      }
+
+      function imageDisplaySize(img) {
+        let width = Number(img.naturalWidth || img.width || 640);
+        let height = Number(img.naturalHeight || img.height || 360);
+        if (!Number.isFinite(width) || width <= 0) width = 640;
+        if (!Number.isFinite(height) || height <= 0) height = 360;
+        const maxWidth = 600;
+        const maxHeight = 780;
+        const scale = Math.min(1, maxWidth / width, maxHeight / height);
+        return {
+          width: Math.max(1, Math.round(width * scale)),
+          height: Math.max(1, Math.round(height * scale))
+        };
+      }
+
+      async function loadImageElementFromBlob(blob) {
+        const url = URL.createObjectURL(blob);
+        try {
+          const image = new Image();
+          image.decoding = 'async';
+          image.src = url;
+          if (typeof image.decode === 'function') {
+            await image.decode();
+          } else {
+            await new Promise((resolve, reject) => {
+              image.onload = resolve;
+              image.onerror = reject;
+            });
+          }
+          return image;
+        } finally {
+          // The decoded pixels stay available after revoking the temporary source URL.
+          URL.revokeObjectURL(url);
+        }
+      }
+
+      async function imageToPngData(img) {
+        const rawSrc = img.getAttribute('src') || '';
+        const original = img.dataset.originalSrc || rawSrc;
+        if (img.classList.contains('local-image-missing')) throw new Error(`Local image not found: ${original}`);
+        if (isLocalRelativeUrl(original) && !String(rawSrc).startsWith('blob:') && !String(rawSrc).startsWith('data:')) {
+          throw new Error(`Open Folder is required for local image: ${original}`);
+        }
+
+        let sourceImage = img;
+        let remoteBlob = null;
+        const src = img.currentSrc || img.src || rawSrc;
+
+        if (/^https?:/i.test(src)) {
+          try {
+            const response = await fetch(src, { mode: 'cors', credentials: 'omit' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            remoteBlob = await response.blob();
+            sourceImage = await loadImageElementFromBlob(remoteBlob);
+          } catch (_) {
+            sourceImage = img;
+          }
+        } else if (typeof img.decode === 'function' && !img.complete) {
+          try { await img.decode(); } catch (_) {}
+        }
+
+        const naturalWidth = Number(sourceImage.naturalWidth || sourceImage.width || img.naturalWidth || img.width || 640);
+        const naturalHeight = Number(sourceImage.naturalHeight || sourceImage.height || img.naturalHeight || img.height || 360);
+        if (!naturalWidth || !naturalHeight) throw new Error(`Image data unavailable: ${original}`);
+
+        const rasterMax = 1800;
+        const rasterScale = Math.min(1, rasterMax / naturalWidth, rasterMax / naturalHeight);
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.max(1, Math.round(naturalWidth * rasterScale));
+        canvas.height = Math.max(1, Math.round(naturalHeight * rasterScale));
+        const ctx = canvas.getContext('2d');
+        if (!ctx) throw new Error('Canvas is unavailable.');
+        ctx.drawImage(sourceImage, 0, 0, canvas.width, canvas.height);
+
+        const pngBlob = await new Promise((resolve, reject) => {
+          canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('Image conversion failed.')), 'image/png');
+        });
+        return {
+          data: await pngBlob.arrayBuffer(),
+          transformation: imageDisplaySize(sourceImage)
+        };
+      }
+
+      async function wordImageChild(img, stats) {
+        stats.imagesTotal += 1;
+        try {
+          const converted = await imageToPngData(img);
+          stats.imagesEmbedded += 1;
+          return new window.docx.ImageRun({
+            data: converted.data,
+            transformation: converted.transformation,
+            type: 'png'
+          });
+        } catch (err) {
+          console.warn('DOCX image skipped:', err);
+          stats.imagesMissing += 1;
+          const alt = img.getAttribute('alt') || img.dataset.originalSrc || img.getAttribute('src') || 'image';
+          return wordTextRun(`[Image: ${alt}]`, { italics: true, color: '6B7280' });
+        }
+      }
+
+      async function inlineToWord(nodes, style, stats) {
+        const out = [];
+        const inherited = style || {};
+
+        for (const node of [...nodes]) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const text = inherited.code ? String(node.nodeValue || '') : normalizeInlineText(node.nodeValue || '');
+            if (text) out.push(wordTextRun(text, inherited));
+            continue;
+          }
+          if (node.nodeType !== Node.ELEMENT_NODE) continue;
+
+          const el = node;
+          const tag = el.tagName.toLowerCase();
+          if (tag === 'strong' || tag === 'b') {
+            out.push(...await inlineToWord(el.childNodes, { ...inherited, bold: true }, stats));
+          } else if (tag === 'em' || tag === 'i') {
+            out.push(...await inlineToWord(el.childNodes, { ...inherited, italics: true }, stats));
+          } else if (tag === 'del' || tag === 's' || tag === 'strike') {
+            out.push(...await inlineToWord(el.childNodes, { ...inherited, strike: true }, stats));
+          } else if (tag === 'code') {
+            out.push(...await inlineToWord(el.childNodes, { ...inherited, code: true }, stats));
+          } else if (tag === 'sup') {
+            out.push(...await inlineToWord(el.childNodes, { ...inherited, superScript: true }, stats));
+          } else if (tag === 'sub') {
+            out.push(...await inlineToWord(el.childNodes, { ...inherited, subScript: true }, stats));
+          } else if (tag === 'br') {
+            out.push(new window.docx.TextRun({ ...wordRunOptions('', inherited), break: 1 }));
+          } else if (tag === 'img') {
+            out.push(await wordImageChild(el, stats));
+          } else if (tag === 'input' && String(el.getAttribute('type') || '').toLowerCase() === 'checkbox') {
+            out.push(wordTextRun(el.checked ? '☒ ' : '☐ ', inherited));
+          } else if (tag === 'a') {
+            const href = el.getAttribute('href') || '';
+            const children = await inlineToWord(el.childNodes, { ...inherited, hyperlink: true }, stats);
+            if (/^(https?:|mailto:|tel:)/i.test(href) && children.length) {
+              out.push(new window.docx.ExternalHyperlink({ children, link: href }));
+            } else {
+              out.push(...children);
+            }
+          } else if (tag === 'kbd') {
+            out.push(...await inlineToWord(el.childNodes, { ...inherited, code: true, bold: true }, stats));
+          } else {
+            out.push(...await inlineToWord(el.childNodes, inherited, stats));
+          }
+        }
+        return out;
+      }
+
+      function paragraphBaseOptions(context = {}) {
+        const options = {
+          spacing: { after: 110 },
+          autoSpaceEastAsianText: true
+        };
+        if (context.quoteLevel) {
+          options.indent = { left: Math.min(1440, 360 * context.quoteLevel) };
+          options.border = {
+            left: { style: window.docx.BorderStyle.SINGLE, size: 8, color: 'D0D7DE', space: 6 }
+          };
+        }
+        return options;
+      }
+
+      async function paragraphFromElement(el, context, stats, extra = {}) {
+        const children = await inlineToWord(el.childNodes, extra.inlineStyle || {}, stats);
+        return new window.docx.Paragraph({
+          ...paragraphBaseOptions(context),
+          ...extra.options,
+          children: children.length ? children : [wordTextRun('')]
+        });
+      }
+
+      async function listToWord(listEl, context, stats) {
+        const blocks = [];
+        const ordered = listEl.tagName.toLowerCase() === 'ol';
+        const level = Math.min(8, context.listLevel || 0);
+        const listInstance = ordered ? (++stats.numberingInstance) : null;
+        const directItems = [...listEl.children].filter(child => child.tagName && child.tagName.toLowerCase() === 'li');
+
+        for (const li of directItems) {
+          const childElements = [...li.children];
+          const nestedLists = childElements.filter(child => /^(ul|ol)$/i.test(child.tagName));
+          const directParagraphs = childElements.filter(child => child.tagName && child.tagName.toLowerCase() === 'p');
+
+          let primaryNodes;
+          if (directParagraphs.length) {
+            primaryNodes = directParagraphs[0].childNodes;
+          } else {
+            primaryNodes = [...li.childNodes].filter(node => !(node.nodeType === Node.ELEMENT_NODE && /^(ul|ol)$/i.test(node.tagName)));
+          }
+
+          const listOptions = paragraphBaseOptions(context);
+          listOptions.spacing = { after: 45 };
+          if (ordered) {
+            listOptions.numbering = { reference: 'markdown-numbering', level, instance: listInstance };
+          } else {
+            listOptions.bullet = { level };
+          }
+          const primaryChildren = await inlineToWord(primaryNodes, {}, stats);
+          blocks.push(new window.docx.Paragraph({
+            ...listOptions,
+            children: primaryChildren.length ? primaryChildren : [wordTextRun('')]
+          }));
+
+          for (const p of directParagraphs.slice(1)) {
+            blocks.push(await paragraphFromElement(p, context, stats, {
+              options: { indent: { left: 720 * (level + 1) }, spacing: { after: 45 } }
+            }));
+          }
+
+          for (const nested of nestedLists) {
+            blocks.push(...await listToWord(nested, { ...context, listLevel: level + 1 }, stats));
+          }
+        }
+        return blocks;
+      }
+
+      async function tableToWord(tableEl, context, stats) {
+        const rows = [];
+        const trElements = [...tableEl.querySelectorAll(':scope > thead > tr, :scope > tbody > tr, :scope > tfoot > tr, :scope > tr')];
+        for (const tr of trElements) {
+          const cells = [];
+          for (const cell of [...tr.children].filter(el => /^(th|td)$/i.test(el.tagName))) {
+            const isHeader = cell.tagName.toLowerCase() === 'th';
+            const children = await inlineToWord(cell.childNodes, { bold: isHeader }, stats);
+            cells.push(new window.docx.TableCell({
+              children: [new window.docx.Paragraph({
+                spacing: { after: 0 },
+                children: children.length ? children : [wordTextRun('')]
+              })]
+            }));
+          }
+          if (cells.length) rows.push(new window.docx.TableRow({ children: cells }));
+        }
+        if (!rows.length) return [];
+        return [new window.docx.Table({
+          rows,
+          width: { size: 100, type: window.docx.WidthType.PERCENTAGE }
+        })];
+      }
+
+      function codeParagraph(preEl, context) {
+        const text = preEl.textContent || '';
+        const lines = text.replace(/\n$/, '').split('\n');
+        const children = [];
+        lines.forEach((line, index) => {
+          children.push(wordTextRun(line, { code: true }));
+          if (index < lines.length - 1) {
+            children.push(new window.docx.TextRun({ ...wordRunOptions('', { code: true }), break: 1 }));
+          }
+        });
+        return new window.docx.Paragraph({
+          ...paragraphBaseOptions(context),
+          spacing: { before: 60, after: 110 },
+          shading: { fill: 'F6F8FA' },
+          children: children.length ? children : [wordTextRun('', { code: true })]
+        });
+      }
+
+      async function blocksToWord(parent, context, stats) {
+        const blocks = [];
+        for (const node of [...parent.childNodes]) {
+          if (node.nodeType === Node.TEXT_NODE) {
+            const text = normalizeInlineText(node.nodeValue || '').trim();
+            if (text) blocks.push(new window.docx.Paragraph({ ...paragraphBaseOptions(context), children: [wordTextRun(text)] }));
+            continue;
+          }
+          if (node.nodeType !== Node.ELEMENT_NODE) continue;
+
+          const el = node;
+          const tag = el.tagName.toLowerCase();
+          if (/^h[1-6]$/.test(tag)) {
+            const level = Number(tag.slice(1));
+            const headingMap = [
+              window.docx.HeadingLevel.HEADING_1,
+              window.docx.HeadingLevel.HEADING_2,
+              window.docx.HeadingLevel.HEADING_3,
+              window.docx.HeadingLevel.HEADING_4,
+              window.docx.HeadingLevel.HEADING_5,
+              window.docx.HeadingLevel.HEADING_6
+            ];
+            const factors = [2, 1.5, 1.25, 1, 0.875, 0.85];
+            const size = Math.max(16, Math.round(wordBaseSizeHalfPoints() * factors[level - 1]));
+            const children = await inlineToWord(el.childNodes, { bold: true, heading: true, size }, stats);
+            blocks.push(new window.docx.Paragraph({
+              ...paragraphBaseOptions(context),
+              heading: headingMap[level - 1],
+              spacing: { before: level <= 2 ? 220 : 150, after: 90 },
+              children: children.length ? children : [wordTextRun('', { bold: true, heading: true, size })]
+            }));
+          } else if (tag === 'p') {
+            blocks.push(await paragraphFromElement(el, context, stats));
+          } else if (tag === 'ul' || tag === 'ol') {
+            blocks.push(...await listToWord(el, { ...context, listLevel: context.listLevel || 0 }, stats));
+          } else if (tag === 'blockquote') {
+            blocks.push(...await blocksToWord(el, { ...context, quoteLevel: (context.quoteLevel || 0) + 1 }, stats));
+          } else if (tag === 'table') {
+            blocks.push(...await tableToWord(el, context, stats));
+          } else if (tag === 'div' && el.classList.contains('table-wrap')) {
+            const table = el.querySelector(':scope > table');
+            if (table) blocks.push(...await tableToWord(table, context, stats));
+          } else if (tag === 'pre') {
+            blocks.push(codeParagraph(el, context));
+          } else if (tag === 'hr') {
+            blocks.push(new window.docx.Paragraph({
+              spacing: { before: 80, after: 120 },
+              border: { bottom: { style: window.docx.BorderStyle.SINGLE, size: 6, color: 'D8DEE4' } },
+              children: [wordTextRun('')]
+            }));
+          } else if (tag === 'details') {
+            const summary = [...el.children].find(child => child.tagName && child.tagName.toLowerCase() === 'summary');
+            if (summary) {
+              const summaryChildren = await inlineToWord(summary.childNodes, { bold: true }, stats);
+              blocks.push(new window.docx.Paragraph({
+                ...paragraphBaseOptions(context),
+                children: summaryChildren.length ? summaryChildren : [wordTextRun('')]
+              }));
+            }
+            const holder = document.createElement('div');
+            [...el.childNodes].forEach(child => {
+              if (!(child.nodeType === Node.ELEMENT_NODE && child.tagName.toLowerCase() === 'summary')) holder.appendChild(child.cloneNode(true));
+            });
+            blocks.push(...await blocksToWord(holder, context, stats));
+          } else if (tag === 'section' || tag === 'article' || tag === 'main' || tag === 'div') {
+            blocks.push(...await blocksToWord(el, context, stats));
+          } else {
+            const children = await inlineToWord(el.childNodes, {}, stats);
+            if (children.length) {
+              stats.flattenedBlocks += 1;
+              blocks.push(new window.docx.Paragraph({ ...paragraphBaseOptions(context), children }));
+            }
+          }
+        }
+        return blocks;
+      }
+
+      function markdownNumberingLevels() {
+        return Array.from({ length: 9 }, (_, level) => ({
+          level,
+          format: window.docx.LevelFormat.DECIMAL,
+          text: `%${level + 1}.`,
+          alignment: window.docx.AlignmentType.LEFT,
+          style: {
+            paragraph: {
+              indent: { left: 720 * (level + 1), hanging: 360 }
+            }
+          }
+        }));
+      }
+
+      async function exportWord() {
+        if (!hasDocument) return;
+        if (!docxAvailable()) {
+          setStatus(t('wordUnavailable'), 'error');
+          return;
+        }
+
+        const oldText = els.wordBtn.textContent;
+        els.wordBtn.disabled = true;
+        els.printBtn.disabled = true;
+        setStatus(t('wordExporting'));
+        try {
+          const stats = {
+            imagesTotal: 0,
+            imagesEmbedded: 0,
+            imagesMissing: 0,
+            numberingInstance: 0,
+            flattenedBlocks: 0
+          };
+          const blocks = await blocksToWord(els.rendered, { listLevel: 0, quoteLevel: 0 }, stats);
+          if (!blocks.length) blocks.push(new window.docx.Paragraph({ children: [wordTextRun('')] }));
+
+          const doc = new window.docx.Document({
+            title: currentFileName || 'Markdown document',
+            creator: 'Markdown Print Viewer',
+            description: 'Generated from Markdown by Markdown Print Viewer',
+            numbering: {
+              config: [{ reference: 'markdown-numbering', levels: markdownNumberingLevels() }]
+            },
+            sections: [{
+              properties: {
+                page: {
+                  size: { width: 11906, height: 16838 },
+                  margin: { top: 1134, right: 1134, bottom: 1134, left: 1134 }
+                }
+              },
+              children: blocks
+            }]
+          });
+
+          const blob = await window.docx.Packer.toBlob(doc);
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = docxDownloadName();
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 30000);
+
+          if (stats.imagesTotal > 0) {
+            setStatus(t('wordExportedImages', stats.imagesEmbedded, stats.imagesTotal), stats.imagesMissing ? 'error' : 'ok');
+          } else {
+            setStatus(t('wordExported'), 'ok');
+          }
+        } catch (err) {
+          console.error('DOCX export failed:', err);
+          setStatus(t('wordError'), 'error');
+        } finally {
+          els.wordBtn.textContent = oldText;
+          els.printBtn.disabled = !hasDocument;
+          refreshWordButton();
+        }
+      }
+
       els.openBtn.addEventListener('click', () => els.fileInput.click());
       els.fileInput.addEventListener('change', async () => {
         const file = els.fileInput.files && els.fileInput.files[0];
@@ -1180,10 +1854,16 @@
         els.folderInput.value = '';
       });
 
+      els.wordBtn.addEventListener('click', exportWord);
+
       els.printBtn.addEventListener('click', () => {
         if (hasDocument) window.print();
       });
       els.themeBtn.addEventListener('click', toggleTheme);
+      els.japaneseCompat.addEventListener('change', async () => {
+        localStorage.setItem('mpv.japaneseCompatibility', els.japaneseCompat.checked ? '1' : '0');
+        if (hasDocument) await renderMarkdown(currentSource, currentFileName);
+      });
       els.fontSelect.addEventListener('change', () => applyTypography(true));
       els.sizeSelect.addEventListener('change', () => applyTypography(true));
       els.weightSelect.addEventListener('change', () => applyTypography(true));
@@ -1229,8 +1909,10 @@
 
       initTheme();
       initTypography();
+      els.japaneseCompat.checked = localStorage.getItem('mpv.japaneseCompatibility') === '1';
       applyLanguage();
       initMarkdown();
+      refreshWordButton();
     })();
   </script>
 </body>

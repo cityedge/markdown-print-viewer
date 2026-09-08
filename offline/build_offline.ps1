@@ -1,7 +1,7 @@
-﻿$ErrorActionPreference = 'Stop'
+$ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
-# Markdown Print Viewer v1.0.0 - Offline single-file builder
+# Markdown Print Viewer v1.2.1 - Offline single-file builder
 # Downloads pinned open-source dependencies once and embeds both code and
 # license texts into offline/index.html. The generated file requires no
 # runtime network connection.
@@ -46,6 +46,12 @@ $dependencies = @(
             'https://cdn.jsdelivr.net/npm/dompurify@3.4.14/LICENSE',
             'https://cdn.jsdelivr.net/npm/dompurify@3.4.14/LICENSE-MPL'
         )
+    },
+    [pscustomobject]@{
+        Name = 'docx 9.7.1'
+        Url = 'https://cdn.jsdelivr.net/npm/docx@9.7.1/dist/index.iife.js'
+        License = 'MIT'
+        LicenseUrls = @('https://cdn.jsdelivr.net/npm/docx@9.7.1/LICENSE')
     }
 )
 
