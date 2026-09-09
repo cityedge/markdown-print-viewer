@@ -39,7 +39,7 @@ Japanese compatibility test (enable the **日本語互換性 / Japanese compatib
 
 ```javascript
 function hello() {
-  console.log('Markdown Print Viewer v1.2.1');
+  console.log('Markdown Print Viewer v1.3.0');
 }
 ```
 

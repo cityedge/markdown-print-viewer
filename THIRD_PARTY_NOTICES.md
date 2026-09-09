@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-Markdown Print Viewer v1.2.1 uses the following open-source libraries.
+Markdown Print Viewer v1.3.0 uses the following open-source libraries.
 
 | Component | Version | License | Runtime source in standard edition |
 |---|---:|---|---|

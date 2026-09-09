@@ -1,6 +1,6 @@
 # Fully Offline Edition
 
-This directory contains the source template and builder for the fully offline Markdown Print Viewer v1.2.1.
+This directory contains the source template and builder for the fully offline Markdown Print Viewer v1.3.0.
 
 Run `BUILD_OFFLINE.cmd` on Windows while connected to the Internet once. It downloads the pinned Markdown renderer, sanitizer, and Word-generation libraries plus their license texts, then writes a self-contained `index.html` in this directory.
 

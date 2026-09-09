@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
-# Markdown Print Viewer v1.2.1 - Offline single-file builder
+# Markdown Print Viewer v1.3.0 - Offline single-file builder
 # Downloads pinned open-source dependencies once and embeds both code and
 # license texts into offline/index.html. The generated file requires no
 # runtime network connection.

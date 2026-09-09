@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Print Viewer</title>
-  <meta name="application-name" content="Markdown Print Viewer v1.2.1 Offline">
+  <meta name="application-name" content="Markdown Print Viewer v1.3.0 Offline">
   <meta name="color-scheme" content="dark light">
 
   <!--
-    Markdown Print Viewer v1.2.1 offline build template
+    Markdown Print Viewer v1.3.0 offline build template
     Rendering engine: markdown-it + task-lists + footnote
     Sanitizer: DOMPurify
     Word export: docx.js
@@ -86,6 +86,14 @@
       gap: 10px;
       margin-right: auto;
       min-width: 0;
+      border-radius: 8px;
+      cursor: pointer;
+      touch-action: manipulation;
+      user-select: none;
+    }
+    .brand:focus-visible {
+      outline: 2px solid color-mix(in srgb, var(--accent) 72%, transparent);
+      outline-offset: 4px;
     }
 
     .brand-mark {
@@ -237,6 +245,21 @@
     .status-dot.error { background: #e35d6a; }
     .status-spacer { margin-left: auto; }
     .compat { white-space: nowrap; }
+
+    /* Reading mode: keep only the brand row visible to maximize document space. */
+    .app.controls-collapsed .toolbar > :not(.brand) {
+      display: none !important;
+    }
+    .app.controls-collapsed .toolbar {
+      flex-wrap: nowrap;
+    }
+    .app.controls-collapsed .brand {
+      width: 100%;
+      margin-right: 0;
+    }
+    .app.controls-collapsed .statusbar {
+      display: none !important;
+    }
 
     .workspace {
       position: relative;
@@ -610,7 +633,7 @@
 <body>
   <div class="app">
     <header class="toolbar" aria-label="Toolbar">
-      <div class="brand">
+      <div class="brand" id="brandToggle" role="button" tabindex="0" aria-expanded="true">
         <div class="brand-mark">M↓</div>
         <div class="brand-copy">
           <div class="brand-title">Markdown Print Viewer</div>
@@ -734,7 +757,9 @@
           standardFont: '標準',
           regularWeight: '標準',
           mediumWeight: '中',
-          semiboldWeight: '太め'
+          semiboldWeight: '太め',
+          collapseControls: '操作パネルを隠す',
+          expandControls: '操作パネルを表示'
         },
         en: {
           noFile: 'No file selected',
@@ -776,7 +801,9 @@
           standardFont: 'Standard',
           regularWeight: 'Regular',
           mediumWeight: 'Medium',
-          semiboldWeight: 'Semi-bold'
+          semiboldWeight: 'Semi-bold',
+          collapseControls: 'Hide controls',
+          expandControls: 'Show controls'
         }
       };
 
@@ -788,6 +815,7 @@
       let hasDocument = false;
       let md = null;
       let dragDepth = 0;
+      let controlsCollapsed = false;
 
       // Folder state is deliberately independent from the current Markdown state.
       let currentFolderName = '';
@@ -796,6 +824,8 @@
       let objectUrls = [];
 
       const els = {
+        app: document.querySelector('.app'),
+        brandToggle: document.getElementById('brandToggle'),
         openBtn: document.getElementById('openBtn'),
         folderBtn: document.getElementById('folderBtn'),
         wordBtn: document.getElementById('wordBtn'),
@@ -838,6 +868,19 @@
         els.folderStatus.title = currentFolderName || '';
       }
 
+      function applyControlsState() {
+        els.app.classList.toggle('controls-collapsed', controlsCollapsed);
+        els.brandToggle.setAttribute('aria-expanded', String(!controlsCollapsed));
+        const label = controlsCollapsed ? t('expandControls') : t('collapseControls');
+        els.brandToggle.title = label;
+        els.brandToggle.setAttribute('aria-label', label);
+      }
+
+      function toggleControls() {
+        controlsCollapsed = !controlsCollapsed;
+        applyControlsState();
+      }
+
       function applyLanguage() {
         document.documentElement.lang = language;
         els.openBtn.textContent = t('open');
@@ -855,6 +898,7 @@
         els.weightSelect.options[0].textContent = t('regularWeight');
         els.weightSelect.options[1].textContent = t('mediumWeight');
         els.weightSelect.options[2].textContent = t('semiboldWeight');
+        applyControlsState();
         els.fileName.textContent = currentFileName || t('noFile');
         updateFolderLabel();
         if (!hasDocument) setStatus(t('idle'));
@@ -1832,6 +1876,14 @@
           refreshWordButton();
         }
       }
+
+      els.brandToggle.addEventListener('click', toggleControls);
+      els.brandToggle.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleControls();
+        }
+      });
 
       els.openBtn.addEventListener('click', () => els.fileInput.click());
       els.fileInput.addEventListener('change', async () => {

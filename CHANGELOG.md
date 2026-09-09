@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.3.0 - 2026-09-09
+
+- Added a collapsible reading mode for the top controls.
+- Tap/click the Markdown Print Viewer brand area (including the M↓ icon) to hide all operation controls and the status bar, leaving only the title/current filename row.
+- Tap/click the brand area again to restore the controls.
+- The same toggle is keyboard-accessible with Enter or Space.
+
 ## [1.2.1] - 2026-09-08
 
 ### Fixed
