@@ -4,7 +4,7 @@
 
 Markdownファイルを「文書」として表示し、そのままブラウザの印刷機能で印刷したり、Microsoft Wordで編集可能な `.docx` に変換したりするための軽量ブラウザアプリです。Markdown自体の編集機能は持ちません。
 
-**Version 1.3.0**
+**Version 1.4.0**
 
 ## 特徴
 
@@ -22,7 +22,8 @@ Markdownファイルを「文書」として表示し、そのままブラウザ
 - オプションの「日本語互換性」で、日本語文書におけるMarkdown delimiter解釈の互換補正を適用
 - 設定はブラウザのlocalStorageに保存
 - 相対パス画像は、必要に応じて「フォルダを開く」で解決
-- インストール不要
+- 通常のブラウザ利用ではインストール不要
+- GitHub Pages版はPWAとしてインストール可能。Windowsで `.md` の関連付け／ダブルクリック起動に対応（Chrome / Edge）
 
 ## 使い方
 
@@ -45,6 +46,23 @@ Markdownファイルを「文書」として表示し、そのままブラウザ
 GitHubへ初回アップロードする前、または依存ライブラリを更新したときに、Windowsでリポジトリ直下の `BUILD_RELEASE.cmd` を一度実行してください。固定バージョンの依存ライブラリとライセンス文を取得し、`offline/index.html` を生成します。
 
 生成後の `offline/index.html` は、外部JavaScriptを参照せず、ネット接続なしで表示・印刷・Word出力ができます。生成済みファイルをGitHubにコミットして構いません。
+
+## PWAインストールとWindowsの `.md` 関連付け
+
+GitHub PagesなどのHTTPS上で通常版を公開すると、Chrome / EdgeからPWAとしてインストールできます。PWA版は `.md` / `.markdown` / `.mdown` / `.mkd` のファイルハンドラーとして登録され、Windows ExplorerからMarkdownファイルを開いたときに、そのファイルを直接Markdown Print Viewerへ渡せます。
+
+1. GitHub Pages上のMarkdown Print ViewerをChromeまたはEdgeで開きます。
+2. ブラウザのアドレスバー／メニューから「アプリをインストール」を実行します。
+3. Windowsで `.md` ファイルを右クリックし、「プログラムから開く」からMarkdown Print Viewerを選択します。必要なら「常に使う」を指定します。
+4. 以後、`.md` をダブルクリックするとインストール済みPWAが起動し、そのMarkdownが自動的に表示されます。
+
+マニフェスト更新後などにWindowsの「プログラムから開く」にMarkdown Print Viewerが現れない場合は、PWAを一度アンインストールして再インストールすると、Chromium側のOSファイルハンドラー登録を更新できます。
+
+すでにPWAが起動している場合は、対応ブラウザでは既存ウィンドウを前面に出して新しいファイルを読み込む設定にしています。OSから渡されたファイルはFile Handling API / `launchQueue` でローカルに読み取ります。Markdown本文を本アプリのサーバーへアップロードする処理はありません。
+
+`manifest.webmanifest` と `service-worker.js` はGitHub PagesのようなHTTPS環境でのみ有効です。従来どおり `index.html` を `file://` で直接開く使い方も維持していますが、その場合はWindowsファイルハンドラーとしてのPWA登録は行われません。
+
+Service Workerはアプリ本体と固定バージョンの依存ライブラリをキャッシュするため、PWAを一度正常に読み込んだ後はオフライン起動にも対応します。ただしMarkdown自身が外部画像URLを参照している場合、その外部画像にはネットワークが必要な場合があります。
 
 ## Word (.docx) 出力
 
@@ -116,7 +134,7 @@ Markdownには紙面レイアウト自体の標準仕様はないため、フォ
 
 ツールバーの「日本語互換性」は、CommonMark / GFMの標準解釈を変更せずに、必要な場合だけ日本語・CJK文書向けの補正を追加するオプションです。初期状態はOFFで、一度変更した設定はブラウザのlocalStorageに保存されます。
 
-v1.3.0では、太字の末尾が日本語の閉じ括弧・句読点類で、その直後に空白なしで文章が続くケースを補正します。たとえば次の記述です。
+v1.4.0では、太字の末尾が日本語の閉じ括弧・句読点類で、その直後に空白なしで文章が続くケースを補正します。たとえば次の記述です。
 
 ```markdown
 第二は**因果的な根拠づけ（grounding）**です。
@@ -153,7 +171,10 @@ v1.3.0では、太字の末尾が日本語の閉じ括弧・句読点類で、�
 
 ```text
 .
-├─ index.html                 通常版（CDNから依存ライブラリを読み込み）
+├─ index.html                 通常版（CDNから依存ライブラリを読み込み／PWAエントリ）
+├─ manifest.webmanifest       PWAマニフェスト／Markdownファイル関連付け
+├─ service-worker.js          PWAキャッシュ／オフライン起動
+├─ icons/                     PWAアイコン
 ├─ offline/
 │  ├─ index.html              完全オフライン版（BUILD_RELEASE.cmd実行後に生成）
 │  ├─ index.template.html     オフライン版のソーステンプレート

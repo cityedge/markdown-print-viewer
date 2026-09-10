@@ -4,11 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Print Viewer</title>
-  <meta name="application-name" content="Markdown Print Viewer v1.3.0">
+  <meta name="application-name" content="Markdown Print Viewer v1.4.0">
   <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#171a20">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
 
   <!--
-    Markdown Print Viewer v1.3.0 standard edition
+    Markdown Print Viewer v1.4.0 standard edition
     Rendering engine: markdown-it + task-lists + footnote
     Sanitizer: DOMPurify
     Word export: docx.js
@@ -750,6 +754,7 @@
           libError: 'Markdownレンダリングライブラリを読み込めませんでした。通常版ではネット接続を、オフライン版ではビルド状態を確認してください。',
           invalid: 'Markdownファイルを選択してください。',
           readError: 'ファイルを読み込めませんでした。',
+          launchReadError: 'Windowsから渡されたMarkdownファイルを開けませんでした。',
           drop: '.md ファイルをここにドロップ',
           emptyTitle: 'Markdownを文書として表示・印刷',
           emptyText: 'Markdownファイルをドラッグ＆ドロップするか、上の「Markdownを開く」から選択してください。画像が相対パスの場合は「フォルダを開く」を追加で実行してください。',
@@ -794,6 +799,7 @@
           libError: 'The Markdown rendering libraries are unavailable. Check the network connection for the standard edition or the build state for the offline edition.',
           invalid: 'Please select a Markdown file.',
           readError: 'The file could not be read.',
+          launchReadError: 'Could not open the Markdown file passed by the operating system.',
           drop: 'Drop a .md file here',
           emptyTitle: 'View and print Markdown as a document',
           emptyText: 'Drag and drop a Markdown file, or choose one with “Open Markdown”. If images use relative paths, also choose “Open Folder”.',
@@ -1882,6 +1888,42 @@
         }
       }
 
+      async function handlePwaLaunch(launchParams) {
+        const handles = Array.from(launchParams?.files || []);
+        if (!handles.length) return;
+
+        try {
+          for (const handle of handles) {
+            if (!handle || handle.kind !== 'file' || typeof handle.getFile !== 'function') continue;
+            const file = await handle.getFile();
+            if (!looksLikeMarkdown(file)) continue;
+            await openFile(file);
+            return;
+          }
+          setStatus(t('invalid'), 'error');
+        } catch (err) {
+          console.error('PWA file launch failed:', err);
+          setStatus(t('launchReadError'), 'error');
+        }
+      }
+
+      function initPwaIntegration() {
+        // File Handling API: receives files when an installed PWA is launched
+        // from Windows Explorer. This is only available in supporting browsers.
+        if ('launchQueue' in window && window.launchQueue && typeof window.launchQueue.setConsumer === 'function') {
+          window.launchQueue.setConsumer(handlePwaLaunch);
+        }
+
+        // PWA installation/service worker is only meaningful on HTTP(S).
+        // The local file:// edition intentionally keeps working without it.
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./service-worker.js', { scope: './' })
+              .catch(err => console.warn('Service worker registration failed:', err));
+          }, { once: true });
+        }
+      }
+
       els.brandToggle.addEventListener('click', toggleControls);
       els.brandToggle.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -1964,6 +2006,7 @@
 
       window.addEventListener('beforeunload', revokeObjectUrls);
 
+      initPwaIntegration();
       initTheme();
       initTypography();
       els.japaneseCompat.checked = localStorage.getItem('mpv.japaneseCompatibility') === '1';

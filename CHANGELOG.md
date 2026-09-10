@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.4.0 - 2026-09-10
+
+- GitHub Pages版をインストール可能なPWAに対応。
+- Web App Manifestの `file_handlers` を追加し、Windows上で `.md` / `.markdown` / `.mdown` / `.mkd` をMarkdown Print Viewerへ関連付け可能にした。
+- `launchQueue` でWindows Explorerから渡されたMarkdownを既存の読込処理へ直接渡すようにした。
+- 対応ブラウザでは既存PWAウィンドウを再利用する `launch_handler: focus-existing` を追加。
+- Service Workerでアプリ本体と固定バージョンのランタイム依存をキャッシュし、インストール後のオフライン起動に対応。
+- 192px / 512pxのPWAアイコンを追加。
+- `file://` での従来利用と完全オフライン単一HTML版は維持。
+
 ## v1.3.0 - 2026-09-09
 
 - Added a collapsible reading mode for the top controls.

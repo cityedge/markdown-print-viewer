@@ -1,4 +1,4 @@
-# v1.3.0 GitHub Upload Checklist
+# v1.4.0 GitHub Upload Checklist
 
 1. Extract the package to a normal writable folder.
 2. While connected to the Internet, run `BUILD_RELEASE.cmd` once.
@@ -10,13 +10,22 @@
 8. For the relative-image test, use **Open Folder**, select the `examples` folder, then export Word again and confirm the sample image is embedded.
 9. Open `offline/index.html` with the network disconnected and repeat the render, print, and Word-export tests.
 10. Upload the repository contents to GitHub, including the generated `offline/index.html`.
-11. Create/tag the release as `v1.3.0` if desired.
+11. Create/tag the release as `v1.4.0` if desired.
 
-The root `index.html` is the standard CDN edition. `offline/index.html` is the fully self-contained edition generated from the same v1.3.0 application source.
-## v1.3.0 UI check
+The root `index.html` is the standard CDN edition. `offline/index.html` is the fully self-contained edition generated from the same v1.4.0 application source.
+## v1.4.0 UI check
 
 - On a narrow/mobile viewport, tap the Markdown Print Viewer title/icon area.
 - Confirm all controls and the status bar disappear while the title/current filename row remains.
 - Tap the title/icon area again and confirm the controls return.
 - Confirm Enter/Space toggles the same state when the brand area has keyboard focus.
 
+
+## PWA / Windows file handler
+
+- GitHub PagesがHTTPSで公開されていることを確認。
+- Chrome / Edgeでインストール可能と判定されることを確認。
+- PWAをインストール後、Windowsの「プログラムから開く」にMarkdown Print Viewerが表示されることを確認。
+- `.md` をダブルクリックしてPWAが起動し、そのファイルが自動表示されることを確認。
+- PWA起動中に別の `.md` を開き、既存ウィンドウで新しい文書へ切り替わることを確認。
+- 一度オンラインで正常起動した後、ネットワークを切ってPWAが起動し、ローカルMarkdownを表示できることを確認。
