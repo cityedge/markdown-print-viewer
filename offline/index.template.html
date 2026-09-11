@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Print Viewer</title>
-  <meta name="application-name" content="Markdown Print Viewer v1.4.0">
-  <meta name="color-scheme" content="dark light">
+  <meta name="application-name" content="Markdown Print Viewer v1.6.0">
+  <meta name="color-scheme" content="dark">
 
   <!--
-    Markdown Print Viewer v1.4.0 standard edition
+    Markdown Print Viewer v1.6.0 standard edition
     Rendering engine: markdown-it + task-lists + footnote
     Sanitizer: DOMPurify
     Word export: docx.js
@@ -39,18 +39,11 @@
       --doc-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
       --doc-size: 10.5pt;
       --doc-weight: 400;
+      --doc-line-height: 1.48;
+      --doc-print-line-height: 1.45;
       --mono-font: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
     }
 
-    html[data-theme="light"] {
-      --bg: #eef1f5;
-      --panel: #ffffff;
-      --panel-2: #f6f8fa;
-      --border: #d0d7de;
-      --text: #24292f;
-      --muted: #66707b;
-      --shadow: 0 16px 42px rgba(31,35,40,.15);
-    }
 
     * { box-sizing: border-box; }
     html, body { min-height: 100%; }
@@ -112,10 +105,19 @@
 
     .brand-copy { min-width: 0; }
     .brand-title {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
       font-size: 14px;
       font-weight: 700;
       line-height: 1.1;
       white-space: nowrap;
+    }
+    .version-badge {
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .02em;
     }
     .file-name {
       margin-top: 3px;
@@ -194,7 +196,8 @@
     }
     #fontSelect { width: 122px; }
     #sizeSelect { width: 72px; }
-    #weightSelect { width: 94px; }
+    #weightSelect { width: 84px; }
+    #lineSpacingSelect { width: 82px; }
 
     .compat-toggle {
       display: flex;
@@ -340,7 +343,7 @@
       font-family: var(--doc-font);
       font-size: var(--doc-size);
       font-weight: var(--doc-weight);
-      line-height: 1.48;
+      line-height: var(--doc-line-height);
       overflow-wrap: break-word;
       word-break: normal;
       line-break: strict;
@@ -595,7 +598,7 @@
       }
 
       .empty-state { display: none !important; }
-      .markdown-body { font-size: var(--doc-size); line-height: 1.45; }
+      .markdown-body { font-size: var(--doc-size); line-height: var(--doc-print-line-height); }
 
       .markdown-body a {
         color: inherit !important;
@@ -637,7 +640,7 @@
       <div class="brand" id="brandToggle" role="button" tabindex="0" aria-expanded="true">
         <div class="brand-mark">M↓</div>
         <div class="brand-copy">
-          <div class="brand-title">Markdown Print Viewer</div>
+          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.6.0</span></div>
           <div class="file-name" id="fileName">ファイル未選択 / No file selected</div>
         </div>
       </div>
@@ -674,6 +677,14 @@
             <option value="600">Semi-bold</option>
           </select>
         </div>
+        <div class="type-control">
+          <label id="lineSpacingLabel" for="lineSpacingSelect">Line</label>
+          <select id="lineSpacingSelect" title="本文の行間 / Document line spacing">
+            <option value="narrow">Narrow</option>
+            <option value="standard">Standard</option>
+            <option value="wide">Wide</option>
+          </select>
+        </div>
       </div>
       <label class="compat-toggle" id="japaneseCompatToggle" title="日本語Markdown向けの互換補正を適用">
         <input id="japaneseCompat" type="checkbox">
@@ -681,7 +692,6 @@
       </label>
       <button id="wordBtn" type="button" disabled>Word出力</button>
       <button id="printBtn" type="button" disabled>印刷</button>
-      <button id="themeBtn" type="button" title="表示テーマを切り替え">☼</button>
       <button id="langBtn" type="button" title="Switch language">EN</button>
       <input id="fileInput" type="file" accept=".md,.markdown,.mdown,.mkd,text/markdown,text/plain">
       <input id="folderInput" type="file" webkitdirectory directory multiple>
@@ -754,6 +764,10 @@
           fontLabel: 'フォント',
           sizeLabel: 'サイズ',
           weightLabel: '太さ',
+          lineSpacingLabel: '行間',
+          narrowSpacing: '狭い',
+          standardSpacing: '標準',
+          wideSpacing: '広い',
           japaneseCompat: '日本語互換性',
           japaneseCompatTitle: '日本語文書で生じるCommonMark/GFM互換性問題を補正します。元のMarkdownファイルは変更しません。',
           standardFont: '標準',
@@ -798,6 +812,10 @@
           fontLabel: 'Font',
           sizeLabel: 'Size',
           weightLabel: 'Weight',
+          lineSpacingLabel: 'Line',
+          narrowSpacing: 'Narrow',
+          standardSpacing: 'Standard',
+          wideSpacing: 'Wide',
           japaneseCompat: 'Japanese compatibility',
           japaneseCompatTitle: 'Apply compatibility fixes for Japanese text where CommonMark/GFM delimiter rules can be unintuitive. The source Markdown is not modified.',
           standardFont: 'Standard',
@@ -832,17 +850,18 @@
         folderBtn: document.getElementById('folderBtn'),
         wordBtn: document.getElementById('wordBtn'),
         printBtn: document.getElementById('printBtn'),
-        themeBtn: document.getElementById('themeBtn'),
         langBtn: document.getElementById('langBtn'),
         fontLabel: document.getElementById('fontLabel'),
         sizeLabel: document.getElementById('sizeLabel'),
         weightLabel: document.getElementById('weightLabel'),
+        lineSpacingLabel: document.getElementById('lineSpacingLabel'),
         japaneseCompatToggle: document.getElementById('japaneseCompatToggle'),
         japaneseCompat: document.getElementById('japaneseCompat'),
         japaneseCompatLabel: document.getElementById('japaneseCompatLabel'),
         fontSelect: document.getElementById('fontSelect'),
         sizeSelect: document.getElementById('sizeSelect'),
         weightSelect: document.getElementById('weightSelect'),
+        lineSpacingSelect: document.getElementById('lineSpacingSelect'),
         fileInput: document.getElementById('fileInput'),
         folderInput: document.getElementById('folderInput'),
         fileName: document.getElementById('fileName'),
@@ -894,12 +913,16 @@
         els.fontLabel.textContent = t('fontLabel');
         els.sizeLabel.textContent = t('sizeLabel');
         els.weightLabel.textContent = t('weightLabel');
+        els.lineSpacingLabel.textContent = t('lineSpacingLabel');
         els.japaneseCompatLabel.textContent = t('japaneseCompat');
         els.japaneseCompatToggle.title = t('japaneseCompatTitle');
         els.fontSelect.options[0].textContent = t('standardFont');
         els.weightSelect.options[0].textContent = t('regularWeight');
         els.weightSelect.options[1].textContent = t('mediumWeight');
         els.weightSelect.options[2].textContent = t('semiboldWeight');
+        els.lineSpacingSelect.options[0].textContent = t('narrowSpacing');
+        els.lineSpacingSelect.options[1].textContent = t('standardSpacing');
+        els.lineSpacingSelect.options[2].textContent = t('wideSpacing');
         applyControlsState();
         els.fileName.textContent = currentFileName || t('noFile');
         updateFolderLabel();
@@ -912,18 +935,6 @@
         p.textContent = t('emptyText');
       }
 
-      function initTheme() {
-        const saved = localStorage.getItem('mpv.theme') || 'dark';
-        document.documentElement.dataset.theme = saved;
-        els.themeBtn.textContent = saved === 'dark' ? '☼' : '☾';
-      }
-
-      function toggleTheme() {
-        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = next;
-        localStorage.setItem('mpv.theme', next);
-        els.themeBtn.textContent = next === 'dark' ? '☼' : '☾';
-      }
 
       const fontStacks = {
         standard: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif',
@@ -935,20 +946,30 @@
       };
       const allowedSizes = new Set(['9', '9.5', '10', '10.5', '11', '12']);
       const allowedWeights = new Set(['400', '500', '600']);
+      const lineSpacingPresets = {
+        narrow: { screen: '1.34', print: '1.32' },
+        standard: { screen: '1.48', print: '1.45' },
+        wide: { screen: '1.64', print: '1.60' }
+      };
 
       function applyTypography(save = true) {
         const fontKey = fontStacks[els.fontSelect.value] ? els.fontSelect.value : 'standard';
         const size = allowedSizes.has(els.sizeSelect.value) ? els.sizeSelect.value : '10.5';
         const weight = allowedWeights.has(els.weightSelect.value) ? els.weightSelect.value : '400';
+        const lineSpacingKey = lineSpacingPresets[els.lineSpacingSelect.value] ? els.lineSpacingSelect.value : 'standard';
+        const lineSpacing = lineSpacingPresets[lineSpacingKey];
 
         document.documentElement.style.setProperty('--doc-font', fontStacks[fontKey]);
         document.documentElement.style.setProperty('--doc-size', `${size}pt`);
         document.documentElement.style.setProperty('--doc-weight', weight);
+        document.documentElement.style.setProperty('--doc-line-height', lineSpacing.screen);
+        document.documentElement.style.setProperty('--doc-print-line-height', lineSpacing.print);
 
         if (save) {
           localStorage.setItem('mpv.font', fontKey);
           localStorage.setItem('mpv.size', size);
           localStorage.setItem('mpv.weight', weight);
+          localStorage.setItem('mpv.lineSpacing', lineSpacingKey);
         }
       }
 
@@ -956,10 +977,12 @@
         const fontKey = localStorage.getItem('mpv.font') || 'standard';
         const size = localStorage.getItem('mpv.size') || '10.5';
         const weight = localStorage.getItem('mpv.weight') || '400';
+        const lineSpacingKey = localStorage.getItem('mpv.lineSpacing') || 'standard';
 
         els.fontSelect.value = fontStacks[fontKey] ? fontKey : 'standard';
         els.sizeSelect.value = allowedSizes.has(size) ? size : '10.5';
         els.weightSelect.value = allowedWeights.has(weight) ? weight : '400';
+        els.lineSpacingSelect.value = lineSpacingPresets[lineSpacingKey] ? lineSpacingKey : 'standard';
         applyTypography(false);
       }
 
@@ -1913,7 +1936,6 @@
       els.printBtn.addEventListener('click', () => {
         if (hasDocument) window.print();
       });
-      els.themeBtn.addEventListener('click', toggleTheme);
       els.japaneseCompat.addEventListener('change', async () => {
         localStorage.setItem('mpv.japaneseCompatibility', els.japaneseCompat.checked ? '1' : '0');
         if (hasDocument) await renderMarkdown(currentSource, currentFileName);
@@ -1921,6 +1943,7 @@
       els.fontSelect.addEventListener('change', () => applyTypography(true));
       els.sizeSelect.addEventListener('change', () => applyTypography(true));
       els.weightSelect.addEventListener('change', () => applyTypography(true));
+      els.lineSpacingSelect.addEventListener('change', () => applyTypography(true));
       els.langBtn.addEventListener('click', () => {
         language = language === 'ja' ? 'en' : 'ja';
         localStorage.setItem('mpv.lang', language);
@@ -1961,7 +1984,6 @@
 
       window.addEventListener('beforeunload', revokeObjectUrls);
 
-      initTheme();
       initTypography();
       els.japaneseCompat.checked = localStorage.getItem('mpv.japaneseCompatibility') === '1';
       applyLanguage();

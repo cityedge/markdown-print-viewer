@@ -4,7 +4,7 @@
 
 Markdown Print Viewer is a lightweight browser app for rendering Markdown as a document, printing it through the browser's native print dialog, and exporting it to an editable Microsoft Word `.docx` file. It deliberately does not include Markdown editing features.
 
-**Version 1.4.0**
+**Version 1.6.0**
 
 ## Features
 
@@ -17,13 +17,14 @@ Markdown Print Viewer is a lightweight browser app for rendering Markdown as a d
 - Headings, paragraphs, lists, and tables are emitted as native Word document structures
 - Japanese / English UI
 - Collapse the top toolbar to the title/current-file row for a larger reading area on mobile
-- Dark / light display theme
-- Configurable document font, size, and weight
+- Dark theme only
+- Configurable document font, size, weight, and line spacing
 - Optional **Japanese compatibility** layer for Japanese/CJK Markdown delimiter edge cases
 - Typography settings persist in localStorage
 - Relative local images can be resolved with **Open Folder**
 - No installation is required for normal browser use
-- The GitHub Pages edition can be installed as a PWA and registered to open Markdown files from Windows Explorer (Chrome / Edge)
+- The GitHub Pages edition can be installed as a PWA; when the current environment is installable, an **Install app** button appears automatically in the initial pane
+- The installed PWA can be registered to open Markdown files from Windows Explorer (Chrome / Edge)
 
 ## Usage
 
@@ -32,7 +33,7 @@ Markdown Print Viewer is a lightweight browser app for rendering Markdown as a d
 Open the repository-root `index.html` in Chrome or Edge.
 
 1. Drag and drop a `.md` file, or select one with **Open Markdown**.
-2. Adjust font, size, and weight if needed.
+2. Adjust font, size, weight, and line spacing if needed.
 3. If the document contains relative local images, select the document root with **Open Folder**.
 4. Click **Print** to use the browser's print dialog.
 5. Click **Word (.docx)** to generate an editable Word file using the Markdown file's base name.
@@ -47,20 +48,23 @@ Before the first GitHub upload, or after dependency updates, run `BUILD_RELEASE.
 
 The generated `offline/index.html` contains no external JavaScript references and can render, print, and export Word files without a network connection. It is fine to commit the generated file to GitHub.
 
-## PWA installation and Windows Markdown file association
+## Installation and uninstallation
 
-When the standard edition is published over HTTPS (for example with GitHub Pages), Chrome / Edge can install it as a PWA. The installed PWA registers handlers for `.md`, `.markdown`, `.mdown`, and `.mkd`, so Windows Explorer can pass a Markdown file directly to Markdown Print Viewer.
+Installation is not required for ordinary browser use. Installing the GitHub Pages edition as a PWA gives Windows a standalone app entry and enables `.md` file association/double-click opening. On Android, installation adds Markdown Print Viewer to the home screen/app launcher.
 
-1. Open the GitHub Pages site in Chrome or Edge.
-2. Use the browser's Install app command.
-3. In Windows, right-click an `.md` file, choose Open with, select Markdown Print Viewer, and choose Always when desired.
-4. After that, double-clicking an `.md` file launches the installed PWA and opens that file automatically.
+See **[INSTALL_GUIDE_EN.md](INSTALL_GUIDE_EN.md)** for detailed Windows Edge / Chrome and Android Chrome instructions, including file association, uninstalling, app-data removal, and update notes.
 
-If Markdown Print Viewer does not appear in Windows **Open with** immediately after a manifest update, uninstall and reinstall the PWA once so Chromium can refresh the OS-level file-handler registration.
+### Quick Windows setup
 
-The app receives OS-launched files through the File Handling API / `launchQueue`. The Markdown contents are read locally; the application does not upload the file to its own server. When supported, an already-open PWA window is focused and reused for the newly opened file.
+1. Open the GitHub Pages edition in Chrome or Edge. If the initial pane shows **Install app**, select it and follow the browser-native install prompt. If it is not shown, use the browser menu to install the PWA.
+2. In Windows Explorer, right-click an `.md` file, choose **Open with**, and select **Markdown Print Viewer**. Make it the default if desired.
+3. After that, double-clicking an `.md` file launches the installed PWA and opens the file automatically.
 
-PWA registration requires HTTPS. Direct `file://` use of `index.html` remains supported, but cannot register Windows file handling. The service worker caches the application shell and pinned runtime libraries after a successful online load so the installed PWA can subsequently start offline.
+For removal, use `edge://apps` for an Edge-installed PWA or the app menu / `chrome://apps` for a Chrome-installed PWA. On Android, uninstall it from **Settings → Apps → Markdown Print Viewer**.
+
+If Markdown Print Viewer does not appear in Windows Open with after a manifest/file-handler update, uninstalling and reinstalling the PWA once can refresh the OS-level registration.
+
+The PWA receives OS-launched files through the File Handling API / `launchQueue`; the application does not upload Markdown contents to its own server. Its Service Worker caches the app shell and pinned runtime dependencies so the installed PWA can start offline after a successful initial load.
 
 ## Word (.docx) export
 
@@ -131,7 +135,7 @@ Markdown does not define page typography, so font choices, margins, line spacing
 
 The **Japanese compatibility** checkbox is an opt-in compatibility layer for Japanese/CJK-specific Markdown edge cases. It is OFF by default and the choice is stored in `localStorage`. The core markdown-it configuration remains unchanged.
 
-Version 1.4.0 includes a compatibility fix for cases where a bold span ends in Japanese closing punctuation and text continues immediately without a space. For example:
+The current version includes a compatibility fix for cases where a bold span ends in Japanese closing punctuation and text continues immediately without a space. For example:
 
 ```markdown
 第二は**因果的な根拠づけ（grounding）**です。
@@ -146,6 +150,16 @@ It also correctly handles adjacent emphasis such as:
 Instead of reinterpreting leftover text after rendering, the compatibility layer temporarily annotates the intended closing delimiter before markdown-it parses the document. This prevents adjacent `**...**` or `__...__` spans from being paired across the conjunction. Fenced code and inline code are excluded, and the original Markdown source is never modified. Word export uses the same rendered structure, so the correction is reflected in `.docx` output as well.
 
 Future Japanese/CJK-specific fixes can be added to this compatibility layer without changing the core parser.
+
+## Line spacing
+
+The **Line** control switches document body line spacing among three presets. The setting is stored in localStorage.
+
+- **Narrow**: screen 1.34 / print 1.32
+- **Standard**: screen 1.48 / print 1.45 (the default used through v1.4.0)
+- **Wide**: screen 1.64 / print 1.60
+
+Elements with their own explicit line-height, such as headings and code blocks, keep their dedicated styling.
 
 ## Fonts
 
@@ -181,6 +195,8 @@ Google Chrome and Microsoft Edge on Windows are the primary targets. A Chromium-
 ├─ BUILD_RELEASE.cmd
 ├─ README.md
 ├─ README_EN.md
+├─ INSTALL_GUIDE.md
+├─ INSTALL_GUIDE_EN.md
 ├─ CHANGELOG.md
 ├─ THIRD_PARTY_NOTICES.md
 └─ LICENSE

@@ -1,4 +1,4 @@
-# v1.4.0 GitHub Upload Checklist
+# v1.6.0 GitHub Upload Checklist
 
 1. Extract the package to a normal writable folder.
 2. While connected to the Internet, run `BUILD_RELEASE.cmd` once.
@@ -10,15 +10,22 @@
 8. For the relative-image test, use **Open Folder**, select the `examples` folder, then export Word again and confirm the sample image is embedded.
 9. Open `offline/index.html` with the network disconnected and repeat the render, print, and Word-export tests.
 10. Upload the repository contents to GitHub, including the generated `offline/index.html`.
-11. Create/tag the release as `v1.4.0` if desired.
+11. Create/tag the release as `v1.6.0` if desired.
 
-The root `index.html` is the standard CDN edition. `offline/index.html` is the fully self-contained edition generated from the same v1.4.0 application source.
-## v1.4.0 UI check
+The root `index.html` is the standard CDN edition. `offline/index.html` is the fully self-contained edition generated from the same v1.6.0 application source.
+## v1.6.0 UI check
 
 - On a narrow/mobile viewport, tap the Markdown Print Viewer title/icon area.
 - Confirm all controls and the status bar disappear while the title/current filename row remains.
 - Tap the title/icon area again and confirm the controls return.
 - Confirm Enter/Space toggles the same state when the brand area has keyboard focus.
+
+- Confirm the theme switch button is no longer present and the app stays in dark theme.
+- Confirm **Line / 行間** offers Narrow / Standard / Wide (狭い / 標準 / 広い).
+- Confirm Standard matches the previous layout, Narrow visibly tightens body lines, and Wide increases spacing.
+- Open print preview for each preset and confirm the spacing changes there as well.
+- Reload the app and confirm the selected line-spacing preset is restored.
+- Confirm the Weight / 太さ select is narrower without clipping its options.
 
 
 ## PWA / Windows file handler
@@ -29,3 +36,17 @@ The root `index.html` is the standard CDN edition. `offline/index.html` is the f
 - `.md` をダブルクリックしてPWAが起動し、そのファイルが自動表示されることを確認。
 - PWA起動中に別の `.md` を開き、既存ウィンドウで新しい文書へ切り替わることを確認。
 - 一度オンラインで正常起動した後、ネットワークを切ってPWAが起動し、ローカルMarkdownを表示できることを確認。
+- Confirm `v1.6.0` is visible beside “Markdown Print Viewer” in both expanded and collapsed toolbar states.
+- On GitHub Pages in an installable Chrome/Edge environment, confirm **アプリとしてインストール / Install app** appears in the initial pane.
+- Confirm the install CTA is absent for local `file://` use and when the installed PWA is running in standalone mode.
+- Confirm pressing the CTA opens the browser-native install prompt, and successful installation hides it.
+
+## Documentation / install guide check
+
+- Confirm `README.md` links to `INSTALL_GUIDE.md`.
+- Confirm `README_EN.md` links to `INSTALL_GUIDE_EN.md`.
+- Confirm the guides separately cover Windows Edge, Windows Chrome, and Android Chrome.
+- Confirm uninstall instructions mention `edge://apps`, the Chrome app menu / `chrome://apps`, and Android Settings → Apps.
+- Confirm the guide distinguishes app removal from optional site/app-data deletion and notes that deleting site data resets saved viewer settings.
+- Confirm Windows `.md` association is described as a desktop PWA feature and Android is not presented as supporting the same file-association workflow.
+

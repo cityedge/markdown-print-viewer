@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.6.0 - 2026-09-11
+
+- Added an in-app **Install app / アプリとしてインストール** button to the initial empty pane.
+- The install button appears only when the browser emits `beforeinstallprompt`; it stays hidden on `file://`, unsupported browsers, and installed standalone PWA sessions.
+- Installation is handed off to the browser/OS native prompt, and `appinstalled` clears the CTA after successful installation.
+- Added a visible `v1.6.0` badge beside the application title, including the collapsed mobile reading header.
+- Updated installation documentation to use the in-app button as the preferred path and browser menus as fallback.
+- Bumped the Service Worker cache version to v1.6.0.
+
+## 1.5.1 - 2026-09-11
+
+- Documentation-only maintenance release; application behavior is unchanged from v1.5.0.
+- Added `INSTALL_GUIDE.md` and `INSTALL_GUIDE_EN.md` with explicit installation and uninstallation procedures.
+- Added separate instructions for Windows Edge, Windows Chrome, and Android Chrome.
+- Clarified Windows `.md` file association, PWA removal, optional app/site-data deletion, and the difference between PWA installation and the standalone offline HTML edition.
+- Expanded the root README installation section and linked it to the detailed guides.
+
+## 1.5.0 - 2026-09-10
+
+- Added a persistent three-level line-spacing control: Narrow / Standard / Wide (狭い / 標準 / 広い).
+- Kept the previous screen/print line spacing as the Standard preset.
+- Applied the selected line-spacing preset to both on-screen document rendering and browser printing.
+- Removed the light-theme toggle and standardized the application UI on the dark theme.
+- Reduced the width of the Weight select to free toolbar space.
+- Bumped the PWA cache version so installed apps refresh to the new UI cleanly.
+
 ## 1.4.0 - 2026-09-10
 
 - GitHub Pages版をインストール可能なPWAに対応。
