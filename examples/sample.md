@@ -12,6 +12,8 @@ Japanese compatibility test (enable the **日本語互換性 / Japanese compatib
 
 **特権（privilege）**と**権威（authority）**
 
+**171 emotion concepts、blackmail 22%→72%、anti-desperate / calm +0.05で0%**を一次資料で確認しました。
+
 > Blockquote: Markdown remains plain text while the viewer provides document-oriented typography.
 
 ## Lists
@@ -39,7 +41,7 @@ Japanese compatibility test (enable the **日本語互換性 / Japanese compatib
 
 ```javascript
 function hello() {
-  console.log('Markdown Print Viewer v1.3.0');
+  console.log('Markdown Print Viewer v1.6.1');
 }
 ```
 

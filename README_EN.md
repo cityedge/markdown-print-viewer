@@ -4,7 +4,7 @@
 
 Markdown Print Viewer is a lightweight browser app for rendering Markdown as a document, printing it through the browser's native print dialog, and exporting it to an editable Microsoft Word `.docx` file. It deliberately does not include Markdown editing features.
 
-**Version 1.6.0**
+**Version 1.6.1**
 
 ## Features
 
@@ -135,7 +135,7 @@ Markdown does not define page typography, so font choices, margins, line spacing
 
 The **Japanese compatibility** checkbox is an opt-in compatibility layer for Japanese/CJK-specific Markdown edge cases. It is OFF by default and the choice is stored in `localStorage`. The core markdown-it configuration remains unchanged.
 
-The current version includes a compatibility fix for cases where a bold span ends in Japanese closing punctuation and text continues immediately without a space. For example:
+The current version includes a compatibility fix for cases where a bold span ends in punctuation or a symbol (including ASCII characters such as `%`, `)`, or `!`) and Japanese text continues immediately without a space. For example:
 
 ```markdown
 第二は**因果的な根拠づけ（grounding）**です。
@@ -145,6 +145,12 @@ It also correctly handles adjacent emphasis such as:
 
 ```markdown
 **特権（privilege）**と**権威（authority）**
+```
+
+The same compatibility rule also covers ASCII/Unicode punctuation and symbols at the end of an emphasized span when Japanese text follows immediately, for example:
+
+```markdown
+**171 emotion concepts ... 0%**を一次資料で確認しました。
 ```
 
 Instead of reinterpreting leftover text after rendering, the compatibility layer temporarily annotates the intended closing delimiter before markdown-it parses the document. This prevents adjacent `**...**` or `__...__` spans from being paired across the conjunction. Fenced code and inline code are excluded, and the original Markdown source is never modified. Word export uses the same rendered structure, so the correction is reflected in `.docx` output as well.

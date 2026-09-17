@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Print Viewer</title>
-  <meta name="application-name" content="Markdown Print Viewer v1.6.0">
+  <meta name="application-name" content="Markdown Print Viewer v1.6.1">
   <meta name="color-scheme" content="dark">
 
   <!--
-    Markdown Print Viewer v1.6.0 standard edition
+    Markdown Print Viewer v1.6.1 standard edition
     Rendering engine: markdown-it + task-lists + footnote
     Sanitizer: DOMPurify
     Word export: docx.js
@@ -640,7 +640,7 @@
       <div class="brand" id="brandToggle" role="button" tabindex="0" aria-expanded="true">
         <div class="brand-mark">M↓</div>
         <div class="brand-copy">
-          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.6.0</span></div>
+          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.6.1</span></div>
           <div class="file-name" id="fileName">ファイル未選択 / No file selected</div>
         </div>
       </div>
@@ -1110,7 +1110,7 @@
       // DOM fixes (none at present) run after rendering. Add future Japanese/CJK-specific fixes
       // to one of these lists rather than changing the core Markdown parser.
       const japaneseCompatibilitySourceFixes = [
-        fixJapaneseStrongAfterClosingPunctuationInSource
+        fixJapaneseStrongAfterPunctuationOrSymbolInSource
       ];
       const japaneseCompatibilityDomFixes = [];
 
@@ -1127,8 +1127,8 @@
       }
 
       // CommonMark emphasis delimiter rules can refuse to close **...** / __...__ when
-      // the emphasized text ends in closing punctuation and Japanese text continues immediately.
-      // Example: **因果的な根拠づけ（grounding）**です。
+      // the emphasized text ends in punctuation or a symbol and Japanese text continues immediately.
+      // Examples: **因果的な根拠づけ（grounding）**です。 / **0%**を確認。
       //
       // A previous DOM repair could mis-pair adjacent spans such as:
       // **特権（privilege）**と**権威（authority）**
@@ -1138,10 +1138,14 @@
       // original delimiters correctly. DOMPurify removes the comment from the rendered document.
       // Fenced code and inline code spans are deliberately excluded. The original Markdown string
       // stored by the viewer is never modified.
-      function fixJapaneseStrongAfterClosingPunctuationInSource(source) {
-        const closingPunctuation = '）］｝〉》」』】〕〗〙〛〞〟’”！？：；、。';
-        const starPattern = new RegExp(`(?<!\\\\)\\*\\*((?:(?!\\*\\*)[^\\r\\n])+?[${closingPunctuation}])\\*\\*(?=[\\p{L}\\p{N}])`, 'gu');
-        const underscorePattern = new RegExp(`(?<!\\\\)__((?:(?!__)[^\\r\\n])+?[${closingPunctuation}])__(?=[\\p{L}\\p{N}])`, 'gu');
+      function fixJapaneseStrongAfterPunctuationOrSymbolInSource(source) {
+        // The compatibility issue is not limited to Japanese punctuation inside the bold text.
+        // ASCII punctuation/symbols such as %, !, ?, ), ] can trigger the same CommonMark delimiter
+        // rule when Japanese text immediately follows the intended closing delimiter.
+        // Restrict the look-ahead to Japanese scripts so ordinary Latin text keeps standard behavior.
+        const japaneseFollowing = '[\\p{Script=Han}\\p{Script=Hiragana}\\p{Script=Katakana}々〆ヶ]';
+        const starPattern = new RegExp(`(?<!\\\\)\\*\\*((?:(?!\\*\\*)[^\\r\\n])+?[\\p{P}\\p{S}])\\*\\*(?=${japaneseFollowing})`, 'gu');
+        const underscorePattern = new RegExp(`(?<!\\\\)__((?:(?!__)[^\\r\\n])+?[\\p{P}\\p{S}])__(?=${japaneseFollowing})`, 'gu');
 
         return transformMarkdownTextOutsideCode(source, text =>
           text

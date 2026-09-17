@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.1 - 2026-09-17
+
+- Extended **Japanese compatibility** strong-emphasis handling to cases where the emphasized span ends in ASCII or other Unicode punctuation/symbols and Japanese text follows immediately.
+- Fixes examples such as `**171 emotion concepts ... 0%**を一次資料で確認しました。` while preserving standard behavior for ordinary Latin text.
+- The compatibility rule now uses Unicode punctuation/symbol categories (`\p{P}` / `\p{S}`) plus a Japanese-script look-ahead, instead of a fixed list of Japanese closing punctuation.
+- Added regression coverage for the existing `）**です` and adjacent `**A**と**B**` cases.
+- Bumped the visible app version and Service Worker cache to v1.6.1.
+
 ## 1.6.0 - 2026-09-11
 
 - Added an in-app **Install app / アプリとしてインストール** button to the initial empty pane.
