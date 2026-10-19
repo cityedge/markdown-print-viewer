@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Print Viewer</title>
-  <meta name="application-name" content="Markdown Print Viewer v1.6.1">
+  <meta name="application-name" content="Markdown Print Viewer v1.6.2">
   <meta name="color-scheme" content="dark">
 
   <!--
-    Markdown Print Viewer v1.6.1 standard edition
+    Markdown Print Viewer v1.6.2 standard edition
     Rendering engine: markdown-it + task-lists + footnote
     Sanitizer: DOMPurify
     Word export: docx.js
@@ -558,9 +558,17 @@
     @page {
       size: A4 portrait;
       margin: 18mm 18mm 20mm;
+      background: #fff;
     }
 
     @media print {
+      /* Screen UI is dark, but page margins must be light as well.
+         Without this override, Chrome can print black margins when
+         "Background graphics" is enabled (even at 1 page per sheet). */
+      :root {
+        color-scheme: light !important;
+      }
+
       html, body {
         width: auto !important;
         min-height: 0 !important;
@@ -640,7 +648,7 @@
       <div class="brand" id="brandToggle" role="button" tabindex="0" aria-expanded="true">
         <div class="brand-mark">M↓</div>
         <div class="brand-copy">
-          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.6.1</span></div>
+          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.6.2</span></div>
           <div class="file-name" id="fileName">ファイル未選択 / No file selected</div>
         </div>
       </div>

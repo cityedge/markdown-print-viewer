@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.2 - 2026-10-20
+
+- Fixed Chrome/Edge print preview producing black page margins with **Background graphics** enabled while the screen uses the dark theme.
+- During printing only, force the CSS root `color-scheme: light` and specify a white `@page` background. Normal dark-mode UI is unchanged.
+- Verified against Chromium PDF printing with background graphics enabled: previously dark page margins render white after the fix.
+- Updated the Service Worker cache name and version badges to v1.6.2.
+
 ## 1.6.1 - 2026-09-17
 
 - Extended **Japanese compatibility** strong-emphasis handling to cases where the emphasized span ends in ASCII or other Unicode punctuation/symbols and Japanese text follows immediately.

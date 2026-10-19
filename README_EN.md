@@ -4,7 +4,7 @@
 
 Markdown Print Viewer is a lightweight browser app for rendering Markdown as a document, printing it through the browser's native print dialog, and exporting it to an editable Microsoft Word `.docx` file. It deliberately does not include Markdown editing features.
 
-**Version 1.6.1**
+**Version 1.6.2**
 
 ## Features
 
@@ -13,6 +13,7 @@ Markdown Print Viewer is a lightweight browser app for rendering Markdown as a d
 - Embedded HTML is sanitized with DOMPurify
 - Browser-native printing for printers and PDF output
 - A4-oriented print CSS
+- The print page, including margins, remains white even with background graphics enabled.
 - One-click **Word (.docx)** export generated entirely in the browser
 - Headings, paragraphs, lists, and tables are emitted as native Word document structures
 - Japanese / English UI
