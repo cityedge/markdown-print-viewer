@@ -1,6 +1,6 @@
 # Third-party notices / 第三者ソフトウェアについて
 
-Markdown Print Viewer v1.7.0の独自コードは、引き続き[MIT License](LICENSE)です。第三者のコードには、それぞれのライセンスが適用されます。
+Markdown Print Viewer v1.7.1の独自コードは、引き続き[MIT License](LICENSE)です。第三者のコードには、それぞれのライセンスが適用されます。
 
 The application's original code remains MIT licensed. Third-party components retain their respective licenses.
 

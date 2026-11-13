@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "appVersion": "1.7.0",
+  "appVersion": "1.7.1",
   "reviewedOn": "2026-11-13",
   "runtime": [
     {
@@ -47,9 +47,9 @@
     }
   ],
   "documents": {
-    "THIRD_PARTY_LICENSES.txt": "96307322402b6e062fb56ae21212139351b13bd1f5f6a8918e17c24ea56a898f",
+    "THIRD_PARTY_LICENSES.txt": "4e0f4a4c7b6407977cae7400814131af0e9f48eeb04a62e15c8d85d53cd4cf5f",
     "THIRD_PARTY_SOURCES.md": "1ee3ab13123f57ea58704c6b54ab55d5f7394ab6f1ed62deffe8ce88c35e3949",
-    "licenses.html": "cb6cff8dd43c004a712d6537a17a99b1ef9a2bf26b77b0cceff311cfb3ac9107"
+    "licenses.html": "c25eb2ae1ac9be56f53356bd87778087e7f7f329c8a54b9a29db396eb78046cf"
   },
   "components": [
     {

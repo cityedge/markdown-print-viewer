@@ -1,4 +1,4 @@
-# Markdown Print Viewer v1.7.0 — 完全オフライン版 / Fully offline edition
+# Markdown Print Viewer v1.7.1 — 完全オフライン版 / Fully offline edition
 
 ## 使い方
 

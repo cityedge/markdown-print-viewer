@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE_NAME = 'markdown-print-viewer-v1.7.0-licenses-1';
+const CACHE_NAME = 'markdown-print-viewer-v1.7.1';
 const LOCAL_ASSETS = [
   './',
   './index.html',

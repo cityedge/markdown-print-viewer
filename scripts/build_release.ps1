@@ -35,7 +35,7 @@ foreach ($file in Get-ChildItem -LiteralPath (Join-Path $root 'examples') -File 
 }
 $standard = [ordered]@{}
 foreach ($entry in $common.GetEnumerator()) { $standard[$entry.Key] = $entry.Value }
-foreach ($name in @('.gitattributes', 'index.html', 'manifest.webmanifest', 'service-worker.js', 'README.md', 'README_EN.md', 'INSTALL_GUIDE.md', 'INSTALL_GUIDE_EN.md', 'RELEASE_CHECKLIST.md', 'BUILD_RELEASE.cmd', 'scripts/build_release.ps1', 'offline/README.md', 'offline/BUILD_OFFLINE.cmd', 'offline/build_offline.ps1', 'offline/index.template.html', 'tests/mermaid.cjs', 'tests/licenses.cjs')) {
+foreach ($name in @('.gitattributes', '.gitignore', 'index.html', 'manifest.webmanifest', 'service-worker.js', 'README.md', 'README_EN.md', 'INSTALL_GUIDE.md', 'INSTALL_GUIDE_EN.md', 'RELEASE_CHECKLIST.md', 'BUILD_RELEASE.cmd', 'scripts/build_release.ps1', 'offline/README.md', 'offline/BUILD_OFFLINE.cmd', 'offline/build_offline.ps1', 'offline/index.template.html', 'tests/mermaid.cjs', 'tests/mermaid-size.cjs', 'tests/licenses.cjs')) {
     $standard[$name] = $name
 }
 foreach ($file in Get-ChildItem -LiteralPath (Join-Path $root 'icons') -File) { $standard['icons/' + $file.Name] = 'icons/' + $file.Name }

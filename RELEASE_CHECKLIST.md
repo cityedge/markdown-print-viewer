@@ -1,4 +1,4 @@
-# v1.7.0 GitHub Upload Checklist
+# v1.7.1 GitHub Upload Checklist
 
 ## Licenses and distribution
 
@@ -11,6 +11,11 @@
 
 ## Mermaid regression checks
 
+- With diagrams open, switch Size from 12 pt to 9 pt: diagram text, boxes and arrows shrink together; ordinary Markdown images keep their size.
+- Repeat with wide and tall diagrams, mobile, print and Word export. Smaller sizes must still affect diagrams that were already fitted to a page.
+- Reload with 9 pt saved, then open a Markdown file: the diagrams start at the saved scale. Changing size during a slow render must apply the latest size.
+- Run `node tests/mermaid-size.cjs` (using the same `MPV_TEST_NODE_MODULES` environment as the other browser tests).
+
 - Open `examples/mermaid.md`: all six diagrams, Japanese labels, arrows, and captions must be visible.
 - Print/save PDF with background graphics enabled: diagrams fit inside white pages.
 - Export Word: all six diagrams are embedded images. Open the result in Microsoft Word for manual compatibility checking.
@@ -20,7 +25,7 @@
 - Fully offline edition: disconnect the network and repeat diagram rendering and Word export.
 - PWA: after the Service Worker finishes caching Mermaid, disconnect and reopen a diagram.
 - Keep the existing Japanese compatibility, relative-image, and white print-margin regressions passing.
-- Automated browser checks: install `playwright` and `jszip` in a test environment, run `node tests/mermaid.cjs`. Alternatively set `MPV_TEST_NODE_MODULES` to an existing packages directory. Artifacts are written under `tests/tmp/mermaid/`.
+- Automated browser checks: install `playwright` and `jszip` in a test environment, run `node tests/mermaid.cjs`. Alternatively set `MPV_TEST_NODE_MODULES` to an existing packages directory. Artifacts are written under `tests/tmp/<version>/mermaid/`; size checks use `tests/tmp/<version>/mermaid-size/`.
 
 ## Upload
 
@@ -34,10 +39,10 @@
 8. For the relative-image test, use **Open Folder**, select the `examples` folder, then export Word again and confirm the sample image is embedded.
 9. Open `offline/index.html` with the network disconnected and repeat the render, print, and Word-export tests.
 10. Upload the repository contents to GitHub, including the generated `offline/index.html`.
-11. Create/tag the release as `v1.7.0` if desired.
+11. Create/tag the release as `v1.7.1` if desired.
 
-The root `index.html` is the standard CDN edition. `offline/index.html` is the fully self-contained edition generated from the same v1.7.0 application source.
-## v1.7.0 UI check
+The root `index.html` is the standard CDN edition. `offline/index.html` is the fully self-contained edition generated from the same v1.7.1 application source.
+## v1.7.1 UI check
 
 - On a narrow/mobile viewport, tap the Markdown Print Viewer title/icon area.
 - Confirm all controls and the status bar disappear while the title/current filename row remains.
@@ -60,7 +65,7 @@ The root `index.html` is the standard CDN edition. `offline/index.html` is the f
 - `.md` をダブルクリックしてPWAが起動し、そのファイルが自動表示されることを確認。
 - PWA起動中に別の `.md` を開き、既存ウィンドウで新しい文書へ切り替わることを確認。
 - 一度オンラインで正常起動した後、ネットワークを切ってPWAが起動し、ローカルMarkdownを表示できることを確認。
-- Confirm `v1.7.0` is visible beside “Markdown Print Viewer” in both expanded and collapsed toolbar states.
+- Confirm `v1.7.1` is visible beside “Markdown Print Viewer” in both expanded and collapsed toolbar states.
 - On GitHub Pages in an installable Chrome/Edge environment, confirm **アプリとしてインストール / Install app** appears in the initial pane.
 - Confirm the install CTA is absent for local `file://` use and when the installed PWA is running in standalone mode.
 - Confirm pressing the CTA opens the browser-native install prompt, and successful installation hides it.
@@ -75,7 +80,7 @@ The root `index.html` is the standard CDN edition. `offline/index.html` is the f
 - Confirm Windows `.md` association is described as a desktop PWA feature and Android is not presented as supporting the same file-association workflow.
 
 
-## v1.7.0 Japanese compatibility regression
+## v1.7.1 Japanese compatibility regression
 
 With **Japanese compatibility** enabled, confirm all three render correctly in the viewer and Word export:
 
@@ -85,7 +90,7 @@ With **Japanese compatibility** enabled, confirm all three render correctly in t
 
 With Japanese compatibility disabled, standard CommonMark/GFM behavior must remain unchanged.
 
-## v1.7.0 print background regression
+## v1.7.1 print background regression
 
 - In Chrome/Edge, open a Markdown document and Print Preview.
 - Turn **Background graphics** ON. Check **1 page per sheet**: page margins and header/footer areas remain white, and the document is black text on white.

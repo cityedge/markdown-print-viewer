@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Print Viewer</title>
-  <meta name="application-name" content="Markdown Print Viewer v1.7.0">
+  <meta name="application-name" content="Markdown Print Viewer v1.7.1">
   <meta name="color-scheme" content="dark">
 
   <!--
-    Markdown Print Viewer v1.7.0 standard edition
+    Markdown Print Viewer v1.7.1 standard edition
     Rendering engine: markdown-it + task-lists + footnote
     Sanitizer: DOMPurify
     Word export: docx.js
@@ -38,6 +38,7 @@
       --ui-font: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
       --doc-font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
       --doc-size: 10.5pt;
+      --mermaid-scale: .875;
       --doc-weight: 400;
       --doc-line-height: 1.48;
       --doc-print-line-height: 1.45;
@@ -480,6 +481,8 @@
     .markdown-body .mermaid-diagram img {
       display: block;
       margin: 0 auto;
+      /* Fit first, then scale: wide diagrams must also respond to document size. */
+      width: calc(min(100%, var(--mermaid-width)) * var(--mermaid-scale));
       max-width: 100%;
       height: auto;
     }
@@ -644,7 +647,7 @@
 
       .empty-state, .mermaid-staging { display: none !important; }
       .markdown-body .mermaid-diagram img {
-        max-height: 230mm;
+        max-height: calc(230mm * var(--mermaid-scale));
         object-fit: contain;
       }
       .markdown-body { font-size: var(--doc-size); line-height: var(--doc-print-line-height); }
@@ -689,7 +692,7 @@
       <div class="brand" id="brandToggle" role="button" tabindex="0" aria-expanded="true">
         <div class="brand-mark">M↓</div>
         <div class="brand-copy">
-          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.7.0</span></div>
+          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.7.1</span></div>
           <div class="file-name" id="fileName">ファイル未選択 / No file selected</div>
         </div>
       </div>
@@ -1054,6 +1057,7 @@
 
         document.documentElement.style.setProperty('--doc-font', fontStacks[fontKey]);
         document.documentElement.style.setProperty('--doc-size', `${size}pt`);
+        document.documentElement.style.setProperty('--mermaid-scale', String(mermaidSizeScale()));
         document.documentElement.style.setProperty('--doc-weight', weight);
         document.documentElement.style.setProperty('--doc-line-height', lineSpacing.screen);
         document.documentElement.style.setProperty('--doc-print-line-height', lineSpacing.print);
@@ -1064,6 +1068,12 @@
           localStorage.setItem('mpv.weight', weight);
           localStorage.setItem('mpv.lineSpacing', lineSpacingKey);
         }
+      }
+
+      function mermaidSizeScale() {
+        // Mermaid's base text is 16 CSS px = 12 pt. Preserve relative label sizes.
+        const size = allowedSizes.has(els.sizeSelect.value) ? Number(els.sizeSelect.value) : 10.5;
+        return size / 12;
       }
 
       function initTypography() {
@@ -1433,6 +1443,7 @@
             img.alt = description || t('mermaidDiagram');
             if (!description) img.dataset.mermaidDefaultAlt = 'true';
             img.dataset.mermaid = 'true';
+            img.style.setProperty('--mermaid-width', `${Math.ceil(box[2])}px`);
             // An SVG image isolates diagram styles and uses the existing Word image pipeline.
             img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(root));
             await img.decode();
@@ -1710,14 +1721,14 @@
         return new window.docx.TextRun(wordRunOptions(text, style));
       }
 
-      function imageDisplaySize(img) {
+      function imageDisplaySize(img, diagramScale = 1) {
         let width = Number(img.naturalWidth || img.width || 640);
         let height = Number(img.naturalHeight || img.height || 360);
         if (!Number.isFinite(width) || width <= 0) width = 640;
         if (!Number.isFinite(height) || height <= 0) height = 360;
         const maxWidth = 600;
         const maxHeight = 780;
-        const scale = Math.min(1, maxWidth / width, maxHeight / height);
+        const scale = Math.min(1, maxWidth / width, maxHeight / height) * diagramScale;
         return {
           width: Math.max(1, Math.round(width * scale)),
           height: Math.max(1, Math.round(height * scale))
@@ -1788,7 +1799,7 @@
         });
         return {
           data: await pngBlob.arrayBuffer(),
-          transformation: imageDisplaySize(sourceImage)
+          transformation: imageDisplaySize(sourceImage, img.dataset.mermaid ? mermaidSizeScale() : 1)
         };
       }
 

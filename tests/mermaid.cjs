@@ -9,7 +9,8 @@ const dependency = process.env.MPV_TEST_NODE_MODULES
 const { chromium } = dependency('playwright');
 const JSZip = dependency('jszip');
 const root = path.resolve(__dirname, '..');
-const output = path.join(__dirname, 'tmp/mermaid');
+const appVersion = JSON.parse(fs.readFileSync(path.join(root, 'licenses/dependencies.json'), 'utf8')).appVersion;
+const output = path.join(__dirname, 'tmp', appVersion, 'mermaid');
 fs.mkdirSync(output, { recursive: true });
 const offline = fs.readFileSync(path.join(root, 'offline/index.html'), 'utf8');
 const assets = new Map([...offline.matchAll(/<!-- [^\n]*source: (https:[^ ]+) -->\s*<script>([\s\S]*?)<\/script>/g)]
@@ -225,7 +226,7 @@ async function checkLicenses(page, label) {
         }
       });
       assert(await livePage.evaluate(async () => {
-        const cache = await caches.open('markdown-print-viewer-v1.7.0-licenses-1');
+        const cache = await caches.open('markdown-print-viewer-v1.7.1');
         return Boolean(await cache.match('https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js'));
       }), 'Live CDN Mermaid is precached');
       await upload(livePage, demo);

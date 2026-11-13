@@ -1,4 +1,4 @@
-Markdown Print Viewer v1.7.0 — Third-party licenses and source availability
+Markdown Print Viewer v1.7.1 — Third-party licenses and source availability
 
 本体の独自コードは MIT License (Copyright 2026 cityedge) です。第三者のコードには以下の各ライセンスが適用されます。
 The application's original code is MIT licensed. Third-party code remains under its respective licenses.

@@ -4,7 +4,7 @@
 
 Markdown Print Viewer is a lightweight browser app for rendering Markdown as a document, printing it through the browser's native print dialog, and exporting it to an editable Microsoft Word `.docx` file. It deliberately does not include Markdown editing features.
 
-**Version 1.7.0**
+**Version 1.7.1**
 
 ## Features
 
@@ -46,7 +46,7 @@ The standard edition loads pinned JavaScript dependencies from jsDelivr at runti
 
 `offline/index.html` is a self-contained edition with all required JavaScript libraries embedded into the HTML file.
 
-Users can extract `markdown-print-viewer-v1.7.0-offline.zip` and open the included, already-built `index.html`. No build is required to use it.
+Users can extract `markdown-print-viewer-v1.7.1-offline.zip` and open the included, already-built `index.html`. No build is required to use it.
 
 To rebuild, run `BUILD_RELEASE.cmd` on Windows while connected. It downloads and SHA-256 verifies the pinned dependencies, embeds the supplied complete notices and source links, and creates `offline/index.html`. It also creates the standard and offline ZIPs plus `SHA256SUMS.txt` under `dist/`. The standard ZIP includes the offline template and build files.
 
@@ -112,7 +112,8 @@ flowchart LR
 See [examples/mermaid.md](examples/mermaid.md) for flowchart, sequence, state, pie, class, and ER diagrams.
 
 - Diagrams use light colors on the white document page and SVG images in the viewer and print/PDF output. Large diagrams scale to fit the page.
-- Word export embeds PNG images. Diagrams use system fonts with Japanese support, independently of the body typography controls.
+- The document **Size** control (9–12 pt) also scales diagram text. At 12 pt diagrams retain their original size; 10.5 pt uses 87.5%, and 9 pt uses 75%. Scaling text, boxes and arrows together preserves the layout. The scale applies after fitting to the available width, so wide diagrams respond too, without rerendering.
+- The same scale applies to screen, print/PDF and Word's embedded PNG images. Diagram font family, weight and line spacing retain Mermaid's settings. Ordinary images do not follow the document size.
 - Print and Word buttons remain disabled during rendering. Invalid diagrams or library-loading failures retain the original code with a message; other diagrams and document content still render.
 - The standard edition loads pinned Mermaid 12.3.0 from jsDelivr on the first diagram. The PWA Service Worker also attempts to precache it. The fully offline edition embeds the same library.
 - Strict security and isolated SVG images disable diagram click actions, HTML labels, external images, and external icon packs. Diagram types requiring additional libraries and math rendering are not guaranteed.

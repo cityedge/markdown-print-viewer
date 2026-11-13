@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.7.1 - 2026-11-13
+
+- Link Mermaid diagram text size to the document Size control. Scale the complete diagram at 9–12 pt while preserving label, box and arrow placement; apply the scale after page fitting so wide and tall diagrams also respond.
+- Apply the same scale to screen, print/PDF and Word image dimensions, while retaining PNG resolution and leaving ordinary images unchanged.
+- Update diagrams immediately without rerendering, including when typography changes during an ongoing render. Keep saved document sizes effective on reload.
+- Add size regression coverage for both editions, all six example diagram types, page-constrained diagrams, Word dimensions and mobile/print layouts.
+
 ## 1.7.0 - 2026-11-13
 
 - Include complete third-party copyright/license notices and version-specific source links, including ELK Java sources and GWT/EMF/Xtext inputs. Correct markdown-it-task-lists to ISC; explicitly select EPL-2.0 for elkjs, Apache-2.0 for DOMPurify and MIT for JSZip.
