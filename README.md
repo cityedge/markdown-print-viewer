@@ -4,13 +4,14 @@
 
 Markdownファイルを「文書」として表示し、そのままブラウザの印刷機能で印刷したり、Microsoft Wordで編集可能な `.docx` に変換したりするための軽量ブラウザアプリです。Markdown自体の編集機能は持ちません。
 
-**Version 1.6.2**
+**Version 1.7.0**
 
 ## 特徴
 
 - Markdownファイルをドラッグ＆ドロップして即時表示
 - CommonMark / GFMをベースに、テーブル、タスクリスト、脚注、HTML混在をサポート
 - Markdown内のHTMLはDOMPurifyでサニタイズ
+- `mermaid` コードブロックを図として表示（印刷・PDF・Word出力対応）
 - ブラウザ標準の印刷ダイアログを使用（プリンタ／PDF保存）
 - A4向けの印刷CSS（画面はダークテーマ、印刷ページと余白は白背景）
 - **Word出力**ボタンから、現在のMarkdownをブラウザ内だけで `.docx` に変換
@@ -44,7 +45,9 @@ Markdownファイルを「文書」として表示し、そのままブラウザ
 
 `offline/index.html` は、必要なJavaScriptライブラリをHTML内へ埋め込んだ単一ファイル版です。
 
-GitHubへ初回アップロードする前、または依存ライブラリを更新したときに、Windowsでリポジトリ直下の `BUILD_RELEASE.cmd` を一度実行してください。固定バージョンの依存ライブラリとライセンス文を取得し、`offline/index.html` を生成します。
+配布済みの `markdown-print-viewer-v1.7.0-offline.zip` を展開すると、生成済みの `index.html` をそのまま開けます。利用者によるビルドは不要です。
+
+開発者が再ビルドする場合は、ネット接続中にWindowsで `BUILD_RELEASE.cmd` を実行してください。固定した依存ファイルを取得してSHA-256を検証し、同梱済みのライセンス原文・ソース入手先を埋め込んだ `offline/index.html` を生成します。さらに `dist/` に通常版・完全オフライン版のZIPと `SHA256SUMS.txt` を作成します。通常版ZIPにもテンプレートとビルド用ファイルを収録しています。
 
 生成後の `offline/index.html` は、外部JavaScriptを参照せず、ネット接続なしで表示・印刷・Word出力ができます。生成済みファイルをGitHubにコミットして構いません。
 
@@ -90,7 +93,29 @@ Word出力はPandocやMicrosoft Word本体を呼び出さず、`docx.js` を使�
 
 MarkdownからWordへの一方向変換を目的としており、DOCXから元のMarkdownへ戻すことは想定していません。
 
-脚注はWordのネイティブ脚注オブジェクトには変換せず、画面上でレンダリングされた脚注番号と末尾の脚注一覧として出力します。Markdown内の任意HTML、`details`、独自拡張などは、Wordで表現できる範囲に平坦化される場合があります。Mermaidや独自数式記法を専用オブジェクトへ変換する処理はありません。
+脚注はWordのネイティブ脚注オブジェクトには変換せず、画面上でレンダリングされた脚注番号と末尾の脚注一覧として出力します。Markdown内の任意HTML、`details`、独自拡張などは、Wordで表現できる範囲に平坦化される場合があります。MermaidはPNG画像として埋め込みます（Wordの編集可能な図形には変換しません）。独自数式記法を専用オブジェクトへ変換する処理はありません。
+
+## Mermaidの図
+
+コードブロックの言語に `mermaid` を指定すると自動で図を描画します。
+
+````markdown
+```mermaid
+flowchart LR
+  A[Markdownを開く] --> B{確認}
+  B --> C[印刷 / PDF]
+  B --> D[Word出力]
+```
+````
+
+[examples/mermaid.md](examples/mermaid.md) にフローチャート、シーケンス図、状態遷移図、円グラフ、クラス図、ER図のサンプルがあります。
+
+- 白い文書面に合わせた明るい配色でSVG画像を表示し、印刷・PDFにも反映します。大きな図は用紙内に縮小されます。
+- WordにはPNG画像として埋め込みます。本文のフォント設定は図には適用せず、日本語対応のシステムフォントを使用します。
+- 描画中は印刷・Word出力ボタンを一時的に無効にします。構文エラーやライブラリの読み込み失敗では元のコードとメッセージを残し、他の図・本文は表示します。
+- 通常版は最初の図の描画時にMermaid 12.3.0をjsDelivrから取得します。PWAではService Workerも事前キャッシュを試みます。完全オフライン版には同じライブラリを埋め込みます。
+- 厳格なセキュリティ設定とSVGの画像化を使用します。図内のクリック動作、HTMLラベル、外部画像、外部アイコンパックは対象外です。追加ライブラリを必要とする図式や数式も保証対象外です。
+- 図側のテーマ・HTML・セキュリティ設定はビューアーの設定を優先します。1図あたり最大50,000文字・500エッジを上限とし、元のMarkdownファイルは変更しません。
 
 ## ローカル画像
 
@@ -108,7 +133,7 @@ Markdownに `https://...` の画像URLが書かれている場合、表示には
 
 ## 通信について
 
-通常版が行う外部通信は、Markdownレンダリング、サニタイズ、Word生成用JavaScriptライブラリをjsDelivrから取得するためのものです。本アプリのコードには、ユーザーが選択したMarkdown、画像、フォルダ内ファイルをサーバーへ送信する処理はありません。
+通常版が行う外部通信は、Markdownレンダリング、Mermaid描画、サニタイズ、Word生成用JavaScriptライブラリをjsDelivrから取得するためのものです。本アプリのコードには、ユーザーが選択したMarkdown、画像、フォルダ内ファイルをサーバーへ送信する処理はありません。
 
 完全オフライン版では、Markdown自身が外部URLを参照しない限り、アプリ本体の動作にネットワーク接続は不要です。
 
@@ -199,7 +224,12 @@ Markdownには紙面レイアウト自体の標準仕様はないため、フォ
 │  ├─ BUILD_OFFLINE.cmd
 │  └─ build_offline.ps1
 ├─ examples/                  動作確認用サンプル
-├─ BUILD_RELEASE.cmd          offline/index.html生成用
+├─ BUILD_RELEASE.cmd          オフラインHTMLと配布用ZIPを生成
+├─ scripts/build_release.ps1  配布ファイルを限定してZIP作成
+├─ licenses.html              日英のライセンス閲覧ページ
+├─ licenses/dependencies.json バージョン・入手先・SHA-256の記録
+├─ THIRD_PARTY_LICENSES.txt    著作権表示・ライセンス原文
+├─ THIRD_PARTY_SOURCES.md      対応するソースの入手先
 ├─ README.md
 ├─ README_EN.md
 ├─ INSTALL_GUIDE.md            インストール／アンインストール詳細
@@ -211,10 +241,11 @@ Markdownには紙面レイアウト自体の標準仕様はないため、フォ
 
 ## 依存ライブラリ
 
+- Mermaid 12.3.0
 - markdown-it 15.0.1
 - markdown-it-task-lists 2.1.1
 - markdown-it-footnote 4.0.0
-- DOMPurify 3.4.14
+- DOMPurify 3.4.17
 - docx 9.7.1
 
 詳細は [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) を参照してください。
@@ -223,4 +254,6 @@ Markdownには紙面レイアウト自体の標準仕様はないため、フォ
 
 Markdown Print Viewer本体はMIT Licenseで公開します。詳細は [LICENSE](LICENSE) を参照してください。
 
-第三者ライブラリにはそれぞれのライセンスが適用されます。完全オフライン版をビルドすると、取得した第三者ライセンス文も生成HTML内に埋め込まれます。
+第三者ライブラリにはそれぞれのライセンスが適用されます。アプリの「ライセンス」から著作権表示・ライセンス原文・ソースの入手先を確認できます。完全オフライン版はこれらをHTML内に埋め込み、ネット接続なしで読めます。ソースのダウンロード時には接続が必要です。
+
+再配布時は [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) を参照し、ZIPに収録した表記一式を保持してください。依存ライブラリを更新する際は、バンドル内部の部品と対応ソースも再確認して原文集・入手先・マニフェストを更新してください。ビルドはSHA-256が一致しない依存ファイルや表記文書を拒否します。

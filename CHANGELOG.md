@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.7.0 - 2026-11-13
+
+- Include complete third-party copyright/license notices and version-specific source links, including ELK Java sources and GWT/EMF/Xtext inputs. Correct markdown-it-task-lists to ISC; explicitly select EPL-2.0 for elkjs, Apache-2.0 for DOMPurify and MIT for JSZip.
+- Add a Japanese/English license viewer; embed it in the portable HTML and cache it for offline PWA access.
+- Verify downloaded dependencies and notice documents with SHA-256; build separate standard/offline release ZIPs and checksum files.
+
+- Render Mermaid code fences as isolated SVG images using pinned Mermaid 12.3.0. Includes Japanese labels, print/PDF output, and PNG embedding in Word exports.
+- Load Mermaid on demand in the standard edition; precache it for the PWA and embed it in the self-contained offline edition.
+- Keep invalid diagrams as code with localized messages, and preserve the rest of the document. Disable export while rendering and discard stale results when another document is opened.
+- Use strict Mermaid settings and SVG sanitization; update DOMPurify to 3.4.17.
+- Add six diagram examples and browser regression checks covering output, errors, Japanese compatibility, asynchronous file switching, and offline use.
+- Allow toolbar controls and mobile status messages to wrap without squeezing labels vertically.
+- Bump UI and Service Worker cache to v1.7.0.
+
 ## 1.6.2 - 2026-10-20
 
 - Fixed Chrome/Edge print preview producing black page margins with **Background graphics** enabled while the screen uses the dark theme.

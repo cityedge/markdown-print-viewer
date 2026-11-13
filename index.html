@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Markdown Print Viewer</title>
-  <meta name="application-name" content="Markdown Print Viewer v1.6.2">
+  <meta name="application-name" content="Markdown Print Viewer v1.7.0">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#171a20">
   <link rel="manifest" href="./manifest.webmanifest">
@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="./icons/icon-192.png">
 
   <!--
-    Markdown Print Viewer v1.6.2 standard edition
+    Markdown Print Viewer v1.7.0 standard edition
     Rendering engine: markdown-it + task-lists + footnote
     Sanitizer: DOMPurify
     Word export: docx.js
@@ -22,7 +22,7 @@
   <script src="https://cdn.jsdelivr.net/npm/markdown-it@15.0.1/dist/browser/markdown-it.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/markdown-it-task-lists@2.1.1/dist/markdown-it-task-lists.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/markdown-it-footnote@4.0.0/dist/markdown-it-footnote.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.14/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.4.17/dist/purify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docx@9.7.1/dist/index.iife.js"></script>
 
   <style>
@@ -76,6 +76,7 @@
       align-items: center;
       gap: 10px;
       min-height: 58px;
+      flex-wrap: wrap;
       padding: 10px 16px;
       background: color-mix(in srgb, var(--panel) 93%, transparent);
       border-bottom: 1px solid var(--border);
@@ -144,6 +145,8 @@
       background: var(--panel-2);
       color: var(--text);
       font: 600 13px/1 var(--ui-font);
+      white-space: nowrap;
+      flex-shrink: 0;
       padding: 10px 13px;
       cursor: pointer;
       transition: border-color .15s ease, background .15s ease, transform .05s ease;
@@ -256,6 +259,11 @@
     .status-dot.ok { background: #4caf73; }
     .status-dot.error { background: #e35d6a; }
     .status-spacer { margin-left: auto; }
+    .license-dialog { width: min(1080px, 96vw); height: 90vh; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--panel); color: var(--text); }
+    .license-dialog::backdrop { background: rgba(0, 0, 0, .7); }
+    .license-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .license-dialog iframe { width: 100%; height: calc(100% - 54px); border: 0; border-radius: 8px; background: #101318; }
+    @media print { .license-dialog { display: none !important; } }
     .compat { white-space: nowrap; }
 
     /* Reading mode: keep only the brand row visible to maximize document space. */
@@ -483,6 +491,32 @@
       outline-offset: 3px;
     }
 
+    .markdown-body .mermaid-diagram {
+      margin: 1em 0;
+      text-align: center;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .markdown-body .mermaid-diagram img {
+      display: block;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+    }
+    .markdown-body .mermaid-notice {
+      margin: .5em 0;
+      color: #895200;
+      font-size: .9em;
+    }
+    .mermaid-staging {
+      position: fixed;
+      left: -100000px;
+      top: 0;
+      width: 1000px;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
     .markdown-body hr {
       height: .25em;
       margin: 1.1em 0;
@@ -572,7 +606,10 @@
         min-height: 0;
         padding: 24px 18px 36px;
       }
-      .statusbar { overflow-x: auto; }
+      .statusbar { flex-wrap: wrap; }
+      #statusText { flex: 1 1 calc(100% - 25px); }
+      .status-spacer { display: none; }
+      .statusbar .compat { white-space: normal; overflow-wrap: anywhere; }
     }
 
     @page {
@@ -625,7 +662,11 @@
         color: #000 !important;
       }
 
-      .empty-state { display: none !important; }
+      .empty-state, .mermaid-staging { display: none !important; }
+      .markdown-body .mermaid-diagram img {
+        max-height: 230mm;
+        object-fit: contain;
+      }
       .markdown-body { font-size: var(--doc-size); line-height: var(--doc-print-line-height); }
 
       .markdown-body a {
@@ -668,7 +709,7 @@
       <div class="brand" id="brandToggle" role="button" tabindex="0" aria-expanded="true">
         <div class="brand-mark">M↓</div>
         <div class="brand-copy">
-          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.6.2</span></div>
+          <div class="brand-title">Markdown Print Viewer <span class="version-badge">v1.7.0</span></div>
           <div class="file-name" id="fileName">ファイル未選択 / No file selected</div>
         </div>
       </div>
@@ -731,6 +772,7 @@
       <span class="status-spacer"></span>
       <span class="compat" id="folderStatus">Folder: —</span>
       <span class="compat">CommonMark / GFM + Task Lists + Footnotes</span>
+      <button id="licensesBtn" type="button">ライセンス</button>
     </div>
 
     <main class="workspace" id="workspace">
@@ -748,6 +790,14 @@
     </main>
   </div>
 
+  <dialog class="license-dialog" id="licenseDialog" aria-labelledby="licenseTitle">
+    <div class="license-dialog-header">
+      <strong id="licenseTitle">ライセンスとソースの入手先</strong>
+      <button id="licenseClose" type="button" autofocus>閉じる</button>
+    </div>
+    <iframe id="licenseFrame" title="ライセンスとソースの入手先"></iframe>
+  </dialog>
+
   <div class="drop-overlay" id="dropOverlay" aria-hidden="true">
     <div class="drop-card"><strong>.md</strong> ファイルをここにドロップ</div>
   </div>
@@ -760,6 +810,9 @@
 
       const i18n = {
         ja: {
+          licenses: 'ライセンス',
+          licenseTitle: 'ライセンスとソースの入手先',
+          close: '閉じる',
           noFile: 'ファイル未選択 / No file selected',
           open: 'Markdownを開く',
           openFolder: 'フォルダを開く',
@@ -780,6 +833,11 @@
           installError: 'アプリのインストールを開始できませんでした。',
           idle: 'Markdownファイルを開くか、この画面にドロップしてください。',
           loaded: 'レンダリング完了',
+          mermaidRendering: 'Mermaidの図を描画しています…',
+          mermaidDiagram: 'Mermaidの図',
+          mermaidError: 'Mermaidの図を描画できませんでした。元のコードを表示します。構文を確認してください。',
+          mermaidUnavailable: 'Mermaidを読み込めませんでした。通常版はネット接続、オフライン版はビルド状態を確認してください。',
+          mermaidFailed: count => `文書を表示しました · Mermaid ${count}件を描画できなかったためコードで表示`,
           loadedImages: (ok, total) => `レンダリング完了 · ローカル画像 ${ok}/${total}`,
           loading: '読み込み中…',
           folderLoading: 'フォルダを読み込み中…',
@@ -816,6 +874,9 @@
           expandControls: '操作パネルを表示'
         },
         en: {
+          licenses: 'Licenses',
+          licenseTitle: 'Licenses and source code',
+          close: 'Close',
           noFile: 'No file selected',
           open: 'Open Markdown',
           openFolder: 'Open Folder',
@@ -836,6 +897,11 @@
           installError: 'The app installation prompt could not be opened.',
           idle: 'Open a Markdown file or drop it anywhere on this window.',
           loaded: 'Rendered',
+          mermaidRendering: 'Rendering Mermaid diagrams…',
+          mermaidDiagram: 'Mermaid diagram',
+          mermaidError: 'This Mermaid diagram could not be rendered. The original code is shown; check its syntax.',
+          mermaidUnavailable: 'Mermaid could not be loaded. Check the network connection for the standard edition or the build state for the offline edition.',
+          mermaidFailed: count => `Document displayed · ${count} Mermaid diagram(s) shown as code`,
           loadedImages: (ok, total) => `Rendered · local images ${ok}/${total}`,
           loading: 'Loading…',
           folderLoading: 'Loading folder…',
@@ -882,6 +948,11 @@
       let md = null;
       let dragDepth = 0;
       let controlsCollapsed = false;
+      let renderRevision = 0;
+      let fileOpenRevision = 0;
+      let isRendering = false;
+      let mermaidLoadPromise = null;
+      let mermaidSequence = 0;
 
       // Folder state is deliberately independent from the current Markdown state.
       let currentFolderName = '';
@@ -897,6 +968,11 @@
         wordBtn: document.getElementById('wordBtn'),
         printBtn: document.getElementById('printBtn'),
         langBtn: document.getElementById('langBtn'),
+        licensesBtn: document.getElementById('licensesBtn'),
+        licenseDialog: document.getElementById('licenseDialog'),
+        licenseTitle: document.getElementById('licenseTitle'),
+        licenseClose: document.getElementById('licenseClose'),
+        licenseFrame: document.getElementById('licenseFrame'),
         installBtn: document.getElementById('installBtn'),
         fontLabel: document.getElementById('fontLabel'),
         sizeLabel: document.getElementById('sizeLabel'),
@@ -951,6 +1027,10 @@
 
       function applyLanguage() {
         document.documentElement.lang = language;
+        els.licensesBtn.textContent = t('licenses');
+        els.licenseTitle.textContent = t('licenseTitle');
+        els.licenseFrame.title = t('licenseTitle');
+        els.licenseClose.textContent = t('close');
         els.openBtn.textContent = t('open');
         els.folderBtn.textContent = t('openFolder');
         els.wordBtn.textContent = t('word');
@@ -983,6 +1063,12 @@
         const p = els.emptyState.querySelector('p');
         h.textContent = t('emptyTitle');
         p.textContent = t('emptyText');
+        els.rendered.querySelectorAll('[data-mermaid-message]').forEach(el => {
+          el.textContent = t(el.dataset.mermaidMessage);
+        });
+        els.rendered.querySelectorAll('img[data-mermaid-default-alt]').forEach(el => {
+          el.alt = t('mermaidDiagram');
+        });
       }
 
 
@@ -1310,9 +1396,130 @@
         });
       }
 
+      function mermaidApi() {
+        // The official IIFE bundle exports its default API under this namespace.
+        return window.mermaid || window.__esbuild_esm_mermaid_nm?.mermaid?.default;
+      }
+
+      async function loadMermaid() {
+        if (mermaidApi()?.render) return mermaidApi();
+        if (!mermaidLoadPromise) {
+          mermaidLoadPromise = new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            const timer = setTimeout(() => finish(new Error('Mermaid load timed out')), 20000);
+            function finish(error) {
+              clearTimeout(timer);
+              script.onload = script.onerror = null;
+              if (error) { script.remove(); reject(error); }
+              else resolve(mermaidApi());
+            }
+            script.src = 'https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js';
+            script.onload = () => finish(mermaidApi()?.render ? null : new Error('Mermaid API unavailable'));
+            script.onerror = () => finish(new Error('Mermaid load failed'));
+            document.head.appendChild(script);
+          }).catch(error => {
+            mermaidLoadPromise = null;
+            throw error;
+          });
+        }
+        return mermaidLoadPromise;
+      }
+
+      function mermaidNotice(pre, key) {
+        const notice = document.createElement('p');
+        notice.className = 'mermaid-notice';
+        notice.dataset.mermaidMessage = key;
+        notice.textContent = t(key);
+        pre.before(notice);
+      }
+
+      async function renderMermaid(revision) {
+        if (revision !== renderRevision) return 0;
+        const blocks = [...els.rendered.querySelectorAll('pre > code.language-mermaid')];
+        if (!blocks.length) return 0;
+        setStatus(t('mermaidRendering'));
+        let mermaid;
+        try {
+          mermaid = await loadMermaid();
+        } catch (_) {
+          if (revision !== renderRevision) return 0;
+          blocks.forEach(code => mermaidNotice(code.parentElement, 'mermaidUnavailable'));
+          return blocks.length;
+        }
+        let failed = 0;
+        for (const code of blocks) {
+          if (revision !== renderRevision) break;
+          const stage = document.createElement('div');
+          stage.className = 'mermaid-staging';
+          stage.setAttribute('aria-hidden', 'true');
+          document.body.appendChild(stage);
+          try {
+            if (code.textContent.length > 50000) throw new Error('Mermaid source is too large');
+            // SVG text labels work in printed pages and the Word PNG conversion.
+            // Keep document directives from enabling HTML/click handlers or dark themes.
+            mermaid.initialize({
+              startOnLoad: false,
+              securityLevel: 'strict',
+              suppressErrorRendering: true,
+              theme: 'default',
+              htmlLabels: false,
+              fontFamily: 'Arial, "Yu Gothic", Meiryo, sans-serif',
+              flowchart: { htmlLabels: false },
+              maxTextSize: 50000,
+              maxEdges: 500,
+              secure: ['secure', 'securityLevel', 'startOnLoad', 'maxTextSize', 'maxEdges',
+                'suppressErrorRendering', 'htmlLabels', 'flowchart', 'theme', 'themeVariables',
+                'themeCSS', 'fontFamily']
+            });
+            const { svg } = await mermaid.render(`mpv-mermaid-${++mermaidSequence}`, code.textContent, stage);
+            if (revision !== renderRevision) break;
+            const clean = window.DOMPurify.sanitize(svg, {
+              USE_PROFILES: { svg: true, svgFilters: true },
+              FORBID_TAGS: ['foreignObject', 'image', 'a']
+            });
+            const parsed = new DOMParser().parseFromString(clean, 'image/svg+xml');
+            const root = parsed.documentElement;
+            const box = root.getAttribute('viewBox')?.trim().split(/[\s,]+/).map(Number);
+            if (root.localName !== 'svg' || !box || box.length !== 4 ||
+                !box.every(Number.isFinite) || box[2] <= 0 || box[3] <= 0) {
+              throw new Error('Invalid Mermaid SVG');
+            }
+            root.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+            root.setAttribute('width', String(Math.ceil(box[2])));
+            root.setAttribute('height', String(Math.ceil(box[3])));
+            root.style.maxWidth = 'none';
+            const description = [root.querySelector('title')?.textContent, root.querySelector('desc')?.textContent]
+              .filter(Boolean).join(' — ');
+            const img = new Image();
+            img.alt = description || t('mermaidDiagram');
+            if (!description) img.dataset.mermaidDefaultAlt = 'true';
+            img.dataset.mermaid = 'true';
+            // An SVG image isolates diagram styles and uses the existing Word image pipeline.
+            img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(new XMLSerializer().serializeToString(root));
+            await img.decode();
+            if (revision !== renderRevision) break;
+            const figure = document.createElement('div');
+            figure.className = 'mermaid-diagram';
+            figure.appendChild(img);
+            code.parentElement.replaceWith(figure);
+          } catch (_) {
+            if (revision !== renderRevision) break;
+            failed += 1;
+            mermaidNotice(code.parentElement, 'mermaidError');
+          } finally {
+            stage.remove();
+          }
+        }
+        return failed;
+      }
+
       async function renderMarkdown(source, fileName, statusOverride = null) {
         if (!md && !initMarkdown()) return;
-
+        const revision = ++renderRevision;
+        isRendering = true;
+        els.rendered.setAttribute('aria-busy', 'true');
+        els.printBtn.disabled = true;
+        refreshWordButton();
         try {
           const cleanSource = source.replace(/^\uFEFF/, '');
           const renderSource = prepareJapaneseCompatibleSource(cleanSource);
@@ -1327,11 +1534,13 @@
           document.title = `${fileName} — Markdown Print Viewer`;
           els.emptyState.hidden = true;
           els.rendered.hidden = false;
-          els.printBtn.disabled = false;
-          refreshWordButton();
-
           const imageResult = await resolveLocalImages();
-          if (statusOverride) {
+          const mermaidFailed = await renderMermaid(revision);
+          if (revision !== renderRevision) return;
+          imageResult.mermaidFailed = mermaidFailed;
+          if (mermaidFailed) {
+            setStatus(t('mermaidFailed', mermaidFailed), 'error');
+          } else if (statusOverride) {
             setStatus(statusOverride, 'ok');
           } else if (imageResult.total > 0) {
             setStatus(t('loadedImages', imageResult.resolved, imageResult.total), imageResult.resolved === imageResult.total ? 'ok' : 'error');
@@ -1343,11 +1552,19 @@
           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
           return imageResult;
         } catch (err) {
+          if (revision !== renderRevision) return;
           console.error(err);
           els.rendered.innerHTML = `<div class="load-error">${escapeHtml(t('readError'))}</div>`;
           els.emptyState.hidden = true;
           els.rendered.hidden = false;
           setStatus(t('readError'), 'error');
+        } finally {
+          if (revision === renderRevision) {
+            isRendering = false;
+            els.rendered.setAttribute('aria-busy', 'false');
+            els.printBtn.disabled = !hasDocument;
+            refreshWordButton();
+          }
         }
       }
 
@@ -1392,21 +1609,34 @@
           return;
         }
 
+        const opening = ++fileOpenRevision;
+        ++renderRevision; // Invalidate an older diagram before reading the next file.
+        isRendering = true;
+        els.printBtn.disabled = true;
+        refreshWordButton();
         setStatus(t('loading'));
         try {
           const text = await file.text();
+          if (opening !== fileOpenRevision) return;
           currentFile = file;
           currentMarkdownPath = knownPath ? normalizePath(knownPath) : null;
 
           if (!currentMarkdownPath && folderFiles.size) {
             currentSource = text.replace(/^\uFEFF/, '');
-            currentMarkdownPath = await identifyMarkdownPathInFolder(file);
+            const matchedPath = await identifyMarkdownPathInFolder(file);
+            if (opening !== fileOpenRevision) return;
+            currentMarkdownPath = matchedPath;
             if (!currentMarkdownPath) currentMarkdownPath = file.name; // selected folder root as explicit fallback base
           }
 
           await renderMarkdown(text, file.name, statusOverride);
         } catch (err) {
+          if (opening !== fileOpenRevision) return;
           console.error(err);
+          isRendering = false;
+          els.rendered.setAttribute('aria-busy', 'false');
+          els.printBtn.disabled = !hasDocument;
+          refreshWordButton();
           setStatus(t('readError'), 'error');
         }
       }
@@ -1466,7 +1696,7 @@
         const exact = !!matchedPath;
         currentMarkdownPath = matchedPath || currentFileName; // root fallback if the Markdown itself is outside/not identifiable
         const imageResult = await renderMarkdown(currentSource, currentFileName);
-
+        if (!imageResult || imageResult.mermaidFailed) return;
         if (imageResult && imageResult.total > 0) {
           setStatus(t('folderReadyImages', currentFolderName, imageResult.resolved, imageResult.total), imageResult.resolved === imageResult.total ? 'ok' : 'error');
         } else {
@@ -1503,7 +1733,7 @@
       }
 
       function refreshWordButton() {
-        els.wordBtn.disabled = !(hasDocument && docxAvailable());
+        els.wordBtn.disabled = isRendering || !(hasDocument && docxAvailable());
         els.wordBtn.title = docxAvailable() ? t('wordTitle') : t('wordUnavailable');
       }
 
@@ -1606,7 +1836,7 @@
         if (!naturalWidth || !naturalHeight) throw new Error(`Image data unavailable: ${original}`);
 
         const rasterMax = 1800;
-        const rasterScale = Math.min(1, rasterMax / naturalWidth, rasterMax / naturalHeight);
+        const rasterScale = Math.min(img.dataset.mermaid ? 2 : 1, rasterMax / naturalWidth, rasterMax / naturalHeight);
         const canvas = document.createElement('canvas');
         canvas.width = Math.max(1, Math.round(naturalWidth * rasterScale));
         canvas.height = Math.max(1, Math.round(naturalHeight * rasterScale));
@@ -1831,7 +2061,7 @@
               spacing: { before: level <= 2 ? 220 : 150, after: 90 },
               children: children.length ? children : [wordTextRun('', { bold: true, heading: true, size })]
             }));
-          } else if (tag === 'p') {
+          } else if (tag === 'p' || el.classList.contains('mermaid-diagram')) {
             blocks.push(await paragraphFromElement(el, context, stats));
           } else if (tag === 'ul' || tag === 'ol') {
             blocks.push(...await listToWord(el, { ...context, listLevel: context.listLevel || 0 }, stats));
@@ -1892,7 +2122,7 @@
       }
 
       async function exportWord() {
-        if (!hasDocument) return;
+        if (!hasDocument || isRendering) return;
         if (!docxAvailable()) {
           setStatus(t('wordUnavailable'), 'error');
           return;
@@ -2084,9 +2314,20 @@
       });
 
       els.wordBtn.addEventListener('click', exportWord);
+      els.licensesBtn.addEventListener('click', () => {
+        const embedded = document.getElementById('third-party-licenses');
+        if (embedded) {
+          els.licenseFrame.srcdoc = JSON.parse(embedded.textContent)
+            .replace('<html lang="ja">', '<html lang="' + language + '">');
+        } else {
+          els.licenseFrame.src = './licenses.html?lang=' + language;
+        }
+        els.licenseDialog.showModal();
+      });
+      els.licenseClose.addEventListener('click', () => els.licenseDialog.close());
 
       els.printBtn.addEventListener('click', () => {
-        if (hasDocument) window.print();
+        if (hasDocument && !isRendering) window.print();
       });
       els.japaneseCompat.addEventListener('change', async () => {
         localStorage.setItem('mpv.japaneseCompatibility', els.japaneseCompat.checked ? '1' : '0');
@@ -2128,6 +2369,10 @@
       // Keyboard: Ctrl/Cmd+O = open Markdown; Ctrl/Cmd+P remains browser-native print.
       window.addEventListener('keydown', e => {
         const mod = e.ctrlKey || e.metaKey;
+        if (mod && e.key.toLowerCase() === 'p' && isRendering) {
+          e.preventDefault();
+          setStatus(t('mermaidRendering'));
+        }
         if (mod && e.key.toLowerCase() === 'o') {
           e.preventDefault();
           els.fileInput.click();

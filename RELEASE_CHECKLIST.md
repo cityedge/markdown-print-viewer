@@ -1,4 +1,28 @@
-# v1.6.2 GitHub Upload Checklist
+# v1.7.0 GitHub Upload Checklist
+
+## Licenses and distribution
+
+- Run `BUILD_RELEASE.cmd`; confirm the standard/offline ZIPs and `SHA256SUMS.txt` under `dist/`.
+- Run `node tests/licenses.cjs` to verify notice hashes, component coverage, source links and offline embedding. Set `MPV_TEST_NODE_MODULES` and run `node tests/mermaid.cjs` for browser, license UI, print and Word checks. Set `MPV_TEST_LIVE_CDN=1` to include live CDN and offline PWA tests.
+- Retain `LICENSE`, `THIRD_PARTY_NOTICES.md`, `THIRD_PARTY_LICENSES.txt`, `THIRD_PARTY_SOURCES.md`, `licenses.html`, and `licenses/dependencies.json` in both ZIPs.
+- Confirm the Licenses dialog opens in Japanese and English; the offline HTML alone retains the full notices and clickable source links while disconnected.
+- If dependencies change, re-audit the actual browser bundle, its source map/lockfile and ELK Java build inputs. Update full notices, exact source locations and hashes together; do not just change the version string.
+- Only reviewed public application files are packaged; `tests/tmp/`, build caches and local audit downloads are excluded.
+
+## Mermaid regression checks
+
+- Open `examples/mermaid.md`: all six diagrams, Japanese labels, arrows, and captions must be visible.
+- Print/save PDF with background graphics enabled: diagrams fit inside white pages.
+- Export Word: all six diagrams are embedded images. Open the result in Microsoft Word for manual compatibility checking.
+- A malformed Mermaid fence keeps its code and a Japanese/English error message; valid diagrams after it still render.
+- While a diagram is rendering, Print/Word remain disabled; opening a new document must discard old results.
+- Standard edition: Mermaid loads on the first diagram; a failed download leaves the rest of the Markdown usable.
+- Fully offline edition: disconnect the network and repeat diagram rendering and Word export.
+- PWA: after the Service Worker finishes caching Mermaid, disconnect and reopen a diagram.
+- Keep the existing Japanese compatibility, relative-image, and white print-margin regressions passing.
+- Automated browser checks: install `playwright` and `jszip` in a test environment, run `node tests/mermaid.cjs`. Alternatively set `MPV_TEST_NODE_MODULES` to an existing packages directory. Artifacts are written under `tests/tmp/mermaid/`.
+
+## Upload
 
 1. Extract the package to a normal writable folder.
 2. While connected to the Internet, run `BUILD_RELEASE.cmd` once.
@@ -10,10 +34,10 @@
 8. For the relative-image test, use **Open Folder**, select the `examples` folder, then export Word again and confirm the sample image is embedded.
 9. Open `offline/index.html` with the network disconnected and repeat the render, print, and Word-export tests.
 10. Upload the repository contents to GitHub, including the generated `offline/index.html`.
-11. Create/tag the release as `v1.6.2` if desired.
+11. Create/tag the release as `v1.7.0` if desired.
 
-The root `index.html` is the standard CDN edition. `offline/index.html` is the fully self-contained edition generated from the same v1.6.2 application source.
-## v1.6.2 UI check
+The root `index.html` is the standard CDN edition. `offline/index.html` is the fully self-contained edition generated from the same v1.7.0 application source.
+## v1.7.0 UI check
 
 - On a narrow/mobile viewport, tap the Markdown Print Viewer title/icon area.
 - Confirm all controls and the status bar disappear while the title/current filename row remains.
@@ -36,7 +60,7 @@ The root `index.html` is the standard CDN edition. `offline/index.html` is the f
 - `.md` をダブルクリックしてPWAが起動し、そのファイルが自動表示されることを確認。
 - PWA起動中に別の `.md` を開き、既存ウィンドウで新しい文書へ切り替わることを確認。
 - 一度オンラインで正常起動した後、ネットワークを切ってPWAが起動し、ローカルMarkdownを表示できることを確認。
-- Confirm `v1.6.2` is visible beside “Markdown Print Viewer” in both expanded and collapsed toolbar states.
+- Confirm `v1.7.0` is visible beside “Markdown Print Viewer” in both expanded and collapsed toolbar states.
 - On GitHub Pages in an installable Chrome/Edge environment, confirm **アプリとしてインストール / Install app** appears in the initial pane.
 - Confirm the install CTA is absent for local `file://` use and when the installed PWA is running in standalone mode.
 - Confirm pressing the CTA opens the browser-native install prompt, and successful installation hides it.
@@ -51,7 +75,7 @@ The root `index.html` is the standard CDN edition. `offline/index.html` is the f
 - Confirm Windows `.md` association is described as a desktop PWA feature and Android is not presented as supporting the same file-association workflow.
 
 
-## v1.6.2 Japanese compatibility regression
+## v1.7.0 Japanese compatibility regression
 
 With **Japanese compatibility** enabled, confirm all three render correctly in the viewer and Word export:
 
@@ -61,7 +85,7 @@ With **Japanese compatibility** enabled, confirm all three render correctly in t
 
 With Japanese compatibility disabled, standard CommonMark/GFM behavior must remain unchanged.
 
-## v1.6.2 print background regression
+## v1.7.0 print background regression
 
 - In Chrome/Edge, open a Markdown document and Print Preview.
 - Turn **Background graphics** ON. Check **1 page per sheet**: page margins and header/footer areas remain white, and the document is black text on white.

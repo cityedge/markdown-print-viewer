@@ -4,13 +4,14 @@
 
 Markdown Print Viewer is a lightweight browser app for rendering Markdown as a document, printing it through the browser's native print dialog, and exporting it to an editable Microsoft Word `.docx` file. It deliberately does not include Markdown editing features.
 
-**Version 1.6.2**
+**Version 1.7.0**
 
 ## Features
 
 - Drag and drop a Markdown file to render it immediately
 - CommonMark / GFM-oriented rendering with tables, task lists, footnotes, and embedded HTML
 - Embedded HTML is sanitized with DOMPurify
+- Render `mermaid` code fences as diagrams, including print, PDF, and Word output
 - Browser-native printing for printers and PDF output
 - A4-oriented print CSS
 - The print page, including margins, remains white even with background graphics enabled.
@@ -45,7 +46,9 @@ The standard edition loads pinned JavaScript dependencies from jsDelivr at runti
 
 `offline/index.html` is a self-contained edition with all required JavaScript libraries embedded into the HTML file.
 
-Before the first GitHub upload, or after dependency updates, run `BUILD_RELEASE.cmd` once on Windows. It downloads the pinned dependencies and their license texts and generates `offline/index.html`.
+Users can extract `markdown-print-viewer-v1.7.0-offline.zip` and open the included, already-built `index.html`. No build is required to use it.
+
+To rebuild, run `BUILD_RELEASE.cmd` on Windows while connected. It downloads and SHA-256 verifies the pinned dependencies, embeds the supplied complete notices and source links, and creates `offline/index.html`. It also creates the standard and offline ZIPs plus `SHA256SUMS.txt` under `dist/`. The standard ZIP includes the offline template and build files.
 
 The generated `offline/index.html` contains no external JavaScript references and can render, print, and export Word files without a network connection. It is fine to commit the generated file to GitHub.
 
@@ -91,7 +94,29 @@ The selected document font and size are also used for Word export. Word does not
 
 The feature is intentionally one-way: Markdown → DOCX. DOCX → Markdown round-tripping is not a goal.
 
-Footnotes are currently exported as the rendered footnote reference plus the rendered footnote list at the end, rather than as native Word footnote objects. Arbitrary embedded HTML, `details`, and nonstandard Markdown extensions may be flattened to the closest editable Word representation. Mermaid and custom math syntaxes are not converted into dedicated Word objects.
+Footnotes are currently exported as the rendered footnote reference plus the rendered footnote list at the end, rather than as native Word footnote objects. Arbitrary embedded HTML, `details`, and nonstandard Markdown extensions may be flattened to the closest editable Word representation. Mermaid diagrams are embedded as PNG images, not editable Word shapes. Custom math syntaxes are not converted into dedicated Word objects.
+
+## Mermaid diagrams
+
+Use `mermaid` as the fenced code block language to render a diagram automatically:
+
+````markdown
+```mermaid
+flowchart LR
+  A[Open Markdown] --> B{Review}
+  B --> C[Print / PDF]
+  B --> D[Word export]
+```
+````
+
+See [examples/mermaid.md](examples/mermaid.md) for flowchart, sequence, state, pie, class, and ER diagrams.
+
+- Diagrams use light colors on the white document page and SVG images in the viewer and print/PDF output. Large diagrams scale to fit the page.
+- Word export embeds PNG images. Diagrams use system fonts with Japanese support, independently of the body typography controls.
+- Print and Word buttons remain disabled during rendering. Invalid diagrams or library-loading failures retain the original code with a message; other diagrams and document content still render.
+- The standard edition loads pinned Mermaid 12.3.0 from jsDelivr on the first diagram. The PWA Service Worker also attempts to precache it. The fully offline edition embeds the same library.
+- Strict security and isolated SVG images disable diagram click actions, HTML labels, external images, and external icon packs. Diagram types requiring additional libraries and math rendering are not guaranteed.
+- Viewer settings take precedence over diagram theme, HTML, and security overrides. Each diagram is limited to 50,000 characters and 500 edges. The original Markdown file is never modified.
 
 ## Local images and folder access
 
@@ -109,7 +134,7 @@ Images referenced by an `https://...` URL naturally require network access. To e
 
 ## Network behavior
 
-The standard edition's own network access is limited to loading its Markdown renderer, sanitizer, and Word-generation JavaScript dependencies from jsDelivr. The application contains no upload path for user-selected Markdown files, images, or folder contents.
+The standard edition's own network access is limited to loading its Markdown renderer, Mermaid renderer, sanitizer, and Word-generation JavaScript dependencies from jsDelivr. The application contains no upload path for user-selected Markdown files, images, or folder contents.
 
 The fully offline edition needs no network connection for the application itself, unless the Markdown document explicitly references external resources.
 
@@ -211,10 +236,11 @@ Google Chrome and Microsoft Edge on Windows are the primary targets. A Chromium-
 
 ## Dependencies
 
+- Mermaid 12.3.0
 - markdown-it 15.0.1
 - markdown-it-task-lists 2.1.1
 - markdown-it-footnote 4.0.0
-- DOMPurify 3.4.14
+- DOMPurify 3.4.17
 - docx 9.7.1
 
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
@@ -223,4 +249,6 @@ See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 Markdown Print Viewer is released under the MIT License. See [LICENSE](LICENSE).
 
-Third-party dependencies remain subject to their respective licenses. The offline build embeds the downloaded third-party license texts into the generated HTML file.
+Third-party dependencies remain subject to their respective licenses. Use **Licenses** in the app to read copyright notices, complete license texts and corresponding source links. These are embedded in the standalone offline HTML and remain readable without a connection. Downloading sources requires a connection.
+
+Keep the notice files when redistributing; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md), [full texts](THIRD_PARTY_LICENSES.txt), and [source links](THIRD_PARTY_SOURCES.md). The version and hash inventory is in `licenses/dependencies.json`. When updating libraries, review bundled components and corresponding sources again before updating the notices and hashes. The build rejects mismatched dependencies or notice documents.

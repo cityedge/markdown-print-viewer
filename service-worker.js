@@ -1,18 +1,20 @@
 'use strict';
 
-const CACHE_NAME = 'markdown-print-viewer-v1.6.2';
+const CACHE_NAME = 'markdown-print-viewer-v1.7.0-licenses-1';
 const LOCAL_ASSETS = [
   './',
   './index.html',
+  './licenses.html',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];
 const RUNTIME_DEPENDENCIES = [
+  "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js",
   "https://cdn.jsdelivr.net/npm/markdown-it@15.0.1/dist/browser/markdown-it.umd.min.js",
   "https://cdn.jsdelivr.net/npm/markdown-it-task-lists@2.1.1/dist/markdown-it-task-lists.min.js",
   "https://cdn.jsdelivr.net/npm/markdown-it-footnote@4.0.0/dist/markdown-it-footnote.min.js",
-  "https://cdn.jsdelivr.net/npm/dompurify@3.4.14/dist/purify.min.js",
+  "https://cdn.jsdelivr.net/npm/dompurify@3.4.17/dist/purify.min.js",
   "https://cdn.jsdelivr.net/npm/docx@9.7.1/dist/index.iife.js"
 ];
 
@@ -68,6 +70,11 @@ self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
+
+  if (url.origin === self.location.origin && url.pathname.endsWith('/licenses.html')) {
+    event.respondWith(networkFirst(request, './licenses.html'));
+    return;
+  }
 
   if (request.mode === 'navigate') {
     event.respondWith(networkFirst(request, './index.html'));

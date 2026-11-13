@@ -1,0 +1,3964 @@
+{
+  "schemaVersion": 1,
+  "appVersion": "1.7.0",
+  "reviewedOn": "2026-11-13",
+  "runtime": [
+    {
+      "name": "mermaid",
+      "version": "12.3.0",
+      "url": "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js",
+      "sha256": "336df803d87a38b70a01e736e666c8f7601d2ce42f5e47c8fafe5d721074b9a3",
+      "license": "MIT"
+    },
+    {
+      "name": "markdown-it",
+      "version": "15.0.1",
+      "url": "https://cdn.jsdelivr.net/npm/markdown-it@15.0.1/dist/browser/markdown-it.umd.min.js",
+      "sha256": "f9f377ca892291fbe32904e77a00c6e27e8f95c14f435a54c8cb6859b3d97692",
+      "license": "MIT"
+    },
+    {
+      "name": "markdown-it-task-lists",
+      "version": "2.1.1",
+      "url": "https://cdn.jsdelivr.net/npm/markdown-it-task-lists@2.1.1/dist/markdown-it-task-lists.min.js",
+      "sha256": "4f3b23f41bb3787957da2602fbccc4df0d017928c1fce62583159e096b832a81",
+      "license": "ISC"
+    },
+    {
+      "name": "markdown-it-footnote",
+      "version": "4.0.0",
+      "url": "https://cdn.jsdelivr.net/npm/markdown-it-footnote@4.0.0/dist/markdown-it-footnote.min.js",
+      "sha256": "d6fee58a3b56c5742fa18f3e01f1d317cc99975683ebd39c9195cb2aff0c2e42",
+      "license": "MIT"
+    },
+    {
+      "name": "dompurify",
+      "version": "3.4.17",
+      "url": "https://cdn.jsdelivr.net/npm/dompurify@3.4.17/dist/purify.min.js",
+      "sha256": "cd37898f9782adf54820c413191b5691803f0f137c799d6edcfd38523b4c2c31",
+      "license": "Apache-2.0"
+    },
+    {
+      "name": "docx",
+      "version": "9.7.1",
+      "url": "https://cdn.jsdelivr.net/npm/docx@9.7.1/dist/index.iife.js",
+      "sha256": "d5ec4f5a8b99740845974f5f6f020d6e5b1b6c27026195befc67eb37035c84c7",
+      "license": "MIT"
+    }
+  ],
+  "documents": {
+    "THIRD_PARTY_LICENSES.txt": "96307322402b6e062fb56ae21212139351b13bd1f5f6a8918e17c24ea56a898f",
+    "THIRD_PARTY_SOURCES.md": "1ee3ab13123f57ea58704c6b54ab55d5f7394ab6f1ed62deffe8ce88c35e3949",
+    "licenses.html": "cb6cff8dd43c004a712d6537a17a99b1ef9a2bf26b77b0cceff311cfb3ac9107"
+  },
+  "components": [
+    {
+      "name": "@braintree/sanitize-url",
+      "version": "7.1.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/braintree/sanitize-url.git",
+        "type": "git"
+      },
+      "gitHead": "206cb8b942b10dad28dd3d31db3bf39e3fcdd7aa",
+      "tarball": "https://registry.npmjs.org/@braintree/sanitize-url/-/sanitize-url-7.1.2.tgz",
+      "integrity": "sha512-jigsZK+sMF/cuiB7sERuo9V7N9jx+dhmHHnQyDSVdpZwVutaBu7WvNYqMDLSgFgfB30n452TP3vjDAvFC973mA==",
+      "sha256": "fd9a220c24c5cdd406433cce1c3db7f09222d8f7977f0fe087aec914e1a63dc0",
+      "repositoryUrl": "https://github.com/braintree/sanitize-url",
+      "sourceUrl": "https://github.com/braintree/sanitize-url/tree/206cb8b942b10dad28dd3d31db3bf39e3fcdd7aa",
+      "sourceArchive": "https://codeload.github.com/braintree/sanitize-url/zip/206cb8b942b10dad28dd3d31db3bf39e3fcdd7aa",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "@chevrotain/cst-dts-gen",
+      "version": "13.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "Apache-2.0",
+      "repository": {
+        "url": "git://github.com/Chevrotain/chevrotain.git",
+        "type": "git"
+      },
+      "gitHead": "221fff76526021a3abba1068130f5e8a343fbaaf",
+      "tarball": "https://registry.npmjs.org/@chevrotain/cst-dts-gen/-/cst-dts-gen-13.2.0.tgz",
+      "integrity": "sha512-bA9dvWlhAUcHkNwU+8w9yiUxJPlj/Lm3VqS7MD+NbIR/7LmpNLuK/AWNFdCo/T3SK5ND0/UHf3IJvl/Jn/i6yg==",
+      "sha256": "c157cd28cf92702c3af7a2634dfb12524cdc38b91243fe1ddcc0b2c09a53c32b",
+      "repositoryUrl": "https://github.com/Chevrotain/chevrotain",
+      "sourceUrl": "https://github.com/Chevrotain/chevrotain/tree/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "sourceArchive": "https://codeload.github.com/Chevrotain/chevrotain/zip/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "package/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "@chevrotain/gast",
+      "version": "13.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map",
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "Apache-2.0",
+      "repository": {
+        "url": "git://github.com/Chevrotain/chevrotain.git",
+        "type": "git"
+      },
+      "gitHead": "221fff76526021a3abba1068130f5e8a343fbaaf",
+      "tarball": "https://registry.npmjs.org/@chevrotain/gast/-/gast-13.2.0.tgz",
+      "integrity": "sha512-bCARdAsG+eEbOveSXcOAC7pVxA04I1ionzeMOwIYf5NX7SaS7zgn4Dgug2BSqoL+iyKeMNSorQjsFSHJHsCNwg==",
+      "sha256": "9e30e0bc48ef56a23b8c2138587b39a0805ae9a4679e56f9d8855d95875805eb",
+      "repositoryUrl": "https://github.com/Chevrotain/chevrotain",
+      "sourceUrl": "https://github.com/Chevrotain/chevrotain/tree/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "sourceArchive": "https://codeload.github.com/Chevrotain/chevrotain/zip/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "package/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "@chevrotain/regexp-to-ast",
+      "version": "13.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map",
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "Apache-2.0",
+      "repository": {
+        "url": "git://github.com/Chevrotain/chevrotain.git",
+        "type": "git"
+      },
+      "gitHead": "221fff76526021a3abba1068130f5e8a343fbaaf",
+      "tarball": "https://registry.npmjs.org/@chevrotain/regexp-to-ast/-/regexp-to-ast-13.2.0.tgz",
+      "integrity": "sha512-kxpUkLtiaK09ph+dib+Yvm+3sWSnuwlo25gqfKRgTPNmF6H7uW4gVkMjaRdtnN783S9sM6vUNWh9CsxYX4QwKw==",
+      "sha256": "7ad58991f3bb9da70513559746faf373103bae4857c4e77fbf4efa1d3bd9ef0b",
+      "repositoryUrl": "https://github.com/Chevrotain/chevrotain",
+      "sourceUrl": "https://github.com/Chevrotain/chevrotain/tree/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "sourceArchive": "https://codeload.github.com/Chevrotain/chevrotain/zip/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "package/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "@chevrotain/utils",
+      "version": "13.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map",
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "Apache-2.0",
+      "repository": {
+        "url": "git://github.com/Chevrotain/chevrotain.git",
+        "type": "git"
+      },
+      "gitHead": "221fff76526021a3abba1068130f5e8a343fbaaf",
+      "tarball": "https://registry.npmjs.org/@chevrotain/utils/-/utils-13.2.0.tgz",
+      "integrity": "sha512-SzKYY68rseOrb9KILVzPsl6SjkQtdWw01SRGB5aCVI5kFcHltQsOYV3JB0Ffst72DgkvHCyDQ0NLwxtmCCf97Q==",
+      "sha256": "f80040e4e1e6880a9c404e2ee33cff3329ae455efb3505bd9693cfe5bb5c93b9",
+      "repositoryUrl": "https://github.com/Chevrotain/chevrotain",
+      "sourceUrl": "https://github.com/Chevrotain/chevrotain/tree/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "sourceArchive": "https://codeload.github.com/Chevrotain/chevrotain/zip/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "package/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "@iconify/utils",
+      "version": "3.0.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/iconify/iconify.git",
+        "type": "git",
+        "directory": "packages/utils"
+      },
+      "tarball": "https://registry.npmjs.org/@iconify/utils/-/utils-3.0.2.tgz",
+      "integrity": "sha512-EfJS0rLfVuRuJRn4psJHtK2A9TqVnkxPpHY6lYHiB9+8eSuudsxbwMiavocG45ujOo6FJ+CIRlRnlOGinzkaGQ==",
+      "sha256": "7f1b0f8bd152444d962bbcb258f57583bea55bb05e437eedf4cc950b9b56f969",
+      "repositoryUrl": "https://github.com/iconify/iconify",
+      "sourceUrl": "https://registry.npmjs.org/@iconify/utils/-/utils-3.0.2.tgz",
+      "sourceArchive": "https://registry.npmjs.org/@iconify/utils/-/utils-3.0.2.tgz",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/license.txt"
+      ]
+    },
+    {
+      "name": "@mermaid-js/parser",
+      "version": "2.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "mermaid@12.3.0/packages/parser/package.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/mermaid-js/mermaid.git",
+        "type": "git",
+        "directory": "packages/parser"
+      },
+      "tarball": "https://registry.npmjs.org/@mermaid-js/parser/-/parser-2.0.1.tgz",
+      "integrity": "sha512-j37dj/h6p6pots1L7pLPPNuABEEu9WP4OYg9pW1g+nYG331j0+3canE9OagtYdytYvdSAMG+2fKU5cxep6LgjA==",
+      "sha256": "52a8dd04e0aae47dd2f17989f14cd60301abe81f5d7096305c6fd05fc7d83cc5",
+      "gitHead": "2086904e76c692331e34a45d7cc3bc30860d040e",
+      "repositoryUrl": "https://github.com/mermaid-js/mermaid",
+      "sourceUrl": "https://github.com/mermaid-js/mermaid/tree/2086904e76c692331e34a45d7cc3bc30860d040e",
+      "sourceArchive": "https://codeload.github.com/mermaid-js/mermaid/zip/2086904e76c692331e34a45d7cc3bc30860d040e",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "@upsetjs/venn.js",
+      "version": "2.0.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "https://github.com/upsetjs/venn.js.git",
+        "type": "git"
+      },
+      "gitHead": "350c835aab4a92a7570963c28f725cf9f6e5f258",
+      "tarball": "https://registry.npmjs.org/@upsetjs/venn.js/-/venn.js-2.0.0.tgz",
+      "integrity": "sha512-WbBhLrooyePuQ1VZxrJjtLvTc4NVfpOyKx0sKqioq9bX1C1m7Jgykkn8gLrtwumBioXIqam8DLxp88Adbue6Hw==",
+      "sha256": "23c5da5de5c23351c6c6ed891d6416284c05c618e2774bd55484a4c4bef321e4",
+      "repositoryUrl": "https://github.com/upsetjs/venn.js",
+      "sourceUrl": "https://github.com/upsetjs/venn.js/tree/350c835aab4a92a7570963c28f725cf9f6e5f258",
+      "sourceArchive": "https://codeload.github.com/upsetjs/venn.js/zip/350c835aab4a92a7570963c28f725cf9f6e5f258",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "available-typed-arrays",
+      "version": "1.0.7",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/inspect-js/available-typed-arrays.git",
+        "type": "git"
+      },
+      "gitHead": "d72cd6154ce39482ca83bed2200ff3b56c76e8d8",
+      "tarball": "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.7.tgz",
+      "integrity": "sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==",
+      "sha256": "8b140e0fa3fede3d81d1dffcc400c9755d7388e8a4add228487f5e20c9cf7863",
+      "repositoryUrl": "https://github.com/inspect-js/available-typed-arrays",
+      "sourceUrl": "https://github.com/inspect-js/available-typed-arrays/tree/d72cd6154ce39482ca83bed2200ff3b56c76e8d8",
+      "sourceArchive": "https://codeload.github.com/inspect-js/available-typed-arrays/zip/d72cd6154ce39482ca83bed2200ff3b56c76e8d8",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "base64-js",
+      "version": "1.5.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/beatgammit/base64-js.git",
+        "type": "git"
+      },
+      "gitHead": "88957c9943c7e2a0f03cdf73e71d579e433627d3",
+      "tarball": "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz",
+      "integrity": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==",
+      "sha256": "b1b7a945b52685269083425216d6597e33d97bf21699d656e92fdb3eb5210a85",
+      "repositoryUrl": "https://github.com/beatgammit/base64-js",
+      "sourceUrl": "https://github.com/beatgammit/base64-js/tree/88957c9943c7e2a0f03cdf73e71d579e433627d3",
+      "sourceArchive": "https://codeload.github.com/beatgammit/base64-js/zip/88957c9943c7e2a0f03cdf73e71d579e433627d3",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "buffer",
+      "version": "5.7.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/feross/buffer.git",
+        "type": "git"
+      },
+      "gitHead": "edc667080ba3220ac35d4d1f64f2a78d89127c1b",
+      "tarball": "https://registry.npmjs.org/buffer/-/buffer-5.7.1.tgz",
+      "integrity": "sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==",
+      "sha256": "98bfac55b7a37ade644f5eccbcf94a59269afd13e1f9af597e61fd06c057c0bc",
+      "repositoryUrl": "https://github.com/feross/buffer",
+      "sourceUrl": "https://github.com/feross/buffer/tree/edc667080ba3220ac35d4d1f64f2a78d89127c1b",
+      "sourceArchive": "https://codeload.github.com/feross/buffer/zip/edc667080ba3220ac35d4d1f64f2a78d89127c1b",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE",
+        "package/AUTHORS.md"
+      ]
+    },
+    {
+      "name": "call-bind-apply-helpers",
+      "version": "1.0.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/call-bind-apply-helpers.git",
+        "type": "git"
+      },
+      "gitHead": "7068296a67b98424d5299606599d2f8117ded880",
+      "tarball": "https://registry.npmjs.org/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz",
+      "integrity": "sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==",
+      "sha256": "073e9ff9dbabedf5c128020a677381e9f92c90188d118830b30a7656a7c37d2c",
+      "repositoryUrl": "https://github.com/ljharb/call-bind-apply-helpers",
+      "sourceUrl": "https://github.com/ljharb/call-bind-apply-helpers/tree/7068296a67b98424d5299606599d2f8117ded880",
+      "sourceArchive": "https://codeload.github.com/ljharb/call-bind-apply-helpers/zip/7068296a67b98424d5299606599d2f8117ded880",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "call-bind",
+      "version": "1.0.8",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/call-bind.git",
+        "type": "git"
+      },
+      "gitHead": "1f1dfc86a9d1b9ed3b39b8fdd922f7d2eb913c15",
+      "tarball": "https://registry.npmjs.org/call-bind/-/call-bind-1.0.8.tgz",
+      "integrity": "sha512-oKlSFMcMwpUg2ednkhQ454wfWiU/ul3CkJe/PEHcTKuiX6RpbehUiFMXu13HalGZxfUwCQzZG747YXBn1im9ww==",
+      "sha256": "30e2bdf3ce00c012527ae4161df4145cbf4c797e9fa30e43fc7324b2e07b0523",
+      "repositoryUrl": "https://github.com/ljharb/call-bind",
+      "sourceUrl": "https://github.com/ljharb/call-bind/tree/1f1dfc86a9d1b9ed3b39b8fdd922f7d2eb913c15",
+      "sourceArchive": "https://codeload.github.com/ljharb/call-bind/zip/1f1dfc86a9d1b9ed3b39b8fdd922f7d2eb913c15",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "call-bound",
+      "version": "1.0.4",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/call-bound.git",
+        "type": "git"
+      },
+      "gitHead": "75d922c1f92a3de1ff9ab94453f45b5f64b50041",
+      "tarball": "https://registry.npmjs.org/call-bound/-/call-bound-1.0.4.tgz",
+      "integrity": "sha512-+ys997U96po4Kx/ABpBCqhA9EuxJaQWDQg7295H4hBphv3IZg0boBKuwYpt4YXp6MZ5AmZQnU/tyMTlRpaSejg==",
+      "sha256": "32086f492fedf1b9b34811f2ee50ca2cca53da5c783f7cd5f939d3f1e86bbd32",
+      "repositoryUrl": "https://github.com/ljharb/call-bound",
+      "sourceUrl": "https://github.com/ljharb/call-bound/tree/75d922c1f92a3de1ff9ab94453f45b5f64b50041",
+      "sourceArchive": "https://codeload.github.com/ljharb/call-bound/zip/75d922c1f92a3de1ff9ab94453f45b5f64b50041",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "chevrotain-allstar",
+      "version": "0.5.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/langium/chevrotain-allstar.git",
+        "type": "git"
+      },
+      "gitHead": "ed08cee314ddab07636940f7222d39ab24053c91",
+      "tarball": "https://registry.npmjs.org/chevrotain-allstar/-/chevrotain-allstar-0.5.0.tgz",
+      "integrity": "sha512-KV7jVd28Qp4Kg9Ovhwlx5vyucoQxqxB22DLpxqRR2YDsHUHirr/NHAHx5bYk+bhJCD88xrLvOrfjlrrZRVa2Mg==",
+      "sha256": "86e2f455a782a9fcfaa0e7a3e4f06acad6cf2126becfe6d5d17ff7bc8b3dd17b",
+      "repositoryUrl": "https://github.com/langium/chevrotain-allstar",
+      "sourceUrl": "https://github.com/langium/chevrotain-allstar/tree/ed08cee314ddab07636940f7222d39ab24053c91",
+      "sourceArchive": "https://codeload.github.com/langium/chevrotain-allstar/zip/ed08cee314ddab07636940f7222d39ab24053c91",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "chevrotain",
+      "version": "13.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map",
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "Apache-2.0",
+      "repository": {
+        "url": "git://github.com/Chevrotain/chevrotain.git",
+        "type": "git"
+      },
+      "gitHead": "221fff76526021a3abba1068130f5e8a343fbaaf",
+      "tarball": "https://registry.npmjs.org/chevrotain/-/chevrotain-13.2.0.tgz",
+      "integrity": "sha512-GTouk5YzgBxlTPCaDn5q0q2EJKkrYmnPF+HmF8v0Qo4r3iyPG7HJivkN1wthCXZcm3sIcZFpGTRovLPNdJNRCA==",
+      "sha256": "ce84df5e0b1e990a5f5f5b2e1b719ac63391489ad28ef6b9ae2703dde1c42233",
+      "repositoryUrl": "https://github.com/Chevrotain/chevrotain",
+      "sourceUrl": "https://github.com/Chevrotain/chevrotain/tree/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "sourceArchive": "https://codeload.github.com/Chevrotain/chevrotain/zip/221fff76526021a3abba1068130f5e8a343fbaaf",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "package/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "core-util-is",
+      "version": "1.0.3",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/isaacs/core-util-is.git",
+        "type": "git"
+      },
+      "gitHead": "85f4620829d1b6079fd7b351f040b6ea7e184970",
+      "tarball": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz",
+      "integrity": "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==",
+      "sha256": "4430fdc71f2cf3b5e297113b9a692da2d6cff96cf84da00f0ecef5e5a6e74d0c",
+      "repositoryUrl": "https://github.com/isaacs/core-util-is",
+      "sourceUrl": "https://github.com/isaacs/core-util-is/tree/85f4620829d1b6079fd7b351f040b6ea7e184970",
+      "sourceArchive": "https://codeload.github.com/isaacs/core-util-is/zip/85f4620829d1b6079fd7b351f040b6ea7e184970",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "cose-base",
+      "version": "1.0.3",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/iVis-at-Bilkent/cose-base.git",
+        "type": "git"
+      },
+      "gitHead": "914bfe712991534af1d8b795d6f262687edc2563",
+      "tarball": "https://registry.npmjs.org/cose-base/-/cose-base-1.0.3.tgz",
+      "integrity": "sha512-s9whTXInMSgAp/NVXVNuVxVKzGH2qck3aQlVHxDCdAEPgtMKwc4Wq6/QKhgdEdgbLSi9rBTAcPoRa6JpiG4ksg==",
+      "sha256": "a20640fb8c1a2cf226eb9195785e9f714ba1cce1e80cb8f48d131d1bc0909d18",
+      "repositoryUrl": "https://github.com/iVis-at-Bilkent/cose-base",
+      "sourceUrl": "https://github.com/iVis-at-Bilkent/cose-base/tree/914bfe712991534af1d8b795d6f262687edc2563",
+      "sourceArchive": "https://codeload.github.com/iVis-at-Bilkent/cose-base/zip/914bfe712991534af1d8b795d6f262687edc2563",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "cose-base",
+      "version": "2.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/iVis-at-Bilkent/cose-base.git",
+        "type": "git"
+      },
+      "gitHead": "37f07ed2b8803211ec6c74110574cc47c156a136",
+      "tarball": "https://registry.npmjs.org/cose-base/-/cose-base-2.2.0.tgz",
+      "integrity": "sha512-AzlgcsCbUMymkADOJtQm3wO9S3ltPfYOFD5033keQn9NJzIbtnZj+UdBJe7DYml/8TdbtHJW3j58SOnKhWY/5g==",
+      "sha256": "612ec91a30b7f2dc158cca4846eeea1b7f89a97fc672951da3c1932107de6da8",
+      "repositoryUrl": "https://github.com/iVis-at-Bilkent/cose-base",
+      "sourceUrl": "https://github.com/iVis-at-Bilkent/cose-base/tree/37f07ed2b8803211ec6c74110574cc47c156a136",
+      "sourceArchive": "https://codeload.github.com/iVis-at-Bilkent/cose-base/zip/37f07ed2b8803211ec6c74110574cc47c156a136",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "cytoscape-cose-bilkent",
+      "version": "4.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/cytoscape/cytoscape.js-cose-bilkent.git",
+        "type": "git"
+      },
+      "gitHead": "999090a8438b4f14788d636ef4fd7a5355e29e8c",
+      "tarball": "https://registry.npmjs.org/cytoscape-cose-bilkent/-/cytoscape-cose-bilkent-4.1.0.tgz",
+      "integrity": "sha512-wgQlVIUJF13Quxiv5e1gstZ08rnZj2XaLHGoFMYXz7SkNfCDOOteKBE6SYRfA9WxxI/iBc3ajfDoc6hb/MRAHQ==",
+      "sha256": "9df46b10952452b1d2a5d4cd942f70709a037bc6b7ef25cf1d9fb70be73bb950",
+      "repositoryUrl": "https://github.com/cytoscape/cytoscape.js-cose-bilkent",
+      "sourceUrl": "https://github.com/cytoscape/cytoscape.js-cose-bilkent/tree/999090a8438b4f14788d636ef4fd7a5355e29e8c",
+      "sourceArchive": "https://codeload.github.com/cytoscape/cytoscape.js-cose-bilkent/zip/999090a8438b4f14788d636ef4fd7a5355e29e8c",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "cytoscape-fcose",
+      "version": "2.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/iVis-at-Bilkent/cytoscape.js-fcose.git",
+        "type": "git"
+      },
+      "gitHead": "78afcf96512a409abc903699277ad616c02dfad9",
+      "tarball": "https://registry.npmjs.org/cytoscape-fcose/-/cytoscape-fcose-2.2.0.tgz",
+      "integrity": "sha512-ki1/VuRIHFCzxWNrsshHYPs6L7TvLu3DL+TyIGEsRcvVERmxokbf5Gdk7mFxZnTdiGtnA4cfSmjZJMviqSuZrQ==",
+      "sha256": "4e1f30e1821fdd4b66f21043c8ea40a8e2ad0ba75e4ccdd2c24d289cf5595432",
+      "repositoryUrl": "https://github.com/iVis-at-Bilkent/cytoscape.js-fcose",
+      "sourceUrl": "https://github.com/iVis-at-Bilkent/cytoscape.js-fcose/tree/78afcf96512a409abc903699277ad616c02dfad9",
+      "sourceArchive": "https://codeload.github.com/iVis-at-Bilkent/cytoscape.js-fcose/zip/78afcf96512a409abc903699277ad616c02dfad9",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "cytoscape",
+      "version": "3.34.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/cytoscape/cytoscape.js.git",
+        "type": "git"
+      },
+      "gitHead": "22716bfb75834b56fa6679648b0abb06f4ae691c",
+      "tarball": "https://registry.npmjs.org/cytoscape/-/cytoscape-3.34.0.tgz",
+      "integrity": "sha512-62rNSrioXw93uliKFBwjukeQyeWwH2PqDrTac31r2P6464u3AUvTk0xS4LVvT251g7IgkFunrI48ZEZGjywSOg==",
+      "sha256": "4155f863f4408d18bb637afb5808dff7840ca7361437067faf45bbe8c970e768",
+      "repositoryUrl": "https://github.com/cytoscape/cytoscape.js",
+      "sourceUrl": "https://github.com/cytoscape/cytoscape.js/tree/22716bfb75834b56fa6679648b0abb06f4ae691c",
+      "sourceArchive": "https://codeload.github.com/cytoscape/cytoscape.js/zip/22716bfb75834b56fa6679648b0abb06f4ae691c",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE",
+        "package/license-update.mjs"
+      ]
+    },
+    {
+      "name": "d3-array",
+      "version": "2.12.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "BSD-3-Clause",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-array.git",
+        "type": "git"
+      },
+      "gitHead": "6fda2773d31c2b3377d8b2dbd11a3e334a7cbc9e",
+      "tarball": "https://registry.npmjs.org/d3-array/-/d3-array-2.12.1.tgz",
+      "integrity": "sha512-B0ErZK/66mHtEsR1TkPEEkwdy+WDesimkM5gpZr5Dsg54BiTA5RXtYW5qTLIAcekaS9xfZrzBLF/OAkB3Qn1YQ==",
+      "sha256": "3795da9bd345fc440b82be032400c538298e021b559ca48342fe9647e44bb86b",
+      "repositoryUrl": "https://github.com/d3/d3-array",
+      "sourceUrl": "https://github.com/d3/d3-array/tree/6fda2773d31c2b3377d8b2dbd11a3e334a7cbc9e",
+      "sourceArchive": "https://codeload.github.com/d3/d3-array/zip/6fda2773d31c2b3377d8b2dbd11a3e334a7cbc9e",
+      "selectedLicense": "BSD-3-Clause",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-array",
+      "version": "3.2.4",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-array.git",
+        "type": "git"
+      },
+      "gitHead": "94d4541626ae3ac6c847e3d4c6e31aca1a8879b4",
+      "tarball": "https://registry.npmjs.org/d3-array/-/d3-array-3.2.4.tgz",
+      "integrity": "sha512-tdQAmyA18i4J7wprpYq8ClcxZy3SC31QMeByyCFyRt7BVHdREQZ5lpzoe5mFEYZUWe+oq8HBvk9JjpibyEV4Jg==",
+      "sha256": "6dbf3f2be39e48f86775be6e166a5d3e5a585ca7144453cd6ad1912f5ae4417f",
+      "repositoryUrl": "https://github.com/d3/d3-array",
+      "sourceUrl": "https://github.com/d3/d3-array/tree/94d4541626ae3ac6c847e3d4c6e31aca1a8879b4",
+      "sourceArchive": "https://codeload.github.com/d3/d3-array/zip/94d4541626ae3ac6c847e3d4c6e31aca1a8879b4",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-axis",
+      "version": "3.0.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-axis.git",
+        "type": "git"
+      },
+      "gitHead": "64372b12c9ba5c8a816277b3ad04ff813db5af97",
+      "tarball": "https://registry.npmjs.org/d3-axis/-/d3-axis-3.0.0.tgz",
+      "integrity": "sha512-IH5tgjV4jE/GhHkRV0HiVYPDtvfjHQlQfJHs0usq7M30XcSBvOotpmH1IgkcXsO/5gEQZD43B//fc7SRT5S+xw==",
+      "sha256": "b5ca6e00b9a2503d6b473485684670564a370733cdc8565a45b63f9fb4d944f6",
+      "repositoryUrl": "https://github.com/d3/d3-axis",
+      "sourceUrl": "https://github.com/d3/d3-axis/tree/64372b12c9ba5c8a816277b3ad04ff813db5af97",
+      "sourceArchive": "https://codeload.github.com/d3/d3-axis/zip/64372b12c9ba5c8a816277b3ad04ff813db5af97",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-brush",
+      "version": "3.0.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-brush.git",
+        "type": "git"
+      },
+      "gitHead": "ec2bce6f15074a9ead7f9a84c61335be51c123a3",
+      "tarball": "https://registry.npmjs.org/d3-brush/-/d3-brush-3.0.0.tgz",
+      "integrity": "sha512-ALnjWlVYkXsVIGlOsuWH1+3udkYFI48Ljihfnh8FZPF2QS9o+PzGLBslO0PjzVoHLZ2KCVgAM8NVkXPJB2aNnQ==",
+      "sha256": "fde88a49b16f92d067401df00abf88bf07eec3e091343eb902caf9cab02bdf2a",
+      "repositoryUrl": "https://github.com/d3/d3-brush",
+      "sourceUrl": "https://github.com/d3/d3-brush/tree/ec2bce6f15074a9ead7f9a84c61335be51c123a3",
+      "sourceArchive": "https://codeload.github.com/d3/d3-brush/zip/ec2bce6f15074a9ead7f9a84c61335be51c123a3",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-chord",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-chord.git",
+        "type": "git"
+      },
+      "gitHead": "57ac4d9029e66c025117356ae58ab36c7457a2d1",
+      "tarball": "https://registry.npmjs.org/d3-chord/-/d3-chord-3.0.1.tgz",
+      "integrity": "sha512-VE5S6TNa+j8msksl7HwjxMHDM2yNK3XCkusIlpX5kwauBfXuyLAtNg9jCp/iHH61tgI4sb6R/EIMWCqEIdjT/g==",
+      "sha256": "84c47d193e5e8c5fd3a28783a55b34f08dfaa1c8d764e96d9b49c78a3b6b40b5",
+      "repositoryUrl": "https://github.com/d3/d3-chord",
+      "sourceUrl": "https://github.com/d3/d3-chord/tree/57ac4d9029e66c025117356ae58ab36c7457a2d1",
+      "sourceArchive": "https://codeload.github.com/d3/d3-chord/zip/57ac4d9029e66c025117356ae58ab36c7457a2d1",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-color",
+      "version": "3.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-color.git",
+        "type": "git"
+      },
+      "gitHead": "7a1573ed260de4fd97d061975244841132adde92",
+      "tarball": "https://registry.npmjs.org/d3-color/-/d3-color-3.1.0.tgz",
+      "integrity": "sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA==",
+      "sha256": "d41bbcd99dd4f00e696546bffc73fed9b8fb6c3354905b6ea1721bff25f33b42",
+      "repositoryUrl": "https://github.com/d3/d3-color",
+      "sourceUrl": "https://github.com/d3/d3-color/tree/7a1573ed260de4fd97d061975244841132adde92",
+      "sourceArchive": "https://codeload.github.com/d3/d3-color/zip/7a1573ed260de4fd97d061975244841132adde92",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-contour",
+      "version": "4.0.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-contour.git",
+        "type": "git"
+      },
+      "gitHead": "0ba2dd047ce4cc2980025eff5c4fea989bf2da85",
+      "tarball": "https://registry.npmjs.org/d3-contour/-/d3-contour-4.0.2.tgz",
+      "integrity": "sha512-4EzFTRIikzs47RGmdxbeUvLWtGedDUNkTcmzoeyg4sP/dvCexO47AaQL7VKy/gul85TOxw+IBgA8US2xwbToNA==",
+      "sha256": "fa347e237c259a987fc3cfd890e2fcb0f2ec42ed125a2c9363854509e86db8f4",
+      "repositoryUrl": "https://github.com/d3/d3-contour",
+      "sourceUrl": "https://github.com/d3/d3-contour/tree/0ba2dd047ce4cc2980025eff5c4fea989bf2da85",
+      "sourceArchive": "https://codeload.github.com/d3/d3-contour/zip/0ba2dd047ce4cc2980025eff5c4fea989bf2da85",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-delaunay",
+      "version": "6.0.4",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-delaunay.git",
+        "type": "git"
+      },
+      "gitHead": "c5a08b375cd57f4a314b07979e25e3e30387943f",
+      "tarball": "https://registry.npmjs.org/d3-delaunay/-/d3-delaunay-6.0.4.tgz",
+      "integrity": "sha512-mdjtIZ1XLAM8bm/hx3WwjfHt6Sggek7qH043O8KEjDXN40xi3vx/6pYSVTwLjEgiXQTbvaouWKynLBiUZ6SK6A==",
+      "sha256": "935113ffa78d545505c8f1accf95be0e48594737eab34db8f50c9d6319907971",
+      "repositoryUrl": "https://github.com/d3/d3-delaunay",
+      "sourceUrl": "https://github.com/d3/d3-delaunay/tree/c5a08b375cd57f4a314b07979e25e3e30387943f",
+      "sourceArchive": "https://codeload.github.com/d3/d3-delaunay/zip/c5a08b375cd57f4a314b07979e25e3e30387943f",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-dispatch",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-dispatch.git",
+        "type": "git"
+      },
+      "gitHead": "904ddf22634bb642460685992f4ce22898f8aeb4",
+      "tarball": "https://registry.npmjs.org/d3-dispatch/-/d3-dispatch-3.0.1.tgz",
+      "integrity": "sha512-rzUyPU/S7rwUflMyLc1ETDeBj0NRuHKKAcvukozwhshr6g6c5d8zh4c2gQjY2bZ0dXeGLWc1PF174P2tVvKhfg==",
+      "sha256": "3d1a0b5c003e0e9608ad57f6ca21a0c8368031fcbe5f5317fe4e50b3f797ea23",
+      "repositoryUrl": "https://github.com/d3/d3-dispatch",
+      "sourceUrl": "https://github.com/d3/d3-dispatch/tree/904ddf22634bb642460685992f4ce22898f8aeb4",
+      "sourceArchive": "https://codeload.github.com/d3/d3-dispatch/zip/904ddf22634bb642460685992f4ce22898f8aeb4",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-drag",
+      "version": "3.0.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-drag.git",
+        "type": "git"
+      },
+      "gitHead": "1b88d8a2d69fca86d4d90a8329987693b79ec506",
+      "tarball": "https://registry.npmjs.org/d3-drag/-/d3-drag-3.0.0.tgz",
+      "integrity": "sha512-pWbUJLdETVA8lQNJecMxoXfH6x+mO2UQo8rSmZ+QqxcbyA3hfeprFgIT//HW2nlHChWeIIMwS2Fq+gEARkhTkg==",
+      "sha256": "a3ccc9d31d85135f35a4eda3ec0fae6ac22435d4e3fe2d2e0c73b5246460d4db",
+      "repositoryUrl": "https://github.com/d3/d3-drag",
+      "sourceUrl": "https://github.com/d3/d3-drag/tree/1b88d8a2d69fca86d4d90a8329987693b79ec506",
+      "sourceArchive": "https://codeload.github.com/d3/d3-drag/zip/1b88d8a2d69fca86d4d90a8329987693b79ec506",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-dsv",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-dsv.git",
+        "type": "git"
+      },
+      "gitHead": "344677983ac44e7bbf0e2527ad7f0223d66a2f38",
+      "tarball": "https://registry.npmjs.org/d3-dsv/-/d3-dsv-3.0.1.tgz",
+      "integrity": "sha512-UG6OvdI5afDIFP9w4G0mNq50dSOsXHJaRE8arAS5o9ApWnIElp8GZw1Dun8vP8OyHOZ/QJUKUJwxiiCCnUwm+Q==",
+      "sha256": "fdafcae0362205e2fc63fe3e87fed54822227d9370ce5150914f863ec36153cb",
+      "repositoryUrl": "https://github.com/d3/d3-dsv",
+      "sourceUrl": "https://github.com/d3/d3-dsv/tree/344677983ac44e7bbf0e2527ad7f0223d66a2f38",
+      "sourceArchive": "https://codeload.github.com/d3/d3-dsv/zip/344677983ac44e7bbf0e2527ad7f0223d66a2f38",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-ease",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "BSD-3-Clause",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-ease.git",
+        "type": "git"
+      },
+      "gitHead": "a0919680efc6f8e667275ba1d6330bf6a4cc9301",
+      "tarball": "https://registry.npmjs.org/d3-ease/-/d3-ease-3.0.1.tgz",
+      "integrity": "sha512-wR/XK3D3XcLIZwpbvQwQ5fK+8Ykds1ip7A2Txe0yxncXSdq1L9skcG7blcedkOX+ZcgxGAmLX1FrRGbADwzi0w==",
+      "sha256": "b249afe4aa8b741beeaf2d14f625ccf49270adb645e3f1c755d11476c1fdbe2a",
+      "repositoryUrl": "https://github.com/d3/d3-ease",
+      "sourceUrl": "https://github.com/d3/d3-ease/tree/a0919680efc6f8e667275ba1d6330bf6a4cc9301",
+      "sourceArchive": "https://codeload.github.com/d3/d3-ease/zip/a0919680efc6f8e667275ba1d6330bf6a4cc9301",
+      "selectedLicense": "BSD-3-Clause",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-fetch",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-fetch.git",
+        "type": "git"
+      },
+      "gitHead": "20a0b61b87a55c88e6b83580c927523b5c0448fe",
+      "tarball": "https://registry.npmjs.org/d3-fetch/-/d3-fetch-3.0.1.tgz",
+      "integrity": "sha512-kpkQIM20n3oLVBKGg6oHrUchHM3xODkTzjMoj7aWQFq5QEM+R6E4WkzT5+tojDY7yjez8KgCBRoj4aEr99Fdqw==",
+      "sha256": "8a3d61af2bed2b4899df1a90dfed41c0e10ad79d1bea93a18155f5d4e11a526f",
+      "repositoryUrl": "https://github.com/d3/d3-fetch",
+      "sourceUrl": "https://github.com/d3/d3-fetch/tree/20a0b61b87a55c88e6b83580c927523b5c0448fe",
+      "sourceArchive": "https://codeload.github.com/d3/d3-fetch/zip/20a0b61b87a55c88e6b83580c927523b5c0448fe",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-force",
+      "version": "3.0.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-force.git",
+        "type": "git"
+      },
+      "gitHead": "156712c8c3285d77cb487e1685c5adafcd0394a4",
+      "tarball": "https://registry.npmjs.org/d3-force/-/d3-force-3.0.0.tgz",
+      "integrity": "sha512-zxV/SsA+U4yte8051P4ECydjD/S+qeYtnaIyAs9tgHCqfguma/aAQDjo85A9Z6EKhBirHRJHXIgJUlffT4wdLg==",
+      "sha256": "deacfa7ecb466f88717fe1863347dd65e5a5422d9f8c893d771cb2a7f987fa15",
+      "repositoryUrl": "https://github.com/d3/d3-force",
+      "sourceUrl": "https://github.com/d3/d3-force/tree/156712c8c3285d77cb487e1685c5adafcd0394a4",
+      "sourceArchive": "https://codeload.github.com/d3/d3-force/zip/156712c8c3285d77cb487e1685c5adafcd0394a4",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-format",
+      "version": "3.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-format.git",
+        "type": "git"
+      },
+      "gitHead": "08806c62aa8f7b3fe64925f3989f1491c950a71c",
+      "tarball": "https://registry.npmjs.org/d3-format/-/d3-format-3.1.0.tgz",
+      "integrity": "sha512-YyUI6AEuY/Wpt8KWLgZHsIU86atmikuoOmCfommt0LYHiQSPjvX2AcFc38PX0CBpr2RCyZhjex+NS/LPOv6YqA==",
+      "sha256": "5439103fc9b6f033e02bf68fbeb13ecd2c33442f77ea772a4b2b1bc4f4cee5ba",
+      "repositoryUrl": "https://github.com/d3/d3-format",
+      "sourceUrl": "https://github.com/d3/d3-format/tree/08806c62aa8f7b3fe64925f3989f1491c950a71c",
+      "sourceArchive": "https://codeload.github.com/d3/d3-format/zip/08806c62aa8f7b3fe64925f3989f1491c950a71c",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-geo",
+      "version": "3.1.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-geo.git",
+        "type": "git"
+      },
+      "gitHead": "8c53a90ae70c94bace73ecb02f2c792c649c86ba",
+      "tarball": "https://registry.npmjs.org/d3-geo/-/d3-geo-3.1.1.tgz",
+      "integrity": "sha512-637ln3gXKXOwhalDzinUgY83KzNWZRKbYubaG+fGVuc/dxO64RRljtCTnf5ecMyE1RIdtqpkVcq0IbtU2S8j2Q==",
+      "sha256": "fe1f2dd81a87d942790c5a7786f4aab03df2b357d46d8af56b613fb8a1bb9be5",
+      "repositoryUrl": "https://github.com/d3/d3-geo",
+      "sourceUrl": "https://github.com/d3/d3-geo/tree/8c53a90ae70c94bace73ecb02f2c792c649c86ba",
+      "sourceArchive": "https://codeload.github.com/d3/d3-geo/zip/8c53a90ae70c94bace73ecb02f2c792c649c86ba",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-hierarchy",
+      "version": "3.1.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-hierarchy.git",
+        "type": "git"
+      },
+      "gitHead": "7bea49efdc1093b28a8d60d2f8717d8a17803564",
+      "tarball": "https://registry.npmjs.org/d3-hierarchy/-/d3-hierarchy-3.1.2.tgz",
+      "integrity": "sha512-FX/9frcub54beBdugHjDCdikxThEqjnR93Qt7PvQTOHxyiNCAlvMrHhclk3cD5VeAaq9fxmfRp+CnWw9rEMBuA==",
+      "sha256": "7681875f06440c088afda1fd834d853dd560166c945e731382ee0c636332360b",
+      "repositoryUrl": "https://github.com/d3/d3-hierarchy",
+      "sourceUrl": "https://github.com/d3/d3-hierarchy/tree/7bea49efdc1093b28a8d60d2f8717d8a17803564",
+      "sourceArchive": "https://codeload.github.com/d3/d3-hierarchy/zip/7bea49efdc1093b28a8d60d2f8717d8a17803564",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-interpolate",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-interpolate.git",
+        "type": "git"
+      },
+      "gitHead": "6562b85040f7a9b96efe49b54a77eb6fceafa1c1",
+      "tarball": "https://registry.npmjs.org/d3-interpolate/-/d3-interpolate-3.0.1.tgz",
+      "integrity": "sha512-3bYs1rOD33uo8aqJfKP3JWPAibgw8Zm2+L9vBKEHJ2Rg+viTR7o5Mmv5mZcieN+FRYaAOWX5SJATX6k1PWz72g==",
+      "sha256": "7e8df78d233cd102a0bb518658dc0b7d5c38442b6f2dbc8b95ffc14ba87c7c33",
+      "repositoryUrl": "https://github.com/d3/d3-interpolate",
+      "sourceUrl": "https://github.com/d3/d3-interpolate/tree/6562b85040f7a9b96efe49b54a77eb6fceafa1c1",
+      "sourceArchive": "https://codeload.github.com/d3/d3-interpolate/zip/6562b85040f7a9b96efe49b54a77eb6fceafa1c1",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-path",
+      "version": "1.0.9",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "BSD-3-Clause",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-path.git",
+        "type": "git"
+      },
+      "gitHead": "151f962faa58f110993c6d71faefad57c174b66c",
+      "tarball": "https://registry.npmjs.org/d3-path/-/d3-path-1.0.9.tgz",
+      "integrity": "sha512-VLaYcn81dtHVTjEHd8B+pbe9yHWpXKZUC87PzoFmsFrJqgFwDe/qxfp5MlfsfM1V5E/iVt0MmEbWQ7FVIXh/bg==",
+      "sha256": "2c10702bad9be578f0827d00e45010ae59cb67165f65462e5c781913a5505db1",
+      "repositoryUrl": "https://github.com/d3/d3-path",
+      "sourceUrl": "https://github.com/d3/d3-path/tree/151f962faa58f110993c6d71faefad57c174b66c",
+      "sourceArchive": "https://codeload.github.com/d3/d3-path/zip/151f962faa58f110993c6d71faefad57c174b66c",
+      "selectedLicense": "BSD-3-Clause",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-path",
+      "version": "3.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-path.git",
+        "type": "git"
+      },
+      "gitHead": "58bce7a53df2b03f70092a9b00b78055c4ffee04",
+      "tarball": "https://registry.npmjs.org/d3-path/-/d3-path-3.1.0.tgz",
+      "integrity": "sha512-p3KP5HCf/bvjBSSKuXid6Zqijx7wIfNW+J/maPs+iwR35at5JCbLUT0LzF1cnjbCHWhqzQTIN2Jpe8pRebIEFQ==",
+      "sha256": "94e9b69f82f113ed4ada36703c05f6b7406723c55affe2a443d69729d6d5da14",
+      "repositoryUrl": "https://github.com/d3/d3-path",
+      "sourceUrl": "https://github.com/d3/d3-path/tree/58bce7a53df2b03f70092a9b00b78055c4ffee04",
+      "sourceArchive": "https://codeload.github.com/d3/d3-path/zip/58bce7a53df2b03f70092a9b00b78055c4ffee04",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-polygon",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-polygon.git",
+        "type": "git"
+      },
+      "gitHead": "be52ab24e723b5b0078e13f51003981839ad8134",
+      "tarball": "https://registry.npmjs.org/d3-polygon/-/d3-polygon-3.0.1.tgz",
+      "integrity": "sha512-3vbA7vXYwfe1SYhED++fPUQlWSYTTGmFmQiany/gdbiWgU/iEyQzyymwL9SkJjFFuCS4902BSzewVGsHHmHtXg==",
+      "sha256": "6a33e6b083bd596a08e6f9e973fdb0d098f9ac8348cdc86346bb3e9c15614aca",
+      "repositoryUrl": "https://github.com/d3/d3-polygon",
+      "sourceUrl": "https://github.com/d3/d3-polygon/tree/be52ab24e723b5b0078e13f51003981839ad8134",
+      "sourceArchive": "https://codeload.github.com/d3/d3-polygon/zip/be52ab24e723b5b0078e13f51003981839ad8134",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-quadtree",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-quadtree.git",
+        "type": "git"
+      },
+      "gitHead": "24d7ea88ea7099407cdce67e7fe548a3a1893d92",
+      "tarball": "https://registry.npmjs.org/d3-quadtree/-/d3-quadtree-3.0.1.tgz",
+      "integrity": "sha512-04xDrxQTDTCFwP5H6hRhsRcb9xxv2RzkcsygFzmkSIOJy3PeRJP7sNk3VRIbKXcog561P9oU0/rVH6vDROAgUw==",
+      "sha256": "d4145e9cecca8a6077e1099de96375ec9923b0de0df4004bd98aafa17c2d557f",
+      "repositoryUrl": "https://github.com/d3/d3-quadtree",
+      "sourceUrl": "https://github.com/d3/d3-quadtree/tree/24d7ea88ea7099407cdce67e7fe548a3a1893d92",
+      "sourceArchive": "https://codeload.github.com/d3/d3-quadtree/zip/24d7ea88ea7099407cdce67e7fe548a3a1893d92",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-random",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-random.git",
+        "type": "git"
+      },
+      "gitHead": "4a8ed7dd38cac562f924d69f475f9f058366240b",
+      "tarball": "https://registry.npmjs.org/d3-random/-/d3-random-3.0.1.tgz",
+      "integrity": "sha512-FXMe9GfxTxqd5D6jFsQ+DJ8BJS4E/fT5mqqdjovykEB2oFbTMDVdg1MGFxfQW+FBOGoB++k8swBrgwSHT1cUXQ==",
+      "sha256": "c35794d70beff4e2e2da799cd7fb0e3e763574f24c0fad38c1841770c12b99e8",
+      "repositoryUrl": "https://github.com/d3/d3-random",
+      "sourceUrl": "https://github.com/d3/d3-random/tree/4a8ed7dd38cac562f924d69f475f9f058366240b",
+      "sourceArchive": "https://codeload.github.com/d3/d3-random/zip/4a8ed7dd38cac562f924d69f475f9f058366240b",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-sankey",
+      "version": "0.12.3",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "BSD-3-Clause",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-sankey.git",
+        "type": "git"
+      },
+      "gitHead": "bb7233ea0004669878d922e55fe83084ef3cb555",
+      "tarball": "https://registry.npmjs.org/d3-sankey/-/d3-sankey-0.12.3.tgz",
+      "integrity": "sha512-nQhsBRmM19Ax5xEIPLMY9ZmJ/cDvd1BG3UVvt5h3WRxKg5zGRbvnteTyWAbzeSvlh3tW7ZEmq4VwR5mB3tutmQ==",
+      "sha256": "6bd8cdb143d4088ff38179def70954419868d4b95f136c168ffef2dad004ff22",
+      "repositoryUrl": "https://github.com/d3/d3-sankey",
+      "sourceUrl": "https://github.com/d3/d3-sankey/tree/bb7233ea0004669878d922e55fe83084ef3cb555",
+      "sourceArchive": "https://codeload.github.com/d3/d3-sankey/zip/bb7233ea0004669878d922e55fe83084ef3cb555",
+      "selectedLicense": "BSD-3-Clause",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-scale-chromatic",
+      "version": "3.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-scale-chromatic.git",
+        "type": "git"
+      },
+      "gitHead": "2c52792197299346b7bdb94322bb4dff8f554fea",
+      "tarball": "https://registry.npmjs.org/d3-scale-chromatic/-/d3-scale-chromatic-3.1.0.tgz",
+      "integrity": "sha512-A3s5PWiZ9YCXFye1o246KoscMWqf8BsD9eRiJ3He7C9OBaxKhAd5TFCdEx/7VbKtxxTsu//1mMJFrEt572cEyQ==",
+      "sha256": "2573f980e0acbbecc919f5c5fdf7cd3a8110eda2497da7b94ae303fab9c32aa4",
+      "repositoryUrl": "https://github.com/d3/d3-scale-chromatic",
+      "sourceUrl": "https://github.com/d3/d3-scale-chromatic/tree/2c52792197299346b7bdb94322bb4dff8f554fea",
+      "sourceArchive": "https://codeload.github.com/d3/d3-scale-chromatic/zip/2c52792197299346b7bdb94322bb4dff8f554fea",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-scale",
+      "version": "4.0.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-scale.git",
+        "type": "git"
+      },
+      "gitHead": "83555bd759c7314420bd4240642beda5e258db9e",
+      "tarball": "https://registry.npmjs.org/d3-scale/-/d3-scale-4.0.2.tgz",
+      "integrity": "sha512-GZW464g1SH7ag3Y7hXjf8RoUuAFIqklOAq3MRl4OaWabTFJY9PN/E1YklhXLh+OQ3fM9yS2nOkCoS+WLZ6kvxQ==",
+      "sha256": "bf50a1f34ba0e6fa25cb7ae902abe0b9e2f85ced39fdca7b18fbe863fbaa39a7",
+      "repositoryUrl": "https://github.com/d3/d3-scale",
+      "sourceUrl": "https://github.com/d3/d3-scale/tree/83555bd759c7314420bd4240642beda5e258db9e",
+      "sourceArchive": "https://codeload.github.com/d3/d3-scale/zip/83555bd759c7314420bd4240642beda5e258db9e",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-selection",
+      "version": "3.0.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-selection.git",
+        "type": "git"
+      },
+      "gitHead": "91245ee124ec4dd491e498ecbdc9679d75332b49",
+      "tarball": "https://registry.npmjs.org/d3-selection/-/d3-selection-3.0.0.tgz",
+      "integrity": "sha512-fmTRWbNMmsmWq6xJV8D19U/gw/bwrHfNXxrIN+HfZgnzqTHp9jOmKMhsTUjXOJnZOdZY9Q28y4yebKzqDKlxlQ==",
+      "sha256": "a1f872f30dca23b76de89cae9e882f56c325433e7f3aee87b95fa830d12789f3",
+      "repositoryUrl": "https://github.com/d3/d3-selection",
+      "sourceUrl": "https://github.com/d3/d3-selection/tree/91245ee124ec4dd491e498ecbdc9679d75332b49",
+      "sourceArchive": "https://codeload.github.com/d3/d3-selection/zip/91245ee124ec4dd491e498ecbdc9679d75332b49",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-shape",
+      "version": "1.3.7",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "BSD-3-Clause",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-shape.git",
+        "type": "git"
+      },
+      "gitHead": "246e232651631a78c4803430e3bac326b4a4147b",
+      "tarball": "https://registry.npmjs.org/d3-shape/-/d3-shape-1.3.7.tgz",
+      "integrity": "sha512-EUkvKjqPFUAZyOlhY5gzCxCeI0Aep04LwIRpsZ/mLFelJiUfnK56jo5JMDSE7yyP2kLSb6LtF+S5chMk7uqPqw==",
+      "sha256": "d19261dad8ff192357db2720d57c1786dbfb8c9f42eafe577cb7c4d5b473fd0e",
+      "repositoryUrl": "https://github.com/d3/d3-shape",
+      "sourceUrl": "https://github.com/d3/d3-shape/tree/246e232651631a78c4803430e3bac326b4a4147b",
+      "sourceArchive": "https://codeload.github.com/d3/d3-shape/zip/246e232651631a78c4803430e3bac326b4a4147b",
+      "selectedLicense": "BSD-3-Clause",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-shape",
+      "version": "3.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-shape.git",
+        "type": "git"
+      },
+      "gitHead": "8ec82658454750cfa29efb1e0ea514e3dd9b2297",
+      "tarball": "https://registry.npmjs.org/d3-shape/-/d3-shape-3.2.0.tgz",
+      "integrity": "sha512-SaLBuwGm3MOViRq2ABk3eLoxwZELpH6zhl3FbAoJ7Vm1gofKx6El1Ib5z23NUEhF9AsGl7y+dzLe5Cw2AArGTA==",
+      "sha256": "8b4b2bc9daa99a957abe17656c5944fd3f28efb88f788e6b4fdba346cb80e602",
+      "repositoryUrl": "https://github.com/d3/d3-shape",
+      "sourceUrl": "https://github.com/d3/d3-shape/tree/8ec82658454750cfa29efb1e0ea514e3dd9b2297",
+      "sourceArchive": "https://codeload.github.com/d3/d3-shape/zip/8ec82658454750cfa29efb1e0ea514e3dd9b2297",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-time-format",
+      "version": "4.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-time-format.git",
+        "type": "git"
+      },
+      "gitHead": "76cfef1da81b70404c0226ec9db9b0d56fa09461",
+      "tarball": "https://registry.npmjs.org/d3-time-format/-/d3-time-format-4.1.0.tgz",
+      "integrity": "sha512-dJxPBlzC7NugB2PDLwo9Q8JiTR3M3e4/XANkreKSUxF8vvXKqm1Yfq4Q5dl8budlunRVlUUaDUgFt7eA8D6NLg==",
+      "sha256": "46f1492ef6be8afe04a844876a644a4a964da7f87937e90e93f9585acff9d30e",
+      "repositoryUrl": "https://github.com/d3/d3-time-format",
+      "sourceUrl": "https://github.com/d3/d3-time-format/tree/76cfef1da81b70404c0226ec9db9b0d56fa09461",
+      "sourceArchive": "https://codeload.github.com/d3/d3-time-format/zip/76cfef1da81b70404c0226ec9db9b0d56fa09461",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-time",
+      "version": "3.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-time.git",
+        "type": "git"
+      },
+      "gitHead": "d66bba6f83801b2f3a3e6440dba8df3357669c73",
+      "tarball": "https://registry.npmjs.org/d3-time/-/d3-time-3.1.0.tgz",
+      "integrity": "sha512-VqKjzBLejbSMT4IgbmVgDjpkYrNWUYJnbCGo874u7MMKIWsILRX+OpX/gTk8MqjpT1A/c6HY2dCA77ZN0lkQ2Q==",
+      "sha256": "a9f2c8e177b76e7068e7c9c77722c4924c71c9e54f9b1e245d27ef11b28dbc08",
+      "repositoryUrl": "https://github.com/d3/d3-time",
+      "sourceUrl": "https://github.com/d3/d3-time/tree/d66bba6f83801b2f3a3e6440dba8df3357669c73",
+      "sourceArchive": "https://codeload.github.com/d3/d3-time/zip/d66bba6f83801b2f3a3e6440dba8df3357669c73",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-timer",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-timer.git",
+        "type": "git"
+      },
+      "gitHead": "441e45b3f582762cd20035d47b40e9759ed1b235",
+      "tarball": "https://registry.npmjs.org/d3-timer/-/d3-timer-3.0.1.tgz",
+      "integrity": "sha512-ndfJ/JxxMd3nw31uyKoY2naivF+r29V+Lc0svZxe1JvvIRmi8hUsrMvdOwgS1o6uBHmiz91geQ0ylPP0aj1VUA==",
+      "sha256": "05cdf901e1876a7f24f4c365a879252752e22e3cc52b131ca616639f07e8ed05",
+      "repositoryUrl": "https://github.com/d3/d3-timer",
+      "sourceUrl": "https://github.com/d3/d3-timer/tree/441e45b3f582762cd20035d47b40e9759ed1b235",
+      "sourceArchive": "https://codeload.github.com/d3/d3-timer/zip/441e45b3f582762cd20035d47b40e9759ed1b235",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-transition",
+      "version": "3.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-transition.git",
+        "type": "git"
+      },
+      "gitHead": "c4c94c421e2ef9e9ffc253fab33ccf99f1434901",
+      "tarball": "https://registry.npmjs.org/d3-transition/-/d3-transition-3.0.1.tgz",
+      "integrity": "sha512-ApKvfjsSR6tg06xrL434C0WydLr7JewBB3V+/39RMHsaXTOG0zmt/OAXeng5M5LBm0ojmxJrpomQVZ1aPvBL4w==",
+      "sha256": "260eb8eaed565581afc00634ec83c83fd3b7e830e2a6b73b49f3f744dce0254c",
+      "repositoryUrl": "https://github.com/d3/d3-transition",
+      "sourceUrl": "https://github.com/d3/d3-transition/tree/c4c94c421e2ef9e9ffc253fab33ccf99f1434901",
+      "sourceArchive": "https://codeload.github.com/d3/d3-transition/zip/c4c94c421e2ef9e9ffc253fab33ccf99f1434901",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3-zoom",
+      "version": "3.0.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3-zoom.git",
+        "type": "git"
+      },
+      "gitHead": "debbe3d76d86ea96965ed4cc61beb6bdf7238156",
+      "tarball": "https://registry.npmjs.org/d3-zoom/-/d3-zoom-3.0.0.tgz",
+      "integrity": "sha512-b8AmV3kfQaqWAuacbPuNbL6vahnOJflOhexLzMMNLga62+/nh0JzvJ0aO/5a5MVgUFGS7Hu1P9P03o3fJkDCyw==",
+      "sha256": "846d28725c4889d6a2069c6cf084ca7e7730ee917a9b87960ecc53247f840f85",
+      "repositoryUrl": "https://github.com/d3/d3-zoom",
+      "sourceUrl": "https://github.com/d3/d3-zoom/tree/debbe3d76d86ea96965ed4cc61beb6bdf7238156",
+      "sourceArchive": "https://codeload.github.com/d3/d3-zoom/zip/debbe3d76d86ea96965ed4cc61beb6bdf7238156",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "d3",
+      "version": "7.9.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/d3/d3.git",
+        "type": "git"
+      },
+      "gitHead": "1f8dd3b92960f58726006532c11e9457864513ec",
+      "tarball": "https://registry.npmjs.org/d3/-/d3-7.9.0.tgz",
+      "integrity": "sha512-e1U46jVP+w7Iut8Jt8ri1YsPOvFpg46k+K8TpCb0P+zjCkjkPnV7WzfDJzMHy1LnA+wj5pLT1wjO901gLXeEhA==",
+      "sha256": "7e36605710a2ba54846797c8c6d888911341b215ae53257dc32a49a0b824355e",
+      "repositoryUrl": "https://github.com/d3/d3",
+      "sourceUrl": "https://github.com/d3/d3/tree/1f8dd3b92960f58726006532c11e9457864513ec",
+      "sourceArchive": "https://codeload.github.com/d3/d3/zip/1f8dd3b92960f58726006532c11e9457864513ec",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "dagre-d3-es",
+      "version": "7.0.14",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/tbo47/dagre-es.git",
+        "type": "git"
+      },
+      "gitHead": "4b95ad0a0bca6ce4cfa4cb83dfa9be19ca740e8f",
+      "tarball": "https://registry.npmjs.org/dagre-d3-es/-/dagre-d3-es-7.0.14.tgz",
+      "integrity": "sha512-P4rFMVq9ESWqmOgK+dlXvOtLwYg0i7u0HBGJER0LZDJT2VHIPAMZ/riPxqJceWMStH5+E61QxFra9kIS3AqdMg==",
+      "sha256": "488d146fc076978029da937a54628f840dbbcb48e6f95ea79e6c58cc384fe157",
+      "repositoryUrl": "https://github.com/tbo47/dagre-es",
+      "sourceUrl": "https://github.com/tbo47/dagre-es/tree/4b95ad0a0bca6ce4cfa4cb83dfa9be19ca740e8f",
+      "sourceArchive": "https://codeload.github.com/tbo47/dagre-es/zip/4b95ad0a0bca6ce4cfa4cb83dfa9be19ca740e8f",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE.md"
+      ]
+    },
+    {
+      "name": "dayjs",
+      "version": "1.11.21",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/iamkun/dayjs.git",
+        "type": "git"
+      },
+      "gitHead": "a25f01e8154290b203ab480ffeedc60c80bd0710",
+      "tarball": "https://registry.npmjs.org/dayjs/-/dayjs-1.11.21.tgz",
+      "integrity": "sha512-98IT+HOahAisibz/yjKbzuOBwYcjJ7BCLPzARyHiyEBmRz4fatF+KPJszEHXsGYjUG234aH/cOjW1wwTbKUZlA==",
+      "sha256": "290ec8bf81878ae4927581d9be74125f07722ea8bbea2ff77a2226dce12df876",
+      "repositoryUrl": "https://github.com/iamkun/dayjs",
+      "sourceUrl": "https://github.com/iamkun/dayjs/tree/a25f01e8154290b203ab480ffeedc60c80bd0710",
+      "sourceArchive": "https://codeload.github.com/iamkun/dayjs/zip/a25f01e8154290b203ab480ffeedc60c80bd0710",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "define-data-property",
+      "version": "1.1.4",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/define-data-property.git",
+        "type": "git"
+      },
+      "gitHead": "e313da59d1f65e1549ac59539a7a8ac17632df60",
+      "tarball": "https://registry.npmjs.org/define-data-property/-/define-data-property-1.1.4.tgz",
+      "integrity": "sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A==",
+      "sha256": "16304ad73df1364ca8623c28a8969de01cd7189b4f9b05668fadb598f110e4d2",
+      "repositoryUrl": "https://github.com/ljharb/define-data-property",
+      "sourceUrl": "https://github.com/ljharb/define-data-property/tree/e313da59d1f65e1549ac59539a7a8ac17632df60",
+      "sourceArchive": "https://codeload.github.com/ljharb/define-data-property/zip/e313da59d1f65e1549ac59539a7a8ac17632df60",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "delaunator",
+      "version": "5.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "mermaid@12.3.0/pnpm-lock.yaml; bundled d3-delaunay / roughjs"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/mapbox/delaunator.git",
+        "type": "git"
+      },
+      "gitHead": "80ac079775bbe52ffec51df1394561d0e6e6e4a9",
+      "tarball": "https://registry.npmjs.org/delaunator/-/delaunator-5.0.1.tgz",
+      "integrity": "sha512-8nvh+XBe96aCESrGOqMp/84b13H9cdKbG5P2ejQCh4d4sK9RL4371qou9drQjMhvnPmhWl5hnmqbEE0fXr9Xnw==",
+      "sha256": "6b30e6cf0aa49bf7882a3fb6dd2b5d3c33478d3693356d8a74a88f65df411f55",
+      "repositoryUrl": "https://github.com/mapbox/delaunator",
+      "sourceUrl": "https://github.com/mapbox/delaunator/tree/80ac079775bbe52ffec51df1394561d0e6e6e4a9",
+      "sourceArchive": "https://codeload.github.com/mapbox/delaunator/zip/80ac079775bbe52ffec51df1394561d0e6e6e4a9",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "docx",
+      "version": "9.7.1",
+      "usedBy": [
+        "direct"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/docx@9.7.1/dist/index.iife.js"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/dolanmiu/docx.git",
+        "type": "git"
+      },
+      "gitHead": "4934d310c724520ad9d3e7e6d5d47430664ea9f7",
+      "tarball": "https://registry.npmjs.org/docx/-/docx-9.7.1.tgz",
+      "integrity": "sha512-ilXFf9Moz47ABjFpDiA5s1w9lpb4EFSp7+5iiJSbfyYDM+bpZdAgLlSr7fW4aXhVe/E+F6QCv0EvRVFEd5CsWg==",
+      "sha256": "b02e37956d989b29d139d96cd44d24b23ee7a36b9ac18e5f33d41019726ab978",
+      "repositoryUrl": "https://github.com/dolanmiu/docx",
+      "sourceUrl": "https://github.com/dolanmiu/docx/tree/4934d310c724520ad9d3e7e6d5d47430664ea9f7",
+      "sourceArchive": "https://codeload.github.com/dolanmiu/docx/zip/4934d310c724520ad9d3e7e6d5d47430664ea9f7",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "dompurify",
+      "version": "3.4.17",
+      "usedBy": [
+        "direct",
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/dompurify@3.4.17/dist/purify.min.js",
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "(MPL-2.0 OR Apache-2.0)",
+      "repository": {
+        "url": "git://github.com/cure53/DOMPurify.git",
+        "type": "git"
+      },
+      "gitHead": "a77a3e78b59f72fa4d1c83f22e121ad9cc7d3575",
+      "tarball": "https://registry.npmjs.org/dompurify/-/dompurify-3.4.17.tgz",
+      "integrity": "sha512-B/pSlYVHQ58kqISD/yDjuJ1yfzI34m1gF4lAod2bwSRhiN4K5Cl3H8Af7hqB2PmTL911tdEudnnXn5FnhRoz0w==",
+      "sha256": "056cbdae276897208b88c21d1d779adfa09ad7be488a2f510a28e900d3bbffe7",
+      "repositoryUrl": "https://github.com/cure53/DOMPurify",
+      "sourceUrl": "https://github.com/cure53/DOMPurify/tree/a77a3e78b59f72fa4d1c83f22e121ad9cc7d3575",
+      "sourceArchive": "https://codeload.github.com/cure53/DOMPurify/zip/a77a3e78b59f72fa4d1c83f22e121ad9cc7d3575",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "package/LICENSE",
+        "package/src/license_header",
+        "package/LICENSE-MPL"
+      ]
+    },
+    {
+      "name": "dunder-proto",
+      "version": "1.0.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/es-shims/dunder-proto.git",
+        "type": "git"
+      },
+      "gitHead": "c6f4b69ab80c495777870f6a5f6a22db16ecaecb",
+      "tarball": "https://registry.npmjs.org/dunder-proto/-/dunder-proto-1.0.1.tgz",
+      "integrity": "sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==",
+      "sha256": "ed1342228c82c10df9921c59d684df516a0cd6ed25b61e5f9d6330895326cfdb",
+      "repositoryUrl": "https://github.com/es-shims/dunder-proto",
+      "sourceUrl": "https://github.com/es-shims/dunder-proto/tree/c6f4b69ab80c495777870f6a5f6a22db16ecaecb",
+      "sourceArchive": "https://codeload.github.com/es-shims/dunder-proto/zip/c6f4b69ab80c495777870f6a5f6a22db16ecaecb",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "elkjs",
+      "version": "0.12.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "EPL-2.0 OR GPL-3.0-or-later",
+      "repository": {
+        "url": "git+https://github.com/kieler/elkjs.git",
+        "type": "git"
+      },
+      "gitHead": "ff5771d7165445c42c408bb8a090c8035272218c",
+      "tarball": "https://registry.npmjs.org/elkjs/-/elkjs-0.12.0.tgz",
+      "integrity": "sha512-YZcKynxVxYoKIOEpywEPwCFdg+BTbxQRNf3pbwdDCvc8O3kQD8bmIwSxKU1eOTVc4Xo+VG9Te+575mlfvOrhEQ==",
+      "sha256": "c1d7719723e020b10724e3ccbc935696a2884f1e78d361cdd03766309e8e8e2a",
+      "repositoryUrl": "https://github.com/kieler/elkjs",
+      "sourceUrl": "https://github.com/kieler/elkjs/tree/ff5771d7165445c42c408bb8a090c8035272218c",
+      "sourceArchive": "https://codeload.github.com/kieler/elkjs/zip/ff5771d7165445c42c408bb8a090c8035272218c",
+      "selectedLicense": "EPL-2.0",
+      "licenseFiles": [
+        "package/LICENSE.md"
+      ]
+    },
+    {
+      "name": "entities",
+      "version": "8.0.0",
+      "usedBy": [
+        "markdown-it"
+      ],
+      "evidence": [
+        "https://github.com/markdown-it/markdown-it/blob/924b203442f62cea128b5f2680294697621b416d/package-lock.json"
+      ],
+      "declaredLicense": "BSD-2-Clause",
+      "repository": {
+        "url": "git+https://github.com/fb55/entities.git",
+        "type": "git"
+      },
+      "gitHead": "2322ee76c431b990facb259b61b9ff4eb89ef3c9",
+      "tarball": "https://registry.npmjs.org/entities/-/entities-8.0.0.tgz",
+      "integrity": "sha512-zwfzJecQ/Uej6tusMqwAqU/6KL2XaB2VZ2Jg54Je6ahNBGNH6Ek6g3jjNCF0fG9EWQKGZNddNjU5F1ZQn/sBnA==",
+      "sha256": "8e8b16388e19c12fc80f9f75f518a0f83d99428be6765a38f04c264a078cc25b",
+      "repositoryUrl": "https://github.com/fb55/entities",
+      "sourceUrl": "https://github.com/fb55/entities/tree/2322ee76c431b990facb259b61b9ff4eb89ef3c9",
+      "sourceArchive": "https://codeload.github.com/fb55/entities/zip/2322ee76c431b990facb259b61b9ff4eb89ef3c9",
+      "selectedLicense": "BSD-2-Clause",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "es-define-property",
+      "version": "1.0.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/es-define-property.git",
+        "type": "git"
+      },
+      "gitHead": "50ef129225ae17336a774f0eefc4e6bc88c79b8e",
+      "tarball": "https://registry.npmjs.org/es-define-property/-/es-define-property-1.0.1.tgz",
+      "integrity": "sha512-e3nRfgfUZ4rNGL232gUgX06QNyyez04KdjFrF+LTRoOXmrOgFKDg4BCdsjW8EnT69eqdYGmRpJwiPVYNrCaW3g==",
+      "sha256": "5986b8b13121340a8b0d5c7d8f0f961aa80ef3a74515ca9cb7a78d86ed0385f7",
+      "repositoryUrl": "https://github.com/ljharb/es-define-property",
+      "sourceUrl": "https://github.com/ljharb/es-define-property/tree/50ef129225ae17336a774f0eefc4e6bc88c79b8e",
+      "sourceArchive": "https://codeload.github.com/ljharb/es-define-property/zip/50ef129225ae17336a774f0eefc4e6bc88c79b8e",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "es-errors",
+      "version": "1.3.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/es-errors.git",
+        "type": "git"
+      },
+      "gitHead": "5599cf0ebe75cc3685445f83ca80207a357fdb12",
+      "tarball": "https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz",
+      "integrity": "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==",
+      "sha256": "d14dd1c35b4bd3b8aca3219fd3627eb7f3eb49cf6b4c8a7ca58b91fd7a190993",
+      "repositoryUrl": "https://github.com/ljharb/es-errors",
+      "sourceUrl": "https://github.com/ljharb/es-errors/tree/5599cf0ebe75cc3685445f83ca80207a357fdb12",
+      "sourceArchive": "https://codeload.github.com/ljharb/es-errors/zip/5599cf0ebe75cc3685445f83ca80207a357fdb12",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "es-object-atoms",
+      "version": "1.1.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/es-object-atoms.git",
+        "type": "git"
+      },
+      "gitHead": "fe8db15106acf15abec2e76818d1aa4713293109",
+      "tarball": "https://registry.npmjs.org/es-object-atoms/-/es-object-atoms-1.1.1.tgz",
+      "integrity": "sha512-FGgH2h8zKNim9ljj7dankFPcICIK9Cp5bm+c2gQSYePhpaG5+esrLODihIorn+Pe6FGJzWhXQotPv73jTaldXA==",
+      "sha256": "3e18e4d757818aee7bf1921686c6c3e7f9676d17c5c6fec560567c6beee579ce",
+      "repositoryUrl": "https://github.com/ljharb/es-object-atoms",
+      "sourceUrl": "https://github.com/ljharb/es-object-atoms/tree/fe8db15106acf15abec2e76818d1aa4713293109",
+      "sourceArchive": "https://codeload.github.com/ljharb/es-object-atoms/zip/fe8db15106acf15abec2e76818d1aa4713293109",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "es-toolkit",
+      "version": "1.45.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/toss/es-toolkit.git",
+        "type": "git"
+      },
+      "tarball": "https://registry.npmjs.org/es-toolkit/-/es-toolkit-1.45.1.tgz",
+      "integrity": "sha512-/jhoOj/Fx+A+IIyDNOvO3TItGmlMKhtX8ISAHKE90c4b/k1tqaqEZ+uUqfpU8DMnW5cgNJv606zS55jGvza0Xw==",
+      "sha256": "0ab10ae18c0853f0c989ee187cecd9d5b2dd561bdf2b3c9f314bbc981aab427f",
+      "repositoryUrl": "https://github.com/toss/es-toolkit",
+      "sourceUrl": "https://registry.npmjs.org/es-toolkit/-/es-toolkit-1.45.1.tgz",
+      "sourceArchive": "https://registry.npmjs.org/es-toolkit/-/es-toolkit-1.45.1.tgz",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "events",
+      "version": "3.3.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/Gozala/events.git",
+        "web": "https://github.com/Gozala/events",
+        "type": "git"
+      },
+      "gitHead": "aed9f91fee236bdedab8d593f7aa418ae6ed2718",
+      "tarball": "https://registry.npmjs.org/events/-/events-3.3.0.tgz",
+      "integrity": "sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==",
+      "sha256": "2c30dd630b58299bdfaac8688f763c6f312d29779c500b1e3701a1d4fb3b534b",
+      "repositoryUrl": "https://github.com/Gozala/events",
+      "sourceUrl": "https://github.com/Gozala/events/tree/aed9f91fee236bdedab8d593f7aa418ae6ed2718",
+      "sourceArchive": "https://codeload.github.com/Gozala/events/zip/aed9f91fee236bdedab8d593f7aa418ae6ed2718",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "fastdom",
+      "version": "1.0.12",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map (upstream patch)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/wilsonpage/fastdom.git",
+        "type": "git"
+      },
+      "gitHead": "a7b9044d58952b970c8b918dcf0e7c8824ba0ff5",
+      "tarball": "https://registry.npmjs.org/fastdom/-/fastdom-1.0.12.tgz",
+      "integrity": "sha512-LB+xjSTEbjHE1cWsxu+tN2Xqr1kpi+V9aADI7sVM5ZMaXyYGPHULQMzpJMYqOTULK/73pUkWVzzObFRBkPr+hg==",
+      "sha256": "15e452be64ae3661c3cc9d736524ebb689c23f162765d60741dcc518ec182265",
+      "repositoryUrl": "https://github.com/wilsonpage/fastdom",
+      "sourceUrl": "https://github.com/wilsonpage/fastdom/tree/a7b9044d58952b970c8b918dcf0e7c8824ba0ff5",
+      "sourceArchive": "https://codeload.github.com/wilsonpage/fastdom/zip/a7b9044d58952b970c8b918dcf0e7c8824ba0ff5",
+      "selectedLicense": "MIT",
+      "modifications": "Includes upstream Mermaid patches; obtain patches and corresponding bundled sources from https://github.com/mermaid-js/mermaid/tree/2086904e76c692331e34a45d7cc3bc30860d040e",
+      "licenseFiles": [
+        "package/README.md (license section)"
+      ]
+    },
+    {
+      "name": "for-each",
+      "version": "0.3.5",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/Raynos/for-each.git",
+        "type": "git"
+      },
+      "gitHead": "45229651ed893773058ba9ccc42af8999014409f",
+      "tarball": "https://registry.npmjs.org/for-each/-/for-each-0.3.5.tgz",
+      "integrity": "sha512-dKx12eRCVIzqCxFGplyFKJMPvLEWgmNtUrpTiJIR5u97zEhRG8ySrtboPHZXx7daLxQVrl643cTzbab2tkQjxg==",
+      "sha256": "4bd2cfc8e674c93cf7abb3bd3d6fd8e388fa10324bec011223a8fa4f287185d1",
+      "repositoryUrl": "https://github.com/Raynos/for-each",
+      "sourceUrl": "https://github.com/Raynos/for-each/tree/45229651ed893773058ba9ccc42af8999014409f",
+      "sourceArchive": "https://codeload.github.com/Raynos/for-each/zip/45229651ed893773058ba9ccc42af8999014409f",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "function-bind",
+      "version": "1.1.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/Raynos/function-bind.git",
+        "type": "git"
+      },
+      "gitHead": "40197beb5f4cf89dd005f0b268256c1e4716ea81",
+      "tarball": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz",
+      "integrity": "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==",
+      "sha256": "704402651b02a1454f17d445fc7dd716efc282d059407126d58ef30a47e807aa",
+      "repositoryUrl": "https://github.com/Raynos/function-bind",
+      "sourceUrl": "https://github.com/Raynos/function-bind/tree/40197beb5f4cf89dd005f0b268256c1e4716ea81",
+      "sourceArchive": "https://codeload.github.com/Raynos/function-bind/zip/40197beb5f4cf89dd005f0b268256c1e4716ea81",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "get-intrinsic",
+      "version": "1.3.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/get-intrinsic.git",
+        "type": "git"
+      },
+      "gitHead": "9d747e0540e5e03421e7411b7946c23f4b010fd5",
+      "tarball": "https://registry.npmjs.org/get-intrinsic/-/get-intrinsic-1.3.0.tgz",
+      "integrity": "sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ==",
+      "sha256": "662e27e54e00fe46fbb08f9f4aacb054e3695dbe72cc14b436613fbcfb780544",
+      "repositoryUrl": "https://github.com/ljharb/get-intrinsic",
+      "sourceUrl": "https://github.com/ljharb/get-intrinsic/tree/9d747e0540e5e03421e7411b7946c23f4b010fd5",
+      "sourceArchive": "https://codeload.github.com/ljharb/get-intrinsic/zip/9d747e0540e5e03421e7411b7946c23f4b010fd5",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "get-proto",
+      "version": "1.0.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/get-proto.git",
+        "type": "git"
+      },
+      "gitHead": "1b92a72e80c026d391589a807272c50469d37c43",
+      "tarball": "https://registry.npmjs.org/get-proto/-/get-proto-1.0.1.tgz",
+      "integrity": "sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==",
+      "sha256": "eb2cc52afb1f1fd82c5fc2a58c2380f0f16fdcdb5631538f3c66887435d70681",
+      "repositoryUrl": "https://github.com/ljharb/get-proto",
+      "sourceUrl": "https://github.com/ljharb/get-proto/tree/1b92a72e80c026d391589a807272c50469d37c43",
+      "sourceArchive": "https://codeload.github.com/ljharb/get-proto/zip/1b92a72e80c026d391589a807272c50469d37c43",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "gopd",
+      "version": "1.2.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/gopd.git",
+        "type": "git"
+      },
+      "gitHead": "7f867f97d7c895a982a3b631287fd2c36d39c2ff",
+      "tarball": "https://registry.npmjs.org/gopd/-/gopd-1.2.0.tgz",
+      "integrity": "sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==",
+      "sha256": "d536d0de4dd285dc1468fbb7f39334a47ee0eec9c27f9b626a6e71466c9fda82",
+      "repositoryUrl": "https://github.com/ljharb/gopd",
+      "sourceUrl": "https://github.com/ljharb/gopd/tree/7f867f97d7c895a982a3b631287fd2c36d39c2ff",
+      "sourceArchive": "https://codeload.github.com/ljharb/gopd/zip/7f867f97d7c895a982a3b631287fd2c36d39c2ff",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "hachure-fill",
+      "version": "0.5.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "mermaid@12.3.0/pnpm-lock.yaml; bundled d3-delaunay / roughjs"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/pshihn/hachure-fill.git",
+        "type": "git"
+      },
+      "gitHead": "2083be6f7e6c814dc6a8c2c88a7823827566504e",
+      "tarball": "https://registry.npmjs.org/hachure-fill/-/hachure-fill-0.5.2.tgz",
+      "integrity": "sha512-3GKBOn+m2LX9iq+JC1064cSFprJY4jL1jCXTcpnfER5HYE2l/4EfWSGzkPa/ZDBmYI0ZOEj5VHV/eKnPGkHuOg==",
+      "sha256": "d816b83fea8b39161ef35c46f5080a0a7e406dce39ebf26f1ec8a1daea06a837",
+      "repositoryUrl": "https://github.com/pshihn/hachure-fill",
+      "sourceUrl": "https://github.com/pshihn/hachure-fill/tree/2083be6f7e6c814dc6a8c2c88a7823827566504e",
+      "sourceArchive": "https://codeload.github.com/pshihn/hachure-fill/zip/2083be6f7e6c814dc6a8c2c88a7823827566504e",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "has-property-descriptors",
+      "version": "1.0.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/inspect-js/has-property-descriptors.git",
+        "type": "git"
+      },
+      "gitHead": "69037fc06a4ec7a5a14e66ea029f2769e243c454",
+      "tarball": "https://registry.npmjs.org/has-property-descriptors/-/has-property-descriptors-1.0.2.tgz",
+      "integrity": "sha512-55JNKuIW+vq4Ke1BjOTjM2YctQIvCT7GFzHwmfZPGo5wnrgkid0YQtnAleFSqumZm4az3n2BS+erby5ipJdgrg==",
+      "sha256": "0219bbd8f32e268eeb6efff55a2c6ff2d502098f49c583ff023b2d9d5a8bfa87",
+      "repositoryUrl": "https://github.com/inspect-js/has-property-descriptors",
+      "sourceUrl": "https://github.com/inspect-js/has-property-descriptors/tree/69037fc06a4ec7a5a14e66ea029f2769e243c454",
+      "sourceArchive": "https://codeload.github.com/inspect-js/has-property-descriptors/zip/69037fc06a4ec7a5a14e66ea029f2769e243c454",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "has-symbols",
+      "version": "1.1.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/inspect-js/has-symbols.git",
+        "type": "git"
+      },
+      "gitHead": "270f0a67b5f4cb12715e0a84e672aaee64d1b4f1",
+      "tarball": "https://registry.npmjs.org/has-symbols/-/has-symbols-1.1.0.tgz",
+      "integrity": "sha512-1cDNdwJ2Jaohmb3sg4OmKaMBwuC48sYni5HUw2DvsC8LjGTLK9h+eb1X6RyuOHe4hT0ULCW68iomhjUoKUqlPQ==",
+      "sha256": "4460c7532f28b8df2ddc9a1ec17816d43c24d4b9591dc6c5936b82f7f86ae7c5",
+      "repositoryUrl": "https://github.com/inspect-js/has-symbols",
+      "sourceUrl": "https://github.com/inspect-js/has-symbols/tree/270f0a67b5f4cb12715e0a84e672aaee64d1b4f1",
+      "sourceArchive": "https://codeload.github.com/inspect-js/has-symbols/zip/270f0a67b5f4cb12715e0a84e672aaee64d1b4f1",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "has-tostringtag",
+      "version": "1.0.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/inspect-js/has-tostringtag.git",
+        "type": "git"
+      },
+      "gitHead": "690da6a3afbddcf018aa162c42869dcf4f8375f1",
+      "tarball": "https://registry.npmjs.org/has-tostringtag/-/has-tostringtag-1.0.2.tgz",
+      "integrity": "sha512-NqADB8VjPFLM2V0VvHUewwwsw0ZWBaIdgo+ieHtK3hasLz4qeCRjYcqfB6AQrBggRKppKF8L52/VqdVsO47Dlw==",
+      "sha256": "dc1c74e3f1179a6271f84747d72c89f258aa46ad3e6464fae0e41737a7f0ef7b",
+      "repositoryUrl": "https://github.com/inspect-js/has-tostringtag",
+      "sourceUrl": "https://github.com/inspect-js/has-tostringtag/tree/690da6a3afbddcf018aa162c42869dcf4f8375f1",
+      "sourceArchive": "https://codeload.github.com/inspect-js/has-tostringtag/zip/690da6a3afbddcf018aa162c42869dcf4f8375f1",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "hash.js",
+      "version": "1.1.7",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+ssh://git@github.com/indutny/hash.js.git",
+        "type": "git"
+      },
+      "gitHead": "fcd35edcc4e30145be4b7a737477ad54e83afc25",
+      "tarball": "https://registry.npmjs.org/hash.js/-/hash.js-1.1.7.tgz",
+      "integrity": "sha512-taOaskGt4z4SOANNseOviYDvjEJinIkRgmp7LbKP2YTTmVxWBl87s/uzK9r+44BclBSp2X7K1hqeNfz9JbBeXA==",
+      "sha256": "8eadfe0cbd33052fedb65ed4bf9acfe4645eafaabf877d99e3b1d9d771668ca6",
+      "repositoryUrl": "https://github.com/indutny/hash.js",
+      "sourceUrl": "https://github.com/indutny/hash.js/tree/fcd35edcc4e30145be4b7a737477ad54e83afc25",
+      "sourceArchive": "https://codeload.github.com/indutny/hash.js/zip/fcd35edcc4e30145be4b7a737477ad54e83afc25",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/README.md (license section)"
+      ]
+    },
+    {
+      "name": "hasown",
+      "version": "2.0.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/inspect-js/hasOwn.git",
+        "type": "git"
+      },
+      "gitHead": "d00d35005baf16a33d691a13f8ad627f35040742",
+      "tarball": "https://registry.npmjs.org/hasown/-/hasown-2.0.2.tgz",
+      "integrity": "sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==",
+      "sha256": "50cdc4d2cd11ae04b6ee29f328d09022244962e5dfab303c8fc223ff8dfa807d",
+      "repositoryUrl": "https://github.com/inspect-js/hasOwn",
+      "sourceUrl": "https://github.com/inspect-js/hasOwn/tree/d00d35005baf16a33d691a13f8ad627f35040742",
+      "sourceArchive": "https://codeload.github.com/inspect-js/hasOwn/zip/d00d35005baf16a33d691a13f8ad627f35040742",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "ieee754",
+      "version": "1.2.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "BSD-3-Clause",
+      "repository": {
+        "url": "git://github.com/feross/ieee754.git",
+        "type": "git"
+      },
+      "gitHead": "b60d148be9cad718f9ff007c211c2427cdc180a4",
+      "tarball": "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz",
+      "integrity": "sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==",
+      "sha256": "8ef14b9b397e339db89db97881fb714f49319d8f0eb1275901f45567b28f9dac",
+      "repositoryUrl": "https://github.com/feross/ieee754",
+      "sourceUrl": "https://github.com/feross/ieee754/tree/b60d148be9cad718f9ff007c211c2427cdc180a4",
+      "sourceArchive": "https://codeload.github.com/feross/ieee754/zip/b60d148be9cad718f9ff007c211c2427cdc180a4",
+      "selectedLicense": "BSD-3-Clause",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "immediate",
+      "version": "3.0.6",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/calvinmetcalf/immediate.git",
+        "type": "git"
+      },
+      "gitHead": "cba16a641397af7071dda0d7aee8b06c89a9926d",
+      "tarball": "https://registry.npmjs.org/immediate/-/immediate-3.0.6.tgz",
+      "integrity": "sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==",
+      "sha256": "98c792f39650b00818c05dcc407902034dc4092f368596b37658d44f28739d11",
+      "repositoryUrl": "https://github.com/calvinmetcalf/immediate",
+      "sourceUrl": "https://github.com/calvinmetcalf/immediate/tree/cba16a641397af7071dda0d7aee8b06c89a9926d",
+      "sourceArchive": "https://codeload.github.com/calvinmetcalf/immediate/zip/cba16a641397af7071dda0d7aee8b06c89a9926d",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "inherits",
+      "version": "2.0.4",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json",
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git://github.com/isaacs/inherits.git",
+        "type": "git"
+      },
+      "gitHead": "9a2c29400c6d491e0b7beefe0c32efa3b462545d",
+      "tarball": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
+      "integrity": "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==",
+      "sha256": "d94dbc6c1bb3c5ac0fb12a73ade187108fc60de273a1b754f55044eb5e24afaf",
+      "repositoryUrl": "https://github.com/isaacs/inherits",
+      "sourceUrl": "https://github.com/isaacs/inherits/tree/9a2c29400c6d491e0b7beefe0c32efa3b462545d",
+      "sourceArchive": "https://codeload.github.com/isaacs/inherits/zip/9a2c29400c6d491e0b7beefe0c32efa3b462545d",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "internmap",
+      "version": "2.0.3",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/mbostock/internmap.git",
+        "type": "git"
+      },
+      "gitHead": "78db0b387b951c036f7a8d6580d98afd8f416a5e",
+      "tarball": "https://registry.npmjs.org/internmap/-/internmap-2.0.3.tgz",
+      "integrity": "sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==",
+      "sha256": "39d1936831a4d3f2bd6e088db28a10de4458d823f652c36b2c808bf5b978c48d",
+      "repositoryUrl": "https://github.com/mbostock/internmap",
+      "sourceUrl": "https://github.com/mbostock/internmap/tree/78db0b387b951c036f7a8d6580d98afd8f416a5e",
+      "sourceArchive": "https://codeload.github.com/mbostock/internmap/zip/78db0b387b951c036f7a8d6580d98afd8f416a5e",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "is-arguments",
+      "version": "1.2.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/inspect-js/is-arguments.git",
+        "type": "git"
+      },
+      "gitHead": "d81247609b56fa56571d9d74ffc97ed4a3780364",
+      "tarball": "https://registry.npmjs.org/is-arguments/-/is-arguments-1.2.0.tgz",
+      "integrity": "sha512-7bVbi0huj/wrIAOzb8U1aszg9kdi3KN/CyU19CTI7tAoZYEZoL9yCDXpbXN+uPsuWnP02cyug1gleqq+TU+YCA==",
+      "sha256": "476c29799ec4f51b694d576fc70a27631c8ffe00e4269b7608027e12c7b0e51c",
+      "repositoryUrl": "https://github.com/inspect-js/is-arguments",
+      "sourceUrl": "https://github.com/inspect-js/is-arguments/tree/d81247609b56fa56571d9d74ffc97ed4a3780364",
+      "sourceArchive": "https://codeload.github.com/inspect-js/is-arguments/zip/d81247609b56fa56571d9d74ffc97ed4a3780364",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "is-callable",
+      "version": "1.2.7",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/inspect-js/is-callable.git",
+        "type": "git"
+      },
+      "gitHead": "f23584dd25c26473e702e80a5e8e7e79e2a89aee",
+      "tarball": "https://registry.npmjs.org/is-callable/-/is-callable-1.2.7.tgz",
+      "integrity": "sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==",
+      "sha256": "1b5c6e4e8ab142a6857fca2fb79d880ba64f2c4ad87907b583934d04b503c3a1",
+      "repositoryUrl": "https://github.com/inspect-js/is-callable",
+      "sourceUrl": "https://github.com/inspect-js/is-callable/tree/f23584dd25c26473e702e80a5e8e7e79e2a89aee",
+      "sourceArchive": "https://codeload.github.com/inspect-js/is-callable/zip/f23584dd25c26473e702e80a5e8e7e79e2a89aee",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "is-generator-function",
+      "version": "1.0.10",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/inspect-js/is-generator-function.git",
+        "type": "git"
+      },
+      "gitHead": "9e6b7a26a4f97582333d807aa1c8c165097f3226",
+      "tarball": "https://registry.npmjs.org/is-generator-function/-/is-generator-function-1.0.10.tgz",
+      "integrity": "sha512-jsEjy9l3yiXEQ+PsXdmBwEPcOxaXWLspKdplFUVI9vq1iZgIekeC0L167qeu86czQaxed3q/Uzuw0swL0irL8A==",
+      "sha256": "7100ebf1ed50e34793ad1d1e0c9572dd84fca9d490beb0b5c431a6dd2fc90c47",
+      "repositoryUrl": "https://github.com/inspect-js/is-generator-function",
+      "sourceUrl": "https://github.com/inspect-js/is-generator-function/tree/9e6b7a26a4f97582333d807aa1c8c165097f3226",
+      "sourceArchive": "https://codeload.github.com/inspect-js/is-generator-function/zip/9e6b7a26a4f97582333d807aa1c8c165097f3226",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "is-typed-array",
+      "version": "1.1.15",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/inspect-js/is-typed-array.git",
+        "type": "git"
+      },
+      "gitHead": "4310dcb2d390f090bc74f557174301cd8aed5d5c",
+      "tarball": "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.15.tgz",
+      "integrity": "sha512-p3EcsicXjit7SaskXHs1hA91QxgTw46Fv6EFKKGS5DRFLD8yKnohjF3hxoju94b/OcMZoQukzpPpBE9uLVKzgQ==",
+      "sha256": "d1ef6229208ce395c816f88637e45b970f6d742d616d3c980fb0dbb679cb7690",
+      "repositoryUrl": "https://github.com/inspect-js/is-typed-array",
+      "sourceUrl": "https://github.com/inspect-js/is-typed-array/tree/4310dcb2d390f090bc74f557174301cd8aed5d5c",
+      "sourceArchive": "https://codeload.github.com/inspect-js/is-typed-array/zip/4310dcb2d390f090bc74f557174301cd8aed5d5c",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "isarray",
+      "version": "1.0.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/juliangruber/isarray.git",
+        "type": "git"
+      },
+      "gitHead": "2a23a281f369e9ae06394c0fb4d2381355a6ba33",
+      "tarball": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz",
+      "integrity": "sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==",
+      "sha256": "e23c76f14f5222e07e39d89858b61e8e33f96956de9e0df3659cbdf8db950c87",
+      "repositoryUrl": "https://github.com/juliangruber/isarray",
+      "sourceUrl": "https://github.com/juliangruber/isarray/tree/2a23a281f369e9ae06394c0fb4d2381355a6ba33",
+      "sourceArchive": "https://codeload.github.com/juliangruber/isarray/zip/2a23a281f369e9ae06394c0fb4d2381355a6ba33",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/README.md (license section)"
+      ]
+    },
+    {
+      "name": "js-yaml",
+      "version": "4.3.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/nodeca/js-yaml.git",
+        "type": "git"
+      },
+      "gitHead": "79ca68d90f333fbe6d9e42827527e62636200191",
+      "tarball": "https://registry.npmjs.org/js-yaml/-/js-yaml-4.3.2.tgz",
+      "integrity": "sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==",
+      "sha256": "c7b241d2224cf9253ff53854aa4cee87da91bd889c4d0fa3a3ffd1041ecee5b1",
+      "repositoryUrl": "https://github.com/nodeca/js-yaml",
+      "sourceUrl": "https://github.com/nodeca/js-yaml/tree/79ca68d90f333fbe6d9e42827527e62636200191",
+      "sourceArchive": "https://codeload.github.com/nodeca/js-yaml/zip/79ca68d90f333fbe6d9e42827527e62636200191",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "jszip",
+      "version": "3.10.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json",
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "(MIT OR GPL-3.0-or-later)",
+      "repository": {
+        "url": "git+https://github.com/Stuk/jszip.git",
+        "type": "git"
+      },
+      "gitHead": "0f2f1e4d0509514417db83fe5b86bde90e0ffe8d",
+      "tarball": "https://registry.npmjs.org/jszip/-/jszip-3.10.1.tgz",
+      "integrity": "sha512-xXDvecyTpGLrqFrvkrUSoxxfJI5AH7U8zxxtVclpsUtMCq4JQ290LY8AW5c7Ggnr/Y/oK+bQMbqK2qmtk3pN4g==",
+      "sha256": "5117f4a2a645aeb307bf3b829c575ad58135cc97e75291e594532ab5b5b21b23",
+      "repositoryUrl": "https://github.com/Stuk/jszip",
+      "sourceUrl": "https://github.com/Stuk/jszip/tree/0f2f1e4d0509514417db83fe5b86bde90e0ffe8d",
+      "sourceArchive": "https://codeload.github.com/Stuk/jszip/zip/0f2f1e4d0509514417db83fe5b86bde90e0ffe8d",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/lib/license_header.js",
+        "package/LICENSE.markdown"
+      ]
+    },
+    {
+      "name": "katex",
+      "version": "0.18.11",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/KaTeX/KaTeX.git",
+        "type": "git"
+      },
+      "gitHead": "d5bed9f38a8d747b9c4a12e18897a514707e1c26",
+      "tarball": "https://registry.npmjs.org/katex/-/katex-0.18.11.tgz",
+      "integrity": "sha512-yvyz/2VMKqoho/35Hat5w37wIEdWJ5ElVMidTAlWrxr5uW4aBGsEpveTmKh18/zw08v/7lGswCPon4OhqmqrTA==",
+      "sha256": "a11d6ab44180c6e25a09108c6c391866d0600b49a61ef725368d567f4918ffc3",
+      "repositoryUrl": "https://github.com/KaTeX/KaTeX",
+      "sourceUrl": "https://github.com/KaTeX/KaTeX/tree/d5bed9f38a8d747b9c4a12e18897a514707e1c26",
+      "sourceArchive": "https://codeload.github.com/KaTeX/KaTeX/zip/d5bed9f38a8d747b9c4a12e18897a514707e1c26",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "khroma",
+      "version": "2.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "repository": {
+        "url": "git+https://github.com/fabiospampinato/khroma.git",
+        "type": "git"
+      },
+      "gitHead": "4968165afb0d3d09be66497e7985a34f7bfe6d42",
+      "tarball": "https://registry.npmjs.org/khroma/-/khroma-2.1.0.tgz",
+      "integrity": "sha512-Ls993zuzfayK269Svk9hzpeGUKob/sIgZzyHYdjQoAdQetRKpOLj+k/QQQ/6Qi0Yz65mlROrfd+Ev+1+7dz9Kw==",
+      "sha256": "8963d209f3a682374d7f7e45e5fa361a58fc060c8528df6656fae0fc7c508110",
+      "repositoryUrl": "https://github.com/fabiospampinato/khroma",
+      "sourceUrl": "https://github.com/fabiospampinato/khroma/tree/4968165afb0d3d09be66497e7985a34f7bfe6d42",
+      "sourceArchive": "https://codeload.github.com/fabiospampinato/khroma/zip/4968165afb0d3d09be66497e7985a34f7bfe6d42",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/license"
+      ]
+    },
+    {
+      "name": "langium",
+      "version": "4.4.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/eclipse-langium/langium.git",
+        "type": "git",
+        "directory": "packages/langium"
+      },
+      "gitHead": "89d49680b39218af2e5b700cd3f4fdc122600ac4",
+      "tarball": "https://registry.npmjs.org/langium/-/langium-4.4.0.tgz",
+      "integrity": "sha512-VFIFtohpsmJeQ+LkaeuUNtyvkklecklI0FSLxFS8JfiGABE9XCpUJwYUNnLk6C2aOyk0w99tNlvd0pmbJ2AW/w==",
+      "sha256": "d3bfb230ec50ed70632f9f8aeb90ba6b5c570a580211df38fb193f9c937dc6d3",
+      "repositoryUrl": "https://github.com/eclipse-langium/langium",
+      "sourceUrl": "https://github.com/eclipse-langium/langium/tree/89d49680b39218af2e5b700cd3f4fdc122600ac4",
+      "sourceArchive": "https://codeload.github.com/eclipse-langium/langium/zip/89d49680b39218af2e5b700cd3f4fdc122600ac4",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "layout-base",
+      "version": "1.0.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/iVis-at-Bilkent/layout-base.git",
+        "type": "git"
+      },
+      "gitHead": "836898aa4a88e2794774997d7128b383108a3d5a",
+      "tarball": "https://registry.npmjs.org/layout-base/-/layout-base-1.0.2.tgz",
+      "integrity": "sha512-8h2oVEZNktL4BH2JCOI90iD1yXwL6iNW7KcCKT2QZgQJR2vbqDsldCTPRU9NifTCqHZci57XvQQ15YTu+sTYPg==",
+      "sha256": "efea1306903d9d043c42c1e7931b2d97b4f519cff04b1347fa308032a52eebab",
+      "repositoryUrl": "https://github.com/iVis-at-Bilkent/layout-base",
+      "sourceUrl": "https://github.com/iVis-at-Bilkent/layout-base/tree/836898aa4a88e2794774997d7128b383108a3d5a",
+      "sourceArchive": "https://codeload.github.com/iVis-at-Bilkent/layout-base/zip/836898aa4a88e2794774997d7128b383108a3d5a",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "layout-base",
+      "version": "2.0.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/iVis-at-Bilkent/layout-base.git",
+        "type": "git"
+      },
+      "gitHead": "3f7549940feef31416cc35ef8256282ebc4d1ecd",
+      "tarball": "https://registry.npmjs.org/layout-base/-/layout-base-2.0.1.tgz",
+      "integrity": "sha512-dp3s92+uNI1hWIpPGH3jK2kxE2lMjdXdr+DH8ynZHpd6PUlH6x6cbuXnoMmiNumznqaNO31xu9e79F0uuZ0JFg==",
+      "sha256": "34165e46d8c4b9d719a592e39a60fa5f7324c21a3edd02733e1116b17013defd",
+      "repositoryUrl": "https://github.com/iVis-at-Bilkent/layout-base",
+      "sourceUrl": "https://github.com/iVis-at-Bilkent/layout-base/tree/3f7549940feef31416cc35ef8256282ebc4d1ecd",
+      "sourceArchive": "https://codeload.github.com/iVis-at-Bilkent/layout-base/zip/3f7549940feef31416cc35ef8256282ebc4d1ecd",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "lie",
+      "version": "3.3.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/calvinmetcalf/lie.git",
+        "type": "git"
+      },
+      "gitHead": "fa42cdf72817a963186538d8f8a32c8c1dea6e14",
+      "tarball": "https://registry.npmjs.org/lie/-/lie-3.3.0.tgz",
+      "integrity": "sha512-UaiMJzeWRlEujzAuw5LokY1L5ecNQYZKfmyZ9L7wDHb/p5etKaxXhohBcrw0EYby+G/NA52vRSN4N39dxHAIwQ==",
+      "sha256": "2db8461cd4a10e2fc3588c8c55da34d33465ff81cc19c72416bbcaec7ee6a36e",
+      "repositoryUrl": "https://github.com/calvinmetcalf/lie",
+      "sourceUrl": "https://github.com/calvinmetcalf/lie/tree/fa42cdf72817a963186538d8f8a32c8c1dea6e14",
+      "sourceArchive": "https://codeload.github.com/calvinmetcalf/lie/zip/fa42cdf72817a963186538d8f8a32c8c1dea6e14",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/license.md"
+      ]
+    },
+    {
+      "name": "linkify-it",
+      "version": "6.1.0",
+      "usedBy": [
+        "markdown-it"
+      ],
+      "evidence": [
+        "https://github.com/markdown-it/markdown-it/blob/924b203442f62cea128b5f2680294697621b416d/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/markdown-it/linkify-it.git",
+        "type": "git"
+      },
+      "gitHead": "7c568a123a17727fa2f34a0abcabbd46437299c1",
+      "tarball": "https://registry.npmjs.org/linkify-it/-/linkify-it-6.1.0.tgz",
+      "integrity": "sha512-wJ/TwpSDTLepCrQoYWYIExIKg5Zchex2Nn5yk2mFnB+6PtdkHtyLx742md9csRjjOnGkKIS/RrbY7l8D6gT9Vw==",
+      "sha256": "780a9e8232ea7e4c9f04348e2e2a567485c34abed805a15cfff8fff2029076b8",
+      "repositoryUrl": "https://github.com/markdown-it/linkify-it",
+      "sourceUrl": "https://github.com/markdown-it/linkify-it/tree/7c568a123a17727fa2f34a0abcabbd46437299c1",
+      "sourceArchive": "https://codeload.github.com/markdown-it/linkify-it/zip/7c568a123a17727fa2f34a0abcabbd46437299c1",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "lodash-es",
+      "version": "4.18.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map",
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/lodash/lodash.git",
+        "type": "git"
+      },
+      "gitHead": "d85490ebfb8f49ddc1eab84892aa33a3ef547894",
+      "tarball": "https://registry.npmjs.org/lodash-es/-/lodash-es-4.18.1.tgz",
+      "integrity": "sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==",
+      "sha256": "b0c810e5cd4cd580ed7b18fc71384b9a80c151dc5c85b1729bd656a49e3f16f8",
+      "repositoryUrl": "https://github.com/lodash/lodash",
+      "sourceUrl": "https://github.com/lodash/lodash/tree/d85490ebfb8f49ddc1eab84892aa33a3ef547894",
+      "sourceArchive": "https://codeload.github.com/lodash/lodash/zip/d85490ebfb8f49ddc1eab84892aa33a3ef547894",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "markdown-it-footnote",
+      "version": "4.0.0",
+      "usedBy": [
+        "direct"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/markdown-it-footnote@4.0.0/dist/markdown-it-footnote.min.js"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/markdown-it/markdown-it-footnote.git",
+        "type": "git"
+      },
+      "gitHead": "fe6c169c72b9f4d6656b10aa449128456f5a990e",
+      "tarball": "https://registry.npmjs.org/markdown-it-footnote/-/markdown-it-footnote-4.0.0.tgz",
+      "integrity": "sha512-WYJ7urf+khJYl3DqofQpYfEYkZKbmXmwxQV8c8mO/hGIhgZ1wOe7R4HLFNwqx7TjILbnC98fuyeSsin19JdFcQ==",
+      "sha256": "319e1c784b74a73b473e76a1bb725d3770c5a2e409dfd8c30c504f3a2712e272",
+      "repositoryUrl": "https://github.com/markdown-it/markdown-it-footnote",
+      "sourceUrl": "https://github.com/markdown-it/markdown-it-footnote/tree/fe6c169c72b9f4d6656b10aa449128456f5a990e",
+      "sourceArchive": "https://codeload.github.com/markdown-it/markdown-it-footnote/zip/fe6c169c72b9f4d6656b10aa449128456f5a990e",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "markdown-it-task-lists",
+      "version": "2.1.1",
+      "usedBy": [
+        "direct"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/markdown-it-task-lists@2.1.1/dist/markdown-it-task-lists.min.js"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+ssh://git@github.com/revin/markdown-it-task-lists.git",
+        "type": "git"
+      },
+      "gitHead": "8233e000559fae5a6306009e55332a54a9d3f606",
+      "tarball": "https://registry.npmjs.org/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz",
+      "integrity": "sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==",
+      "sha256": "8e9ed515296f11d716a6460c0bd35ffa163003a373a6d8f65d53ea9f8aec667e",
+      "repositoryUrl": "https://github.com/revin/markdown-it-task-lists",
+      "sourceUrl": "https://github.com/revin/markdown-it-task-lists/tree/8233e000559fae5a6306009e55332a54a9d3f606",
+      "sourceArchive": "https://codeload.github.com/revin/markdown-it-task-lists/zip/8233e000559fae5a6306009e55332a54a9d3f606",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "markdown-it",
+      "version": "15.0.1",
+      "usedBy": [
+        "direct"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/markdown-it@15.0.1/dist/browser/markdown-it.umd.min.js"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/markdown-it/markdown-it.git",
+        "type": "git"
+      },
+      "gitHead": "924b203442f62cea128b5f2680294697621b416d",
+      "tarball": "https://registry.npmjs.org/markdown-it/-/markdown-it-15.0.1.tgz",
+      "integrity": "sha512-9/7gE95FNPkfUWrjJIoHZza2iLmuJlPD0UNMxPi7bxUrbCR525YZY0r+zyfes0dZI5ZZ/uNIXUJca0pJvtw41g==",
+      "sha256": "f27094c51c89e8e4b33b2a96d45192df6508b549ced9dd9a7f7104ab6eedcbf3",
+      "repositoryUrl": "https://github.com/markdown-it/markdown-it",
+      "sourceUrl": "https://github.com/markdown-it/markdown-it/tree/924b203442f62cea128b5f2680294697621b416d",
+      "sourceArchive": "https://codeload.github.com/markdown-it/markdown-it/zip/924b203442f62cea128b5f2680294697621b416d",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "marked",
+      "version": "16.3.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/markedjs/marked.git",
+        "type": "git"
+      },
+      "gitHead": "9a5306d4c4dbafa76051d70dff8e20f55f2c6ba8",
+      "tarball": "https://registry.npmjs.org/marked/-/marked-16.3.0.tgz",
+      "integrity": "sha512-K3UxuKu6l6bmA5FUwYho8CfJBlsUWAooKtdGgMcERSpF7gcBUrCGsLH7wDaaNOzwq18JzSUDyoEb/YsrqMac3w==",
+      "sha256": "c333c47cd3802a1d631dfdd8c6cfc411a88599a872c04ce8cd2291381a7767a0",
+      "repositoryUrl": "https://github.com/markedjs/marked",
+      "sourceUrl": "https://github.com/markedjs/marked/tree/9a5306d4c4dbafa76051d70dff8e20f55f2c6ba8",
+      "sourceArchive": "https://codeload.github.com/markedjs/marked/zip/9a5306d4c4dbafa76051d70dff8e20f55f2c6ba8",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE.md"
+      ]
+    },
+    {
+      "name": "math-intrinsics",
+      "version": "1.1.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/es-shims/math-intrinsics.git",
+        "type": "git"
+      },
+      "gitHead": "84ffc824e044a91da1b847bde30c0286519eabf1",
+      "tarball": "https://registry.npmjs.org/math-intrinsics/-/math-intrinsics-1.1.0.tgz",
+      "integrity": "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==",
+      "sha256": "b8c2c35575493dc086df88cfc468a9e2651b6617336480ab3f00fcf853f443a7",
+      "repositoryUrl": "https://github.com/es-shims/math-intrinsics",
+      "sourceUrl": "https://github.com/es-shims/math-intrinsics/tree/84ffc824e044a91da1b847bde30c0286519eabf1",
+      "sourceArchive": "https://codeload.github.com/es-shims/math-intrinsics/zip/84ffc824e044a91da1b847bde30c0286519eabf1",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "mdurl",
+      "version": "2.1.0",
+      "usedBy": [
+        "markdown-it"
+      ],
+      "evidence": [
+        "https://github.com/markdown-it/markdown-it/blob/924b203442f62cea128b5f2680294697621b416d/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/markdown-it/mdurl.git",
+        "type": "git"
+      },
+      "gitHead": "dd913f6290a4d8772240a401aab993eb65c5786d",
+      "tarball": "https://registry.npmjs.org/mdurl/-/mdurl-2.1.0.tgz",
+      "integrity": "sha512-1+HBaOx0zi/dQWht8rNv9MYf9qqpqL/kxI0hXImU6Y547zM6Sni8BQibt7ifgMcYtQg41ao3Ivd6cnSM86inpg==",
+      "sha256": "23fc27c3d70e776c3aa40ec019c2be21ef43ed33b73f8476ada8715c5aabd11d",
+      "repositoryUrl": "https://github.com/markdown-it/mdurl",
+      "sourceUrl": "https://github.com/markdown-it/mdurl/tree/dd913f6290a4d8772240a401aab993eb65c5786d",
+      "sourceArchive": "https://codeload.github.com/markdown-it/mdurl/zip/dd913f6290a4d8772240a401aab993eb65c5786d",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "mermaid",
+      "version": "12.3.0",
+      "usedBy": [
+        "direct"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/mermaid-js/mermaid.git",
+        "type": "git"
+      },
+      "tarball": "https://registry.npmjs.org/mermaid/-/mermaid-12.3.0.tgz",
+      "integrity": "sha512-4113TdXeLAsMruJ79OpFL5O8+LTFXhQqZ260rF3tgUmiNAtRm4Uume04I+65PRN6yZ69J4f8rVYWW8zRk65UYw==",
+      "sha256": "be0684e8d20bfc874df12c0f04927a5c482f57f2200eec54cca52a4583fd4040",
+      "gitHead": "2086904e76c692331e34a45d7cc3bc30860d040e",
+      "repositoryUrl": "https://github.com/mermaid-js/mermaid",
+      "sourceUrl": "https://github.com/mermaid-js/mermaid/tree/2086904e76c692331e34a45d7cc3bc30860d040e",
+      "sourceArchive": "https://codeload.github.com/mermaid-js/mermaid/zip/2086904e76c692331e34a45d7cc3bc30860d040e",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "minimalistic-assert",
+      "version": "1.0.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git+https://github.com/calvinmetcalf/minimalistic-assert.git",
+        "type": "git"
+      },
+      "gitHead": "33113391ad64bea7a3398074a71d0569d4ae038d",
+      "tarball": "https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz",
+      "integrity": "sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==",
+      "sha256": "f16522c947d6dbe3a99f5ff4296ccc253090b838959abdddc45fe81edb03f3a0",
+      "repositoryUrl": "https://github.com/calvinmetcalf/minimalistic-assert",
+      "sourceUrl": "https://github.com/calvinmetcalf/minimalistic-assert/tree/33113391ad64bea7a3398074a71d0569d4ae038d",
+      "sourceArchive": "https://codeload.github.com/calvinmetcalf/minimalistic-assert/zip/33113391ad64bea7a3398074a71d0569d4ae038d",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "nanoid",
+      "version": "5.1.11",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ai/nanoid.git",
+        "type": "git"
+      },
+      "gitHead": "5423cf56499c1ea33ea4bd9fbaab1723083cb659",
+      "tarball": "https://registry.npmjs.org/nanoid/-/nanoid-5.1.11.tgz",
+      "integrity": "sha512-v+KEsUv2ps74PaSKv0gHTxTCgMXOIfBEbaqa6w6ISIGC7ZsvHN4N9oJ8d4cmf0n5oTzQz2SLmThbQWhjd/8eKg==",
+      "sha256": "ee4c3fc933dd6b277e35da3f3688037b1a2225946cb130639dea534e5ac3c470",
+      "repositoryUrl": "https://github.com/ai/nanoid",
+      "sourceUrl": "https://github.com/ai/nanoid/tree/5423cf56499c1ea33ea4bd9fbaab1723083cb659",
+      "sourceArchive": "https://codeload.github.com/ai/nanoid/zip/5423cf56499c1ea33ea4bd9fbaab1723083cb659",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "pako",
+      "version": "1.0.11",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "(MIT AND Zlib)",
+      "repository": {
+        "url": "git+https://github.com/nodeca/pako.git",
+        "type": "git"
+      },
+      "gitHead": "a718e4f6e5ce87b0964d8f84541d92a23263365b",
+      "tarball": "https://registry.npmjs.org/pako/-/pako-1.0.11.tgz",
+      "integrity": "sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==",
+      "sha256": "0d4028dc0352a740c30cbfd772917f2744986d42bfa0b06ec7642bffe7ad3941",
+      "repositoryUrl": "https://github.com/nodeca/pako",
+      "sourceUrl": "https://github.com/nodeca/pako/tree/a718e4f6e5ce87b0964d8f84541d92a23263365b",
+      "sourceArchive": "https://codeload.github.com/nodeca/pako/zip/a718e4f6e5ce87b0964d8f84541d92a23263365b",
+      "selectedLicense": "(MIT AND Zlib)",
+      "licenseFiles": [
+        "package/LICENSE",
+        "lib/zlib/* (upstream copyright and zlib license headers)"
+      ]
+    },
+    {
+      "name": "path-data-parser",
+      "version": "0.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "mermaid@12.3.0/pnpm-lock.yaml; bundled d3-delaunay / roughjs"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/pshihn/path-data-parser.git",
+        "type": "git"
+      },
+      "gitHead": "93d3fa8448c50d1b6443b06b8c71202ee0967e25",
+      "tarball": "https://registry.npmjs.org/path-data-parser/-/path-data-parser-0.1.0.tgz",
+      "integrity": "sha512-NOnmBpt5Y2RWbuv0LMzsayp3lVylAHLPUTut412ZA3l+C4uw4ZVkQbjShYCQ8TCpUMdPapr4YjUqLYD6v68j+w==",
+      "sha256": "09be555fc313a8e831b55d4cc727699655f5c224fde2d8062f3f52bc9386d3b0",
+      "repositoryUrl": "https://github.com/pshihn/path-data-parser",
+      "sourceUrl": "https://github.com/pshihn/path-data-parser/tree/93d3fa8448c50d1b6443b06b8c71202ee0967e25",
+      "sourceArchive": "https://codeload.github.com/pshihn/path-data-parser/zip/93d3fa8448c50d1b6443b06b8c71202ee0967e25",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "points-on-curve",
+      "version": "0.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "mermaid@12.3.0/pnpm-lock.yaml; bundled d3-delaunay / roughjs"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/pshihn/bezier-points.git",
+        "type": "git"
+      },
+      "gitHead": "48241476eb86307294f54913ccfb60a3e7338c56",
+      "tarball": "https://registry.npmjs.org/points-on-curve/-/points-on-curve-0.2.0.tgz",
+      "integrity": "sha512-0mYKnYYe9ZcqMCWhUjItv/oHjvgEsfKvnUTg8sAtnHr3GVy7rGkXCb6d5cSyqrWqL4k81b9CPg3urd+T7aop3A==",
+      "sha256": "adc00f4d5ae800c315aea316822fb6f8dd4529f76107facbdccf356372e5ddbf",
+      "repositoryUrl": "https://github.com/pshihn/bezier-points",
+      "sourceUrl": "https://github.com/pshihn/bezier-points/tree/48241476eb86307294f54913ccfb60a3e7338c56",
+      "sourceArchive": "https://codeload.github.com/pshihn/bezier-points/zip/48241476eb86307294f54913ccfb60a3e7338c56",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "points-on-path",
+      "version": "0.2.1",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "mermaid@12.3.0/pnpm-lock.yaml; bundled d3-delaunay / roughjs"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/pshihn/points-on-path.git",
+        "type": "git"
+      },
+      "gitHead": "7693ef0c930466b7408ee7082497e0d735f9c646",
+      "tarball": "https://registry.npmjs.org/points-on-path/-/points-on-path-0.2.1.tgz",
+      "integrity": "sha512-25ClnWWuw7JbWZcgqY/gJ4FQWadKxGWk+3kR/7kD0tCaDtPPMj7oHu2ToLaVhfpnHrZzYby2w6tUA0eOIuUg8g==",
+      "sha256": "eb57ddbb156d4e73cbc8d9416e1b666ace0d8abf9dc783f8c934ab63dbae6e44",
+      "repositoryUrl": "https://github.com/pshihn/points-on-path",
+      "sourceUrl": "https://github.com/pshihn/points-on-path/tree/7693ef0c930466b7408ee7082497e0d735f9c646",
+      "sourceArchive": "https://codeload.github.com/pshihn/points-on-path/zip/7693ef0c930466b7408ee7082497e0d735f9c646",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "possible-typed-array-names",
+      "version": "1.0.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/possible-typed-array-names.git",
+        "type": "git"
+      },
+      "gitHead": "38d28dd7ec26af8da42034a6e02d14b8101a1f3d",
+      "tarball": "https://registry.npmjs.org/possible-typed-array-names/-/possible-typed-array-names-1.0.0.tgz",
+      "integrity": "sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==",
+      "sha256": "36f999d2e86e4423100dcc35cae10e3260ea7bae0d3dec7eb2b90a46ead57945",
+      "repositoryUrl": "https://github.com/ljharb/possible-typed-array-names",
+      "sourceUrl": "https://github.com/ljharb/possible-typed-array-names/tree/38d28dd7ec26af8da42034a6e02d14b8101a1f3d",
+      "sourceArchive": "https://codeload.github.com/ljharb/possible-typed-array-names/zip/38d28dd7ec26af8da42034a6e02d14b8101a1f3d",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "process-nextick-args",
+      "version": "2.0.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/calvinmetcalf/process-nextick-args.git",
+        "type": "git"
+      },
+      "gitHead": "b96d59913025441b00c4fd40e6894ddfa8e1c398",
+      "tarball": "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz",
+      "integrity": "sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==",
+      "sha256": "425bf8c725d23bc5ac76bcedd10d9cdbbd6354c7273dd7def44417cfbca8889b",
+      "repositoryUrl": "https://github.com/calvinmetcalf/process-nextick-args",
+      "sourceUrl": "https://github.com/calvinmetcalf/process-nextick-args/tree/b96d59913025441b00c4fd40e6894ddfa8e1c398",
+      "sourceArchive": "https://codeload.github.com/calvinmetcalf/process-nextick-args/zip/b96d59913025441b00c4fd40e6894ddfa8e1c398",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/license.md"
+      ]
+    },
+    {
+      "name": "punycode.js",
+      "version": "2.3.1",
+      "usedBy": [
+        "markdown-it"
+      ],
+      "evidence": [
+        "https://github.com/markdown-it/markdown-it/blob/924b203442f62cea128b5f2680294697621b416d/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/mathiasbynens/punycode.js.git",
+        "type": "git"
+      },
+      "gitHead": "9e1b2cda98d215d3a73fcbfe93c62e021f4ba768",
+      "tarball": "https://registry.npmjs.org/punycode.js/-/punycode.js-2.3.1.tgz",
+      "integrity": "sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==",
+      "sha256": "8768d89aa6359164220014ba575e1464e3ddff11bedff1cc268e39a21f7324a8",
+      "repositoryUrl": "https://github.com/mathiasbynens/punycode.js",
+      "sourceUrl": "https://github.com/mathiasbynens/punycode.js/tree/9e1b2cda98d215d3a73fcbfe93c62e021f4ba768",
+      "sourceArchive": "https://codeload.github.com/mathiasbynens/punycode.js/zip/9e1b2cda98d215d3a73fcbfe93c62e021f4ba768",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE-MIT.txt"
+      ]
+    },
+    {
+      "name": "readable-stream",
+      "version": "2.3.8",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/nodejs/readable-stream.git",
+        "type": "git"
+      },
+      "gitHead": "c85db76d4c41f64fd082c9263c3a918bec6f38a0",
+      "tarball": "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.8.tgz",
+      "integrity": "sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA==",
+      "sha256": "1648613948f68ac9cbbe8f72a3f93a67ecdb862ffb57946a2c0bbb5a1479a532",
+      "repositoryUrl": "https://github.com/nodejs/readable-stream",
+      "sourceUrl": "https://github.com/nodejs/readable-stream/tree/c85db76d4c41f64fd082c9263c3a918bec6f38a0",
+      "sourceArchive": "https://codeload.github.com/nodejs/readable-stream/zip/c85db76d4c41f64fd082c9263c3a918bec6f38a0",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "readable-stream",
+      "version": "3.6.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/nodejs/readable-stream.git",
+        "type": "git"
+      },
+      "gitHead": "6c32003bd8607da54f8ca1b096c4411778b060bc",
+      "tarball": "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz",
+      "integrity": "sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==",
+      "sha256": "edd866c05e318aa9c091763eebdd4207409b7a7648be19c5317a96047305ab5d",
+      "repositoryUrl": "https://github.com/nodejs/readable-stream",
+      "sourceUrl": "https://github.com/nodejs/readable-stream/tree/6c32003bd8607da54f8ca1b096c4411778b060bc",
+      "sourceArchive": "https://codeload.github.com/nodejs/readable-stream/zip/6c32003bd8607da54f8ca1b096c4411778b060bc",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "robust-predicates",
+      "version": "3.0.2",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "mermaid@12.3.0/pnpm-lock.yaml; bundled d3-delaunay / roughjs"
+      ],
+      "declaredLicense": "Unlicense",
+      "repository": {
+        "url": "git+https://github.com/mourner/robust-predicates.git",
+        "type": "git"
+      },
+      "gitHead": "c20b0ab9ab4c4f2969f3611908c41ce76aa0e7a7",
+      "tarball": "https://registry.npmjs.org/robust-predicates/-/robust-predicates-3.0.2.tgz",
+      "integrity": "sha512-IXgzBWvWQwE6PrDI05OvmXUIruQTcoMDzRsOd5CDvHCVLcLHMTSYvOK5Cm46kWqlV3yAbuSpBZdJ5oP5OUoStg==",
+      "sha256": "962cacbec5dc58976307fa534c335331c11a1f8f315fc698776c4e1fc931e17e",
+      "repositoryUrl": "https://github.com/mourner/robust-predicates",
+      "sourceUrl": "https://github.com/mourner/robust-predicates/tree/c20b0ab9ab4c4f2969f3611908c41ce76aa0e7a7",
+      "sourceArchive": "https://codeload.github.com/mourner/robust-predicates/zip/c20b0ab9ab4c4f2969f3611908c41ce76aa0e7a7",
+      "selectedLicense": "Unlicense",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "roughjs",
+      "version": "4.6.6",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map (upstream patch)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/pshihn/rough.git",
+        "type": "git"
+      },
+      "gitHead": "56a2762171b1294d643501e8d14f120db6b27bd7",
+      "tarball": "https://registry.npmjs.org/roughjs/-/roughjs-4.6.6.tgz",
+      "integrity": "sha512-ZUz/69+SYpFN/g/lUlo2FXcIjRkSu3nDarreVdGGndHEBJ6cXPdKguS8JGxwj5HA5xIbVKSmLgr5b3AWxtRfvQ==",
+      "sha256": "373873b2c3f1b7ddba878525c774816057c5818029780c7fba081f06018ba78c",
+      "repositoryUrl": "https://github.com/pshihn/rough",
+      "sourceUrl": "https://github.com/pshihn/rough/tree/56a2762171b1294d643501e8d14f120db6b27bd7",
+      "sourceArchive": "https://codeload.github.com/pshihn/rough/zip/56a2762171b1294d643501e8d14f120db6b27bd7",
+      "selectedLicense": "MIT",
+      "modifications": "Includes upstream Mermaid patches; obtain patches and corresponding bundled sources from https://github.com/mermaid-js/mermaid/tree/2086904e76c692331e34a45d7cc3bc30860d040e",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "safe-buffer",
+      "version": "5.1.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json",
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/feross/safe-buffer.git",
+        "type": "git"
+      },
+      "gitHead": "649435cc8e2d1f3ecdc7caf323f1cb1187307a16",
+      "tarball": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz",
+      "integrity": "sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==",
+      "sha256": "e09206c60fccafb952c854af7629cbb031a98d6da2e143fb3aa3c8a48402aa22",
+      "repositoryUrl": "https://github.com/feross/safe-buffer",
+      "sourceUrl": "https://github.com/feross/safe-buffer/tree/649435cc8e2d1f3ecdc7caf323f1cb1187307a16",
+      "sourceArchive": "https://codeload.github.com/feross/safe-buffer/zip/649435cc8e2d1f3ecdc7caf323f1cb1187307a16",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "sax",
+      "version": "1.2.4",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "ISC",
+      "repository": {
+        "url": "git://github.com/isaacs/sax-js.git",
+        "type": "git"
+      },
+      "gitHead": "5aee2163d55cff24b817bbf550bac44841f9df45",
+      "tarball": "https://registry.npmjs.org/sax/-/sax-1.2.4.tgz",
+      "integrity": "sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==",
+      "sha256": "adc442e017041cffca4d4418d06006ae5f17a9984557fa80c3a6cd8859021cf2",
+      "repositoryUrl": "https://github.com/isaacs/sax-js",
+      "sourceUrl": "https://github.com/isaacs/sax-js/tree/5aee2163d55cff24b817bbf550bac44841f9df45",
+      "sourceArchive": "https://codeload.github.com/isaacs/sax-js/zip/5aee2163d55cff24b817bbf550bac44841f9df45",
+      "selectedLicense": "ISC",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "set-function-length",
+      "version": "1.2.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/ljharb/set-function-length.git",
+        "type": "git"
+      },
+      "gitHead": "85f4b57ec0560b9fd3ad75eb7b13c05c6af9f42d",
+      "tarball": "https://registry.npmjs.org/set-function-length/-/set-function-length-1.2.2.tgz",
+      "integrity": "sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==",
+      "sha256": "a339df70dfa3507a3fe2137464915212d69a9585d201c253b90f0c13fd952b4a",
+      "repositoryUrl": "https://github.com/ljharb/set-function-length",
+      "sourceUrl": "https://github.com/ljharb/set-function-length/tree/85f4b57ec0560b9fd3ad75eb7b13c05c6af9f42d",
+      "sourceArchive": "https://codeload.github.com/ljharb/set-function-length/zip/85f4b57ec0560b9fd3ad75eb7b13c05c6af9f42d",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "setimmediate",
+      "version": "1.0.5",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/yuzujs/setImmediate.git",
+        "type": "git"
+      },
+      "gitHead": "f1ccbfdf09cb93aadf77c4aa749ea554503b9234",
+      "tarball": "https://registry.npmjs.org/setimmediate/-/setimmediate-1.0.5.tgz",
+      "integrity": "sha512-MATJdZp8sLqDl/68LfQmbP8zKPLQNV6BIZoIgrscFDQ+RsvK/BxeDQOgyxKKoh0y/8h3BqVFnCqQ/gd+reiIXA==",
+      "sha256": "5cb9fc22698364ed42c02d6aa3dc50ffeafa68452ae84699672e3dfd74922c9e",
+      "repositoryUrl": "https://github.com/yuzujs/setImmediate",
+      "sourceUrl": "https://github.com/yuzujs/setImmediate/tree/f1ccbfdf09cb93aadf77c4aa749ea554503b9234",
+      "sourceArchive": "https://codeload.github.com/yuzujs/setImmediate/zip/f1ccbfdf09cb93aadf77c4aa749ea554503b9234",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "stream-browserify",
+      "version": "3.0.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/browserify/stream-browserify.git",
+        "type": "git"
+      },
+      "gitHead": "a3625cb4181c4bcdf09884e677d4320c641b8724",
+      "tarball": "https://registry.npmjs.org/stream-browserify/-/stream-browserify-3.0.0.tgz",
+      "integrity": "sha512-H73RAHsVBapbim0tU2JwwOiXUj+fikfiaoYAKHF3VJfA0pe2BCzkhAHBlLG6REzE+2WNZcxOXjK7lkso+9euLA==",
+      "sha256": "376fa4c0ffd38961cf23c210f8a8dbcc46b00862c1d1bce1bbc66f7ea9a433cf",
+      "repositoryUrl": "https://github.com/browserify/stream-browserify",
+      "sourceUrl": "https://github.com/browserify/stream-browserify/tree/a3625cb4181c4bcdf09884e677d4320c641b8724",
+      "sourceArchive": "https://codeload.github.com/browserify/stream-browserify/zip/a3625cb4181c4bcdf09884e677d4320c641b8724",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "string_decoder",
+      "version": "1.1.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json",
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/nodejs/string_decoder.git",
+        "type": "git"
+      },
+      "gitHead": "18c7f89c894ced5f610505bb006dfde9a3d1ac5e",
+      "tarball": "https://registry.npmjs.org/string_decoder/-/string_decoder-1.1.1.tgz",
+      "integrity": "sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==",
+      "sha256": "af8262434508fa8292407f7fef4690d19eabb73387ca230b41f2a1155216963a",
+      "repositoryUrl": "https://github.com/nodejs/string_decoder",
+      "sourceUrl": "https://github.com/nodejs/string_decoder/tree/18c7f89c894ced5f610505bb006dfde9a3d1ac5e",
+      "sourceArchive": "https://codeload.github.com/nodejs/string_decoder/zip/18c7f89c894ced5f610505bb006dfde9a3d1ac5e",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "stylis",
+      "version": "4.3.6",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/thysultan/stylis.js.git",
+        "type": "git"
+      },
+      "gitHead": "2e3828995507e1b68e01c21ee9f35501a48355f0",
+      "tarball": "https://registry.npmjs.org/stylis/-/stylis-4.3.6.tgz",
+      "integrity": "sha512-yQ3rwFWRfwNUY7H5vpU0wfdkNSnvnJinhF9830Swlaxl03zsOjCfmX0ugac+3LtK0lYSgwL/KXc8oYL3mG4YFQ==",
+      "sha256": "57bd37727276e7e30d2f15472a43c5d5b8ae6cd9cebd36dbb84880c500de568e",
+      "repositoryUrl": "https://github.com/thysultan/stylis.js",
+      "sourceUrl": "https://github.com/thysultan/stylis.js/tree/2e3828995507e1b68e01c21ee9f35501a48355f0",
+      "sourceArchive": "https://codeload.github.com/thysultan/stylis.js/zip/2e3828995507e1b68e01c21ee9f35501a48355f0",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "ts-dedent",
+      "version": "2.2.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js.map"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/tamino-martinius/node-ts-dedent.git",
+        "type": "git"
+      },
+      "gitHead": "70e153460de0141afd09ff402b50047103a4c409",
+      "tarball": "https://registry.npmjs.org/ts-dedent/-/ts-dedent-2.2.0.tgz",
+      "integrity": "sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==",
+      "sha256": "f04cddc15ce3aad91287aebdcb0d6b6997b85222769c35c910038f59bfd2234d",
+      "repositoryUrl": "https://github.com/tamino-martinius/node-ts-dedent",
+      "sourceUrl": "https://github.com/tamino-martinius/node-ts-dedent/tree/70e153460de0141afd09ff402b50047103a4c409",
+      "sourceArchive": "https://codeload.github.com/tamino-martinius/node-ts-dedent/zip/70e153460de0141afd09ff402b50047103a4c409",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "uc.micro",
+      "version": "3.0.0",
+      "usedBy": [
+        "markdown-it"
+      ],
+      "evidence": [
+        "https://github.com/markdown-it/markdown-it/blob/924b203442f62cea128b5f2680294697621b416d/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/markdown-it/uc.micro.git",
+        "type": "git"
+      },
+      "gitHead": "c740a5dadc1090203cb21e6f28bf215ad9ddec28",
+      "tarball": "https://registry.npmjs.org/uc.micro/-/uc.micro-3.0.0.tgz",
+      "integrity": "sha512-U3PppEkleoTnIfi8BozMx3yju3qc/L6SwqWo2Sw+54PX+PX0q9I+r1Um5HCmqD7n9VDX5/v3vQH/AjA6deDdtw==",
+      "sha256": "23a2704905d2f7a773f89c97be1102a4a2eb3a69b58c0e8c326a649c75552981",
+      "repositoryUrl": "https://github.com/markdown-it/uc.micro",
+      "sourceUrl": "https://github.com/markdown-it/uc.micro/tree/c740a5dadc1090203cb21e6f28bf215ad9ddec28",
+      "sourceArchive": "https://codeload.github.com/markdown-it/uc.micro/zip/c740a5dadc1090203cb21e6f28bf215ad9ddec28",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE.txt"
+      ]
+    },
+    {
+      "name": "util-deprecate",
+      "version": "1.0.2",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json",
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json (JSZip runtime closure)"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/TooTallNate/util-deprecate.git",
+        "type": "git"
+      },
+      "gitHead": "475fb6857cd23fafff20c1be846c1350abf8e6d4",
+      "tarball": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz",
+      "integrity": "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==",
+      "sha256": "79a1de983c1b393180c47456d6b73caab278a00ea6e37d5c6675f2dcdec2a3e5",
+      "repositoryUrl": "https://github.com/TooTallNate/util-deprecate",
+      "sourceUrl": "https://github.com/TooTallNate/util-deprecate/tree/475fb6857cd23fafff20c1be846c1350abf8e6d4",
+      "sourceArchive": "https://codeload.github.com/TooTallNate/util-deprecate/zip/475fb6857cd23fafff20c1be846c1350abf8e6d4",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "util",
+      "version": "0.12.5",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/browserify/node-util.git",
+        "type": "git"
+      },
+      "gitHead": "ef984721db7150f651800e051de4314c9517d42c",
+      "tarball": "https://registry.npmjs.org/util/-/util-0.12.5.tgz",
+      "integrity": "sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==",
+      "sha256": "d3b9dac1449f7d6b6995355f5cc73179fec7b90bfa8967ff7d3c0654525ab282",
+      "repositoryUrl": "https://github.com/browserify/node-util",
+      "sourceUrl": "https://github.com/browserify/node-util/tree/ef984721db7150f651800e051de4314c9517d42c",
+      "sourceArchive": "https://codeload.github.com/browserify/node-util/zip/ef984721db7150f651800e051de4314c9517d42c",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "vite-plugin-node-polyfills",
+      "version": "0.28.0",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/davidmyersdev/vite-plugin-node-polyfills.git",
+        "type": "git"
+      },
+      "tarball": "https://registry.npmjs.org/vite-plugin-node-polyfills/-/vite-plugin-node-polyfills-0.28.0.tgz",
+      "integrity": "sha512-NXct/ci2ef4fRyCfTb8fk2HmR80Rv7icLd+cRH41TnUugDzdKMFKqFPpZYCFUInZMMem9bkLv5pkq02+7Xu7+w==",
+      "sha256": "c38064a458496d3a7893831629a54a5126536bbaa1e1dd06f13aeba43816d18c",
+      "repositoryUrl": "https://github.com/davidmyersdev/vite-plugin-node-polyfills",
+      "sourceUrl": "https://registry.npmjs.org/vite-plugin-node-polyfills/-/vite-plugin-node-polyfills-0.28.0.tgz",
+      "sourceArchive": "https://registry.npmjs.org/vite-plugin-node-polyfills/-/vite-plugin-node-polyfills-0.28.0.tgz",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "vscode-jsonrpc",
+      "version": "9.0.3",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/Microsoft/vscode-languageserver-node.git",
+        "type": "git",
+        "directory": "jsonrpc"
+      },
+      "tarball": "https://registry.npmjs.org/vscode-jsonrpc/-/vscode-jsonrpc-9.0.3.tgz",
+      "integrity": "sha512-qETYf9PCl1lVfwR+oBmMfc4vP2nqLNA35ABxorw3j06+xlKRgDVxbLgKm4Y/xPL0YWdeDjLoI4ImICIT3nB0zQ==",
+      "sha256": "282d3d574a565ab9bea0af6518eadac91221dfd0cd55cfd308662b816a7920a7",
+      "repositoryUrl": "https://github.com/Microsoft/vscode-languageserver-node",
+      "sourceUrl": "https://registry.npmjs.org/vscode-jsonrpc/-/vscode-jsonrpc-9.0.3.tgz",
+      "sourceArchive": "https://registry.npmjs.org/vscode-jsonrpc/-/vscode-jsonrpc-9.0.3.tgz",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/License.txt"
+      ]
+    },
+    {
+      "name": "vscode-languageserver-protocol",
+      "version": "3.18.4",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/Microsoft/vscode-languageserver-node.git",
+        "type": "git",
+        "directory": "protocol"
+      },
+      "tarball": "https://registry.npmjs.org/vscode-languageserver-protocol/-/vscode-languageserver-protocol-3.18.4.tgz",
+      "integrity": "sha512-CCXbyr99dafRJzJH/0Ryk7ly5T8XPmSR0//OuF2w4m+9JiOin7zcAT5iET8GRE7Z9taFBejb3GbM0a0mbjdbrg==",
+      "sha256": "76ff8f83f7f1bac53e351cd30740ff75610277b65b4043141d359660d88f0dcd",
+      "repositoryUrl": "https://github.com/Microsoft/vscode-languageserver-node",
+      "sourceUrl": "https://registry.npmjs.org/vscode-languageserver-protocol/-/vscode-languageserver-protocol-3.18.4.tgz",
+      "sourceArchive": "https://registry.npmjs.org/vscode-languageserver-protocol/-/vscode-languageserver-protocol-3.18.4.tgz",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/License.txt"
+      ]
+    },
+    {
+      "name": "vscode-languageserver-textdocument",
+      "version": "1.0.15",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/Microsoft/vscode-languageserver-node.git",
+        "type": "git",
+        "directory": "textDocument"
+      },
+      "tarball": "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.15.tgz",
+      "integrity": "sha512-Gsfr9S8LU3S6885cS+NaleasJ0n3V5y/SOTqHCifQiXWFw3G9w9/YItDfwHrlCz+dSZWWZ8ilYVMcJe7Sz7Sxw==",
+      "sha256": "2a133b20d5c5b1ff6d8627c628807c28d771b8741c8c6fca2aef3dd77cac669c",
+      "repositoryUrl": "https://github.com/Microsoft/vscode-languageserver-node",
+      "sourceUrl": "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.15.tgz",
+      "sourceArchive": "https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.15.tgz",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/License.txt"
+      ]
+    },
+    {
+      "name": "vscode-languageserver-types",
+      "version": "3.18.4",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/Microsoft/vscode-languageserver-node.git",
+        "type": "git",
+        "directory": "types"
+      },
+      "tarball": "https://registry.npmjs.org/vscode-languageserver-types/-/vscode-languageserver-types-3.18.4.tgz",
+      "integrity": "sha512-nQsacoiijvl0fRf2q28uFDrAVwRhdCa3QveiF7/CX0r18mLR5FU/1WskSsCKOjmEbtteKUnY8x8Yzxop+k0zwg==",
+      "sha256": "83c119b73d1895194087e9376d0916161b5550c210e9e892b65a3e04a43ea68e",
+      "repositoryUrl": "https://github.com/Microsoft/vscode-languageserver-node",
+      "sourceUrl": "https://registry.npmjs.org/vscode-languageserver-types/-/vscode-languageserver-types-3.18.4.tgz",
+      "sourceArchive": "https://registry.npmjs.org/vscode-languageserver-types/-/vscode-languageserver-types-3.18.4.tgz",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/License.txt"
+      ]
+    },
+    {
+      "name": "vscode-uri",
+      "version": "3.1.0",
+      "usedBy": [
+        "mermaid"
+      ],
+      "evidence": [
+        "Mermaid source-map embedded parser source"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/microsoft/vscode-uri.git",
+        "type": "git"
+      },
+      "tarball": "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.1.0.tgz",
+      "integrity": "sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==",
+      "sha256": "c6ec752d7a4858237389b23fb4d5ac05c2f1f606071cd212a9b54730e43cfc54",
+      "repositoryUrl": "https://github.com/microsoft/vscode-uri",
+      "sourceUrl": "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.1.0.tgz",
+      "sourceArchive": "https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.1.0.tgz",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE.md"
+      ]
+    },
+    {
+      "name": "which-typed-array",
+      "version": "1.1.19",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git://github.com/inspect-js/which-typed-array.git",
+        "type": "git"
+      },
+      "gitHead": "45ddc94559dc520794397d5724e76cac402a09e5",
+      "tarball": "https://registry.npmjs.org/which-typed-array/-/which-typed-array-1.1.19.tgz",
+      "integrity": "sha512-rEvr90Bck4WZt9HHFC4DJMsjvu7x+r6bImz0/BrbWb7A2djJ8hnZMrWnHo9F8ssv0OMErasDhftrfROTyqSDrw==",
+      "sha256": "aaccea91985a6e1731f84192d4682f474aea76f64a210982576e488732b0ad3f",
+      "repositoryUrl": "https://github.com/inspect-js/which-typed-array",
+      "sourceUrl": "https://github.com/inspect-js/which-typed-array/tree/45ddc94559dc520794397d5724e76cac402a09e5",
+      "sourceArchive": "https://codeload.github.com/inspect-js/which-typed-array/zip/45ddc94559dc520794397d5724e76cac402a09e5",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "xml-js",
+      "version": "1.6.11",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+https://github.com/nashwaan/xml-js.git",
+        "type": "git"
+      },
+      "gitHead": "f0376f265c4f299100fb4766828ebf066a0edeec",
+      "tarball": "https://registry.npmjs.org/xml-js/-/xml-js-1.6.11.tgz",
+      "integrity": "sha512-7rVi2KMfwfWFl+GpPg6m80IVMWXLRjO+PxTq7V2CDhoGak0wzYzFgUY2m4XJ47OGdXd8eLE8EmwfAmdjw7lC1g==",
+      "sha256": "7fa22b957f335efef3ead84aaa8285e2f3b08dbfeee18f9f41021a1a0c584369",
+      "repositoryUrl": "https://github.com/nashwaan/xml-js",
+      "sourceUrl": "https://github.com/nashwaan/xml-js/tree/f0376f265c4f299100fb4766828ebf066a0edeec",
+      "sourceArchive": "https://codeload.github.com/nashwaan/xml-js/zip/f0376f265c4f299100fb4766828ebf066a0edeec",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "xml",
+      "version": "1.0.1",
+      "usedBy": [
+        "docx"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/dolanmiu/docx/4934d310c724520ad9d3e7e6d5d47430664ea9f7/package-lock.json"
+      ],
+      "declaredLicense": "MIT",
+      "repository": {
+        "url": "git+ssh://git@github.com/dylang/node-xml.git",
+        "type": "git"
+      },
+      "gitHead": "c03b84bc1da9251f04db65428c8c341e51d0ff72",
+      "tarball": "https://registry.npmjs.org/xml/-/xml-1.0.1.tgz",
+      "integrity": "sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw==",
+      "sha256": "38032bd701fa20427b2ee31ed55e6761ce1a881a6eabcd90005ebe74ab04a623",
+      "repositoryUrl": "https://github.com/dylang/node-xml",
+      "sourceUrl": "https://github.com/dylang/node-xml/tree/c03b84bc1da9251f04db65428c8c341e51d0ff72",
+      "sourceArchive": "https://codeload.github.com/dylang/node-xml/zip/c03b84bc1da9251f04db65428c8c341e51d0ff72",
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "package/LICENSE"
+      ]
+    },
+    {
+      "name": "Babel regenerator-runtime helpers",
+      "version": "bundled in DOMPurify 3.4.17",
+      "declaredLicense": "MIT",
+      "usedBy": [
+        "dompurify"
+      ],
+      "sourceUrl": "https://github.com/cure53/DOMPurify/tree/a77a3e78b59f72fa4d1c83f22e121ad9cc7d3575",
+      "evidence": [
+        "https://cdn.jsdelivr.net/npm/dompurify@3.4.17/dist/purify.min.js"
+      ],
+      "repositoryUrl": null,
+      "selectedLicense": "MIT",
+      "licenseFiles": [
+        "Bundled copyright notice and referenced babel-helpers/LICENSE"
+      ]
+    },
+    {
+      "name": "com.genmymodel.emf.gwt:emf-common",
+      "version": "2.12.4",
+      "declaredLicense": "",
+      "sourceUrl": "https://repo.maven.apache.org/maven2/com/genmymodel/emf/gwt/emf-common/2.12.4/emf-common-2.12.4-sources.jar",
+      "sha256": "8dfc4e97ca8eee5474927e2b0c5f3bdbd9a52dcd5dff8c0b433b1e938b843bbe",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://github.com/kieler/elkjs/blob/ff5771d7165445c42c408bb8a090c8035272218c/build.gradle"
+      ],
+      "sourceArchive": "https://repo.maven.apache.org/maven2/com/genmymodel/emf/gwt/emf-common/2.12.4/emf-common-2.12.4-sources.jar",
+      "selectedLicense": "EPL-1.0",
+      "licenseFiles": [
+        "Source copyright and license headers"
+      ]
+    },
+    {
+      "name": "com.genmymodel.emf.gwt:emf-ecore",
+      "version": "2.12.4",
+      "declaredLicense": "",
+      "sourceUrl": "https://repo.maven.apache.org/maven2/com/genmymodel/emf/gwt/emf-ecore/2.12.4/emf-ecore-2.12.4-sources.jar",
+      "sha256": "dd3b8c1c3bd0a27c1fbba908bcf0ff21a999148da4e68b3546bcde1dbce7b13a",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://github.com/kieler/elkjs/blob/ff5771d7165445c42c408bb8a090c8035272218c/build.gradle"
+      ],
+      "sourceArchive": "https://repo.maven.apache.org/maven2/com/genmymodel/emf/gwt/emf-ecore/2.12.4/emf-ecore-2.12.4-sources.jar",
+      "selectedLicense": "EPL-1.0 AND Apache-1.1 (included portions)",
+      "licenseFiles": [
+        "Source copyright and license headers"
+      ]
+    },
+    {
+      "name": "com.google.guava:guava-gwt",
+      "version": "31.1-jre",
+      "declaredLicense": "",
+      "sourceUrl": "https://repo.maven.apache.org/maven2/com/google/guava/guava-gwt/31.1-jre/guava-gwt-31.1-jre-sources.jar",
+      "sha256": "d7e52f41ac6ea010787b5b3c8db7ffb54375d8d0c39c98c2badc9c38de7bf14b",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://github.com/kieler/elkjs/blob/ff5771d7165445c42c408bb8a090c8035272218c/build.gradle"
+      ],
+      "sourceArchive": "https://repo.maven.apache.org/maven2/com/google/guava/guava-gwt/31.1-jre/guava-gwt-31.1-jre-sources.jar",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "Source copyright and license headers"
+      ]
+    },
+    {
+      "name": "com.google.guava:guava",
+      "version": "31.1-jre",
+      "declaredLicense": "",
+      "sourceUrl": "https://repo.maven.apache.org/maven2/com/google/guava/guava/31.1-jre/guava-31.1-jre-sources.jar",
+      "sha256": "8ab1853cdaf936ec88be80c17302b7c20abafbd4f54d4fb54d7011c529e3a44a",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://github.com/kieler/elkjs/blob/ff5771d7165445c42c408bb8a090c8035272218c/build.gradle"
+      ],
+      "sourceArchive": "https://repo.maven.apache.org/maven2/com/google/guava/guava/31.1-jre/guava-31.1-jre-sources.jar",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "Source copyright and license headers"
+      ]
+    },
+    {
+      "name": "org.gwtproject:gwt-user",
+      "version": "2.11.0",
+      "declaredLicense": "",
+      "sourceUrl": "https://repo.maven.apache.org/maven2/org/gwtproject/gwt-user/2.11.0/gwt-user-2.11.0-sources.jar",
+      "sha256": "3aa2b0f566dc1252f745b26654bc10287fced95991777af304567cb069965768",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://github.com/kieler/elkjs/blob/ff5771d7165445c42c408bb8a090c8035272218c/build.gradle"
+      ],
+      "sourceArchive": "https://repo.maven.apache.org/maven2/org/gwtproject/gwt-user/2.11.0/gwt-user-2.11.0-sources.jar",
+      "selectedLicense": "Apache-2.0",
+      "licenseFiles": [
+        "Source copyright and license headers"
+      ]
+    },
+    {
+      "name": "org.eclipse.xtext:org.eclipse.xtext.xbase.lib",
+      "version": "2.36.0",
+      "declaredLicense": "",
+      "sourceUrl": "https://repo.maven.apache.org/maven2/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.36.0/org.eclipse.xtext.xbase.lib-2.36.0-sources.jar",
+      "sha256": "5e06e3cfc74663d11e0debe4cce88e1134d00eba8122b90712fccbb3a5f6754a",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://github.com/kieler/elkjs/blob/ff5771d7165445c42c408bb8a090c8035272218c/build.gradle"
+      ],
+      "sourceArchive": "https://repo.maven.apache.org/maven2/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.36.0/org.eclipse.xtext.xbase.lib-2.36.0-sources.jar",
+      "selectedLicense": "EPL-2.0",
+      "licenseFiles": [
+        "about_org.eclipse.xtext.xbase.lib.html",
+        "Source copyright and license headers"
+      ]
+    },
+    {
+      "name": "org.eclipse.xtend:org.eclipse.xtend.lib",
+      "version": "2.36.0",
+      "declaredLicense": "",
+      "sourceUrl": "https://repo.maven.apache.org/maven2/org/eclipse/xtend/org.eclipse.xtend.lib/2.36.0/org.eclipse.xtend.lib-2.36.0-sources.jar",
+      "sha256": "c06d94fbce7b4c831282f5ec818798e970cc893a498ed6524d9e1e47347d362f",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://github.com/kieler/elkjs/blob/ff5771d7165445c42c408bb8a090c8035272218c/build.gradle"
+      ],
+      "sourceArchive": "https://repo.maven.apache.org/maven2/org/eclipse/xtend/org.eclipse.xtend.lib/2.36.0/org.eclipse.xtend.lib-2.36.0-sources.jar",
+      "selectedLicense": "EPL-2.0",
+      "licenseFiles": [
+        "about_org.eclipse.xtend.lib.html",
+        "Source copyright and license headers"
+      ]
+    },
+    {
+      "name": "Eclipse Layout Kernel LICENSE.md",
+      "version": "0.12.0",
+      "declaredLicense": "EPL-2.0 (selected)",
+      "sourceUrl": "https://codeload.github.com/eclipse-elk/elk/zip/323312916048544e4e594eab3303cdb0d01e2929",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/eclipse-elk/elk/323312916048544e4e594eab3303cdb0d01e2929/LICENSE.md"
+      ],
+      "sourceArchive": "https://codeload.github.com/eclipse-elk/elk/zip/323312916048544e4e594eab3303cdb0d01e2929",
+      "selectedLicense": "EPL-2.0",
+      "licenseFiles": [
+        "LICENSE.md"
+      ]
+    },
+    {
+      "name": "Eclipse Layout Kernel NOTICE.md",
+      "version": "0.12.0",
+      "declaredLicense": "EPL-2.0 (selected)",
+      "sourceUrl": "https://codeload.github.com/eclipse-elk/elk/zip/323312916048544e4e594eab3303cdb0d01e2929",
+      "usedBy": [
+        "mermaid / elkjs"
+      ],
+      "evidence": [
+        "https://raw.githubusercontent.com/eclipse-elk/elk/323312916048544e4e594eab3303cdb0d01e2929/NOTICE.md"
+      ],
+      "sourceArchive": "https://codeload.github.com/eclipse-elk/elk/zip/323312916048544e4e594eab3303cdb0d01e2929",
+      "selectedLicense": "EPL-2.0",
+      "licenseFiles": [
+        "NOTICE.md"
+      ]
+    },
+    {
+      "name": "Eclipse Public License 1.0",
+      "version": "1.0",
+      "selectedLicense": "EPL-1.0",
+      "sourceUrl": "https://www.eclipse.org/org/documents/epl-v10.html",
+      "licenseFiles": [
+        "Full license text (HTML presentation removed)"
+      ]
+    },
+    {
+      "name": "Apache License 2.0",
+      "version": "2.0",
+      "selectedLicense": "Apache-2.0",
+      "sourceUrl": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      "licenseFiles": [
+        "Full license text"
+      ]
+    }
+  ]
+}
